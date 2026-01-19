@@ -1,0 +1,3839 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    <meta name="apple-mobile-web-app-orientations" content="portrait">
+    <meta name="google" content="notranslate">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="cleartype" content="on">
+    <meta name="imagetoolbar" content="no">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline';
+        style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline';
+        img-src 'self' data: https:;
+        font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+        connect-src 'self' https://api.farmvantara.com;
+        frame-src 'none';
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+        upgrade-insecure-requests;
+    ">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="
+        camera=(), 
+        microphone=(), 
+        geolocation=(), 
+        payment=()
+    ">
+    
+    <!-- Primary Meta Tags -->
+    <link rel="alternate" hreflang="en-in" href="https://farmvantara.com/">
+    <title>Farm Vantara – India's Trusted Farm-to-Market AgriTech Platform | Direct Farmer to Buyer Marketplace</title>
+    <meta name="description" content="Farm Vantara is India's leading AgriTech platform connecting farmers directly with businesses (B2B) and consumers (B2C). Eliminate middlemen, get fair prices, fresh produce. Join India's transparent agricultural marketplace.">
+    <meta name="keywords" content="AgriTech platform India, Farm to market platform, Farmer to buyer marketplace, B2B agriculture marketplace, B2C farm produce platform, Direct farmer selling platform, Agricultural marketplace, Farm produce online, Farmers market online, Agricultural e-commerce, Farm direct to consumer, Agri business platform, Fresh vegetables online, Fruits delivery from farm, Grains procurement, Sustainable agriculture India">
+    <meta name="author" content="Farm Vantara">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="application-name" content="Farm Vantara">
+    <meta name="apple-mobile-web-app-title" content="Farm Vantara">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#27ae60" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1e7d47" media="(prefers-color-scheme: dark)">
+    <link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials">
+    
+    <!-- Favicon & Apple Touch Icons -->
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#27ae60">
+    <meta name="msapplication-TileColor" content="#27ae60">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://farmvantara.com/">
+    <meta property="og:title" content="Farm Vantara – India's Trusted Farm-to-Market AgriTech Platform">
+    <meta property="og:description" content="Direct farmer to buyer marketplace. Connect with verified farmers for fresh produce or sell directly to consumers and businesses.">
+    <meta property="og:image" content="https://farmvantara.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Farm Vantara - Connecting Farmers to Markets">
+    <meta property="og:site_name" content="Farm Vantara">
+    <meta property="og:locale" content="en_IN">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://farmvantara.com/">
+    <meta property="twitter:title" content="Farm Vantara – India's Trusted Farm-to-Market AgriTech Platform">
+    <meta property="twitter:description" content="Direct farmer to buyer marketplace. Connect with verified farmers for fresh produce or sell directly to consumers and businesses.">
+    <meta property="twitter:image" content="https://farmvantara.com/images/twitter-image.jpg">
+    <meta property="twitter:site" content="@farmvantara">
+    <meta property="twitter:creator" content="@farmvantara">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://farmvantara.com/">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/images/logo.webp" as="image" type="image/webp">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Farm Vantara",
+    "url": "https://farmvantara.com/",
+    "logo": "https://farmvantara.com/images/logo.png",
+    "description": "India's leading AgriTech platform connecting farmers directly with businesses and consumers",
+    "foundingDate": "2023",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "AgriTech Park, Sector 62",
+        "addressLocality": "Noida",
+        "addressRegion": "Uttar Pradesh",
+        "postalCode": "201309",
+        "addressCountry": "IN"
+    },
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-800-123-4567",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Hindi", "Tamil", "Telugu", "Marathi"],
+        "email": "info@farmvantara.com"
+    },
+    "sameAs": [
+        "https://www.facebook.com/farmvantara",
+        "https://twitter.com/farmvantara",
+        "https://www.instagram.com/farmvantara",
+        "https://www.linkedin.com/company/farmvantara",
+        "https://www.youtube.com/@farmvantara"
+    ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Farm-to-Market Agricultural Platform",
+    "provider": {
+        "@type": "Organization",
+        "name": "Farm Vantara"
+    },
+    "description": "Digital platform connecting farmers directly with businesses and consumers for agricultural trade",
+    "areaServed": {
+        "@type": "Country",
+        "name": "India"
+    },
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Agricultural Services",
+        "itemListElement": [
+        {
+            "@type": "Offer",
+            "itemOffered": {
+            "@type": "Service",
+            "name": "Farmer Marketplace Access"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Business Procurement Platform"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Consumer Farm Produce Delivery"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://farmvantara.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AgriTech Platform",
+          "item": "https://farmvantara.com/#about"
+        }
+      ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Farm Vantara",
+      "image": "https://farmvantara.com/images/logo.png",
+      "@id": "https://farmvantara.com",
+      "url": "https://farmvantara.com",
+      "telephone": "+1-800-123-4567",
+      "priceRange": "₹₹",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "AgriTech Park, Sector 62",
+        "addressLocality": "Noida",
+        "addressRegion": "Uptar Pradesh",
+        "postalCode": "201309",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 28.625789,
+        "longitude": 77.376289
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "08:00",
+          "closes": "20:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "10:00",
+          "closes": "18:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "1247",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Farm Vantara",
+      "url": "https://farmvantara.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://farmvantara.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <style>
+        /* Critical CSS - Loads First */
+        :root {
+            --primary-green: #27ae60;
+            --dark-green: #219653;
+            --light-green: #6fcf97;
+            --accent-yellow: #f2c94c;
+            --accent-orange: #f2994a;
+            --dark-blue: #2d3436;
+            --light-gray: #f8f9fa;
+            --medium-gray: #dfe6e9;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --gradient-primary: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+            --gradient-yellow: linear-gradient(135deg, #f2c94c 0%, #f2994a 100%);
+            --gradient-blue: linear-gradient(135deg, #2d9cdb 0%, #2f80ed 100%);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-dark: #ffffff;
+                --text-light: #b2bec3;
+                --white: #121212;
+                --light-gray: #1e1e1e00;
+                --medium-gray: #2d3436;
+                --dark-blue: #000000;
+                --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.4);
+            }
+            
+            .main-header {
+                background-color: var(--light-gray);
+            }
+            
+            .hero-section {
+                background: linear-gradient(135deg, #0a1f0a 0%, #051b05 100%);
+            }
+            
+            .value-card,
+            .farmer-card,
+            .cta-card {
+                background-color: var(--light-gray);
+                border-color: var(--medium-gray);
+            }
+            
+            .value-description,
+            .step-content p,
+            .farmer-quote {
+                color: var(--text-light);
+            }
+            
+            .section-title,
+            .value-title,
+            .farmer-name {
+                color: var(--text-dark);
+            }
+            
+            .hero-title {
+                color: var(--light-green);
+            }
+            
+            .market-ticker {
+                background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        /* Skip to main content link for accessibility */
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 0 0 4px 0;
+            text-decoration: none;
+            z-index: 9999;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .skip-to-content:focus {
+            top: 0;
+            outline: 3px solid var(--accent-yellow);
+            outline-offset: 2px;
+        }
+
+        /* Announcement Bar */
+        .announcement-bar {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 12px 0;
+            font-size: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .announcement-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .announcement-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .announcement-text {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .announcement-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .announcement-item i {
+            color: var(--accent-yellow);
+            font-size: 14px;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .language-selector i {
+            color: var(--accent-yellow);
+            font-size: 14px;
+        }
+
+        .language-selector select {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            min-width: 120px;
+        }
+
+        .language-selector select:hover,
+        .language-selector select:focus {
+            background: rgba(255, 255, 255, 0.25);
+            outline: 2px solid var(--accent-yellow);
+            outline-offset: 1px;
+        }
+
+        /* Main Header */
+        .main-header {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+            will-change: transform;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 15px;
+            margin-right: 40px;
+        }
+
+        .logo-img {
+            height: 75px;
+            width: 225px;
+            transition: var(--transition);
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        }
+
+        .main-header.scrolled .logo-img {
+            height: 45px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 26px;
+            color: var(--dark-green);
+            letter-spacing: -0.5px;
+            line-height: 1;
+        }
+
+        .logo-subtitle {
+            font-size: 11px;
+            color: var(--text-light);
+            letter-spacing: 1.2px;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        /* Navigation */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: space-between;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 5px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .nav-item a i {
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover,
+        .nav-item a:focus {
+            color: var(--primary-green);
+            background: rgba(39, 174, 96, 0.08);
+            outline: 2px solid var(--primary-green);
+            outline-offset: 2px;
+        }
+
+        .nav-item.active a {
+            color: var(--primary-green);
+            background: rgba(39, 174, 96, 0.1);
+        }
+
+        .nav-item a:hover i, .nav-item.active a i {
+            transform: translateY(-2px);
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 3px;
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+
+        .nav-item.active::after, .nav-item:hover::after {
+            width: 70%;
+        }
+
+        /* Auth Buttons */
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: 30px;
+        }
+
+        .btn-login, .btn-register {
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-login {
+            color: var(--primary-green);
+            border-color: var(--primary-green);
+            background: transparent;
+        }
+
+        .btn-login:hover,
+        .btn-login:focus {
+            background: var(--primary-green);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(39, 174, 96, 0.2);
+            outline: none;
+        }
+
+        .btn-register {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-register::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-register:hover::before {
+            left: 100%;
+        }
+
+        .btn-register:hover,
+        .btn-register:focus {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(39, 174, 96, 0.3);
+            outline: none;
+        }
+
+        /* Loading States */
+        .btn-hero:disabled,
+        .btn-cta:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-green);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: var(--transition);
+            margin-left: 15px;
+        }
+
+        .mobile-menu-btn:hover,
+        .mobile-menu-btn:focus {
+            background: rgba(39, 174, 96, 0.1);
+            outline: 2px solid var(--primary-green);
+            outline-offset: 2px;
+        }
+
+        /* Hero Section - SEO Optimized Content */
+        .hero-section {
+            background: linear-gradient(135deg, #f8fff9 0%, #e8f5e9 100%);
+            padding: 80px 0 180px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(39, 174, 96, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(242, 201, 76, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(45, 156, 219, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            color: var(--dark-green);
+            text-wrap: balance;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            line-height: 1.8;
+            font-weight: 500;
+            text-wrap: pretty;
+        }
+
+        /* CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .btn-hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 180px;
+            height: 130px;
+            padding: 25px;
+            text-decoration: none;
+            border-radius: 16px;
+            color: white;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: none;
+            cursor: pointer;
+            will-change: transform;
+        }
+
+        .btn-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            z-index: -1;
+            transition: var(--transition);
+        }
+
+        .btn-hero:hover::before,
+        .btn-hero:focus::before {
+            transform: scale(1.1);
+        }
+
+        .btn-hero i {
+            font-size: 30px;
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .btn-hero span {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .btn-hero small {
+            font-size: 12px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .btn-farmer {
+            background: var(--gradient-primary);
+        }
+
+        .btn-business {
+            background: var(--gradient-yellow);
+        }
+
+        .btn-consumer {
+            background: var(--gradient-blue);
+        }
+
+        .btn-hero:hover,
+        .btn-hero:focus {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: var(--shadow-hover);
+            outline: 3px solid white;
+            outline-offset: -3px;
+        }
+
+        .btn-hero:hover i,
+        .btn-hero:focus i {
+            transform: translateY(-5px) scale(1.2);
+        }
+
+        /* Hero Stats */
+        .hero-stats {
+            display: flex;
+            gap: 50px;
+            padding-top: 40px;
+            border-top: 2px solid rgba(39, 174, 96, 0.1);
+            contain: layout style;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .stat-item::after {
+            content: '';
+            position: absolute;
+            right: -25px;
+            top: 15%;
+            height: 70%;
+            width: 2px;
+            background: rgba(39, 174, 96, 0.2);
+            border-radius: 2px;
+        }
+
+        .stat-item:last-child::after {
+            display: none;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--dark-green);
+            line-height: 1;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            flex: 1;
+            position: relative;
+            height: 450px;
+            perspective: 1000px;
+        }
+
+        .hero-animation-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: float 6s ease-in-out infinite;
+            transition: var(--transition);
+            will-change: transform;
+            backface-visibility: hidden;
+        }
+
+        .floating-element:hover,
+        .floating-element:focus {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .floating-element i {
+            font-size: 36px;
+            color: var(--primary-green);
+        }
+
+        .element-1 {
+            width: 110px;
+            height: 110px;
+            top: 20px;
+            right: 100px;
+            animation-delay: 0s;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+        }
+
+        .element-2 {
+            width: 140px;
+            height: 140px;
+            bottom: 80px;
+            right: 40px;
+            animation-delay: -2s;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+        }
+
+        .element-3 {
+            width: 90px;
+            height: 90px;
+            top: 180px;
+            right: 220px;
+            animation-delay: -4s;
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        .hero-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .hero-wave svg {
+            position: relative;
+            display: block;
+            width: calc(300% + 1.3px);
+            height: 150px;
+            transform: rotateY(180deg);
+        }
+
+        .hero-wave path {
+            fill: var(--white);
+        }
+
+        /* About Section - SEO Content */
+        .about-section {
+            background: var(--white);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            display: inline-block;
+            position: relative;
+            text-wrap: balance;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 5px;
+            background: var(--gradient-primary);
+            border-radius: 5px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 500;
+            text-wrap: pretty;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .about-text h3 {
+            color: var(--dark-green);
+            margin: 30px 0 15px;
+            font-size: 1.5rem;
+        }
+
+        .about-text ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .about-text li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .about-text li::before {
+            content: '✓';
+            color: var(--primary-green);
+            font-weight: bold;
+            position: absolute;
+            left: -20px;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+            content-visibility: auto;
+            contain-intrinsic-size: 400px;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Value Proposition Section */
+        .value-section {
+            background-color: var(--light-gray);
+            position: relative;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .value-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--medium-gray);
+            text-align: center;
+            transform: translateY(50px);
+            opacity: 0;
+            will-change: transform;
+            contain: layout style paint;
+        }
+
+        .value-card.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .value-card:hover::before,
+        .value-card:focus::before {
+            transform: scaleX(1);
+        }
+
+        .value-card:hover,
+        .value-card:focus {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-green);
+            outline: 2px solid var(--primary-green);
+            outline-offset: -1px;
+        }
+
+        .value-icon {
+            width: 90px;
+            height: 90px;
+            background: rgba(39, 174, 96, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .value-card:hover .value-icon,
+        .value-card:focus .value-icon {
+            background: var(--gradient-primary);
+            transform: rotateY(180deg) scale(1.1);
+        }
+
+        .value-card:hover .value-icon i,
+        .value-card:focus .value-icon i {
+            color: white;
+            transform: rotateY(-180deg);
+        }
+
+        .value-icon i {
+            font-size: 36px;
+            color: var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .value-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .value-description {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .value-badge {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* How It Works Section */
+        .process-section {
+            background: var(--white);
+            position: relative;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            position: relative;
+            contain: layout style;
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-content h3 {
+            color: var(--dark-green);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .step-content p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Market Ticker */
+        .market-ticker {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a1a1a 100%);
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .market-ticker::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(90deg, transparent 0%, rgba(39, 174, 96, 0.1) 50%, transparent 100%),
+                repeating-linear-gradient(90deg, 
+                    transparent, 
+                    transparent 20px, 
+                    rgba(39, 174, 96, 0.05) 20px, 
+                    rgba(39, 174, 96, 0.05) 40px
+                );
+            animation: scan 20s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { background-position: 0 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        .ticker-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ticker-header h3 {
+            font-size: 1.7rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .ticker-header h3 i {
+            color: var(--accent-yellow);
+            font-size: 26px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .view-all {
+            color: var(--accent-yellow);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .view-all:hover,
+        .view-all:focus {
+            color: white;
+            gap: 15px;
+            outline: 2px solid var(--accent-yellow);
+            outline-offset: 4px;
+        }
+
+        .ticker-container {
+            position: relative;
+            overflow: hidden;
+            height: 75px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ticker-track {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            animation: tickerMove 60s linear infinite;
+            white-space: nowrap;
+            padding: 0 20px;
+        }
+
+        @keyframes tickerMove {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            font-weight: 600;
+            height: 100%;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ticker-crop {
+            color: white;
+            font-weight: 700;
+            margin-right: 15px;
+            font-size: 17px;
+            min-width: 110px;
+        }
+
+        .ticker-price {
+            color: var(--accent-yellow);
+            font-weight: 800;
+            margin-right: 5px;
+            font-size: 20px;
+        }
+
+        .ticker-change {
+            font-size: 13px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-left: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .ticker-change.positive {
+            background: rgba(39, 174, 96, 0.2);
+            color: var(--light-green);
+        }
+
+        .ticker-change.negative {
+            background: rgba(235, 87, 87, 0.2);
+            color: #eb5757;
+        }
+
+        /* Farmers Section */
+        .farmers-section {
+            background-color: var(--light-gray);
+            position: relative;
+        }
+
+        .farmers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            contain: layout style;
+        }
+
+        .farmer-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            transform: translateY(50px);
+            opacity: 0;
+            will-change: transform;
+            contain: layout style paint;
+        }
+
+        .farmer-card.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .farmer-card:hover,
+        .farmer-card:focus {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hover);
+            outline: 2px solid var(--primary-green);
+            outline-offset: -1px;
+        }
+
+        .farmer-image {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .farmer-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 100%);
+            z-index: 1;
+        }
+
+        .farmer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+            content-visibility: auto;
+            contain-intrinsic-size: 400px;
+        }
+
+        .farmer-card:hover .farmer-image img,
+        .farmer-card:focus .farmer-image img {
+            transform: scale(1.1);
+        }
+
+        .farmer-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 7px 15px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            z-index: 2;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .farmer-info {
+            padding: 35px;
+            position: relative;
+        }
+
+        .farmer-name {
+            font-size: 1.7rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .farmer-location, .farmer-crops {
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 8px;
+            gap: 10px;
+        }
+
+        .farmer-location i, .farmer-crops i {
+            color: var(--primary-green);
+            font-size: 15px;
+        }
+
+        .farmer-stats {
+            display: flex;
+            justify-content: space-between;
+            margin: 25px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--medium-gray);
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            line-height: 1;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 8px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .farmer-quote {
+            font-style: italic;
+            color: var(--text-light);
+            border-left: 4px solid var(--primary-green);
+            padding-left: 20px;
+            margin-top: 20px;
+            font-size: 15px;
+            line-height: 1.8;
+            position: relative;
+        }
+
+        .farmer-quote::before {
+            content: '"';
+            position: absolute;
+            top: -15px;
+            left: 10px;
+            font-size: 60px;
+            color: rgba(39, 174, 96, 0.2);
+            font-family: Georgia, serif;
+        }
+
+        /* Registration CTA */
+        .registration-cta {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .registration-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                url("");
+        }
+
+        .cta-card {
+            background-color: var(--white);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 40px 60px rgba(0, 0, 0, 0.2);
+            display: flex;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content {
+            flex: 1.2;
+            padding: 60px 50px;
+            color: var(--text-dark);
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+            line-height: 1.2;
+            text-wrap: balance;
+        }
+
+        .cta-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-weight: 500;
+            line-height: 1.7;
+        }
+
+        .cta-features {
+            margin-bottom: 50px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+
+        .feature i {
+            color: var(--primary-green);
+            font-size: 20px;
+            min-width: 24px;
+        }
+
+        .feature span {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: var(--transition);
+            min-width: 240px;
+            border: none;
+            cursor: pointer;
+            will-change: transform;
+        }
+
+        .btn-cta i {
+            margin-right: 12px;
+            font-size: 18px;
+        }
+
+        .btn-cta-primary {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+        }
+
+        .btn-cta-primary:hover,
+        .btn-cta-primary:focus {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(39, 174, 96, 0.3);
+            outline: 3px solid white;
+            outline-offset: -3px;
+        }
+
+        .btn-cta-whatsapp {
+            background: #25d366;
+            color: white;
+            border: none;
+        }
+
+        .btn-cta-whatsapp:hover,
+        .btn-cta-whatsapp:focus {
+            background: #1da851;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.3);
+            outline: 3px solid white;
+            outline-offset: -3px;
+        }
+
+        .cta-image {
+            flex: 0.8;
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--medium-gray) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, rgba(39, 174, 96, 0.1), transparent 30%);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .cta-image img {
+            max-width: 100%;
+            height: auto;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.2));
+            content-visibility: auto;
+            contain-intrinsic-size: 400px;
+        }
+
+        /* Footer */
+        .main-footer {
+            background-color: var(--text-dark);
+            color: #ffffff;
+            padding-top: 100px;
+            position: relative;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            margin-bottom: 70px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-logo-img {
+            height: 100px;
+            width: 275px;
+        }
+
+        .footer-description {
+            color: #000;
+            margin-bottom: 35px;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            font-size: 17px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover,
+        .social-links a:focus {
+            background-color: var(--primary-green);
+            transform: translateY(-5px);
+            outline: 2px solid rgb(27, 25, 25);
+            outline-offset: 2px;
+        }
+
+        .footer-title {
+            color: rgb(0, 0, 0);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #000000;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover,
+        .footer-links a:focus {
+            color: var(--light-green);
+            padding-left: 10px;
+            outline: none;
+        }
+
+        .contact-info p {
+            color: #000000;
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .contact-info i {
+            color: var(--primary-green);
+            margin-right: 15px;
+            margin-top: 5px;
+            min-width: 20px;
+            font-size: 15px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: #000000;
+            font-size: 14px;
+        }
+
+        .footer-bottom a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover,
+        .footer-bottom a:focus {
+            color: white;
+            text-decoration: underline;
+            outline: none;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 20px;
+            font-size: 26px;
+            color: #ffffff;
+        }
+
+        .payment-methods i {
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .payment-methods i:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: linear-gradient(135deg, #25d366, #1da851);
+            color: white;
+            border-radius: 50px;
+            padding: 16px 28px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: var(--transition);
+            animation: pulseWhatsApp 2s infinite;
+        }
+
+        @keyframes pulseWhatsApp {
+            0%, 100% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); }
+            50% { box-shadow: 0 10px 40px rgba(37, 211, 102, 0.5); }
+        }
+
+        .whatsapp-float i {
+            font-size: 26px;
+            margin-right: 12px;
+        }
+
+        .whatsapp-float:hover,
+        .whatsapp-float:focus {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(37, 211, 102, 0.4);
+            animation: none;
+            outline: 3px solid white;
+            outline-offset: -3px;
+        }
+
+        /* Enhanced Registration Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 25px;
+            width: 100%;
+            max-width: 700px;
+            padding: 40px;
+            position: relative;
+            animation: modalSlide 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        @keyframes modalSlide {
+            from { opacity: 0; transform: translateY(-100px) scale(0.8); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 30px;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: none;
+            background: none;
+            z-index: 10;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: var(--text-dark);
+            background: var(--light-gray);
+            outline: 2px solid var(--primary-green);
+        }
+
+        /* Registration Flow */
+        .registration-flow {
+            position: relative;
+        }
+
+        .registration-step {
+            display: none;
+        }
+
+        .registration-step.active {
+            display: block;
+        }
+
+        .step-subtitle {
+            color: var(--text-light);
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .role-selection {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .role-option {
+            display: flex;
+            align-items: center;
+            padding: 25px;
+            background: var(--light-gray);
+            border-radius: 15px;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            cursor: pointer;
+            gap: 25px;
+            text-align: left;
+        }
+
+        .role-option:hover,
+        .role-option:focus {
+            border-color: var(--primary-green);
+            background: rgba(39, 174, 96, 0.05);
+            transform: translateY(-5px);
+            outline: none;
+        }
+
+        .role-option.selected {
+            border-color: var(--primary-green);
+            background: rgba(39, 174, 96, 0.1);
+        }
+
+        .role-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .role-icon i {
+            font-size: 30px;
+            color: white;
+        }
+
+        .role-info {
+            flex: 1;
+        }
+
+        .role-info h3 {
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .role-info p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .role-benefits {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .role-benefits li {
+            background: rgba(39, 174, 96, 0.1);
+            color: var(--primary-green);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .role-select {
+            color: var(--primary-green);
+            font-size: 24px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .role-option:hover .role-select,
+        .role-option:focus .role-select {
+            opacity: 1;
+        }
+
+        /* Cookie Consent */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--dark-blue);
+            color: white;
+            padding: 20px;
+            z-index: 9999;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .cookie-consent.show {
+            transform: translateY(0);
+        }
+
+        .cookie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cookie-content h3 {
+            color: var(--accent-yellow);
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .cookie-content p {
+            flex: 1;
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-cookie {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .btn-accept {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        .btn-accept:hover,
+        .btn-accept:focus {
+            background: var(--dark-green);
+            transform: translateY(-2px);
+            outline: 2px solid white;
+        }
+
+        .btn-settings {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-settings:hover,
+        .btn-settings:focus {
+            background: rgba(255, 255, 255, 0.1);
+            outline: 2px solid var(--accent-yellow);
+        }
+
+        .btn-reject {
+            background: transparent;
+            color: white;
+            border: none;
+        }
+
+        .btn-reject:hover,
+        .btn-reject:focus {
+            color: var(--light-green);
+            text-decoration: underline;
+            outline: none;
+        }
+
+        .cookie-privacy {
+            color: var(--light-green);
+            font-size: 14px;
+            text-decoration: none;
+            margin-left: auto;
+        }
+
+        .cookie-privacy:hover,
+        .cookie-privacy:focus {
+            text-decoration: underline;
+            outline: none;
+        }
+
+        /* Accessibility Focus Styles */
+        :focus-visible {
+            outline: 3px solid var(--primary-green);
+            outline-offset: 3px;
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+            
+            .hero-title {
+                font-size: 3.2rem;
+            }
+            
+            .nav-menu {
+                gap: 3px;
+            }
+            
+            .nav-item a {
+                padding: 10px 14px;
+                font-size: 14px;
+            }
+            
+            .btn-login, .btn-register {
+                padding: 9px 20px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 80px;
+            }
+            
+            .hero-text {
+                margin-bottom: 0;
+            }
+            
+            .cta-buttons {
+                justify-content: center;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .stat-item::after {
+                display: none;
+            }
+            
+            .cta-card {
+                flex-direction: column;
+            }
+            
+            .cta-content, .cta-image {
+                padding: 50px 40px;
+            }
+            
+            .hero-visual {
+                height: 400px;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .nav-container {
+                position: relative;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 90%;
+                max-width: 400px;
+                flex-direction: column;
+                background-color: var(--white);
+                padding: 30px;
+                box-shadow: var(--shadow-hover);
+                transition: var(--transition);
+                z-index: 999;
+                border-radius: 0 20px 20px 0;
+                height: calc(100vh - 90px);
+                overflow-y: auto;
+                gap: 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 0;
+                width: 100%;
+            }
+            
+            .nav-item a {
+                padding: 18px 20px;
+                font-size: 16px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+                justify-content: flex-start;
+            }
+            
+            .auth-buttons {
+                margin: 30px 0 0;
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn-login, .btn-register {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                order: 3;
+            }
+            
+            .cookie-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .cookie-privacy {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .btn-hero {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+            
+            .value-grid, .farmers-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+            
+            .btn-cta {
+                width: 100%;
+                min-width: auto;
+            }
+            
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+            }
+            
+            .announcement-text {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .ticker-header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .whatsapp-float .whatsapp-text {
+                display: none;
+            }
+            
+            .whatsapp-float {
+                bottom: 25px;
+                right: 25px;
+                padding: 16px;
+            }
+            
+            .whatsapp-float i {
+                margin-right: 0;
+                font-size: 24px;
+            }
+            
+            .logo-title {
+                font-size: 24px;
+            }
+            
+            .logo-subtitle {
+                font-size: 10px;
+            }
+            
+            .role-option {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .role-info {
+                text-align: center;
+            }
+            
+            .role-benefits {
+                justify-content: center;
+            }
+            
+            .role-select {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-section {
+                padding: 100px 0 100px;
+            }
+            
+            .btn-hero {
+                height: 120px;
+            }
+            
+            .btn-hero i {
+                font-size: 24px;
+            }
+            
+            .btn-hero span {
+                font-size: 15px;
+            }
+            
+            .cta-content {
+                padding: 40px 25px;
+            }
+            
+            .modal-content {
+                padding: 30px 25px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .announcement-bar {
+                font-size: 12px;
+            }
+            
+            .announcement-item {
+                gap: 5px;
+            }
+            
+            .announcement-item i {
+                font-size: 12px;
+            }
+            
+            .cookie-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-cookie {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="main-header" id="mainHeader">
+        <div class="container">
+            <nav class="navbar" aria-label="Main navigation">
+                <a href="index.html" class="logo">
+                        <img src="./logo.png" alt="Farm Vantara Logo - India's Leading AgriTech Platform" class="logo-img" width="225" height="75" loading="eager">
+                </a>
+                
+                <div class="nav-container">
+                    <!-- Main Navigation Menu -->
+                    <ul class="nav-menu" id="navMenu">
+                        <li class="nav-item"><a href="farmers.html" aria-label="For farmers section"><i class="fas fa-user"></i> For Farmers</a></li>
+                        <li class="nav-item"><a href="business.html" aria-label="For businesses section"><i class="fas fa-building"></i> For Business</a></li>
+                        <li class="nav-item"><a href="shop.html" aria-label="Shop fresh produce"><i class="fas fa-shopping-cart"></i> Shop Fresh</a></li>
+                        <li class="nav-item"><a href="process.html" aria-label="How it works"><i class="fas fa-cogs"></i> How It Works</a></li>
+                        <li class="nav-item"><a href="impact.html" aria-label="Our impact"><i class="fas fa-seedling"></i> Impact</a></li>
+                        <li class="nav-item"><a href="contact.html" aria-label="Contact us"><i class="fas fa-phone"></i> Contact</a></li>
+                    </ul>
+                    
+                    <!-- Authentication Buttons -->
+                    <div class="auth-buttons">
+                        <a href="./login.html" class="btn-login" aria-label="Login to your account"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        <a href="./register.html" class="btn-register">
+    <i class="fas fa-user-plus"></i> Register
+</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" aria-label="Toggle menu" id="mobileMenuBtn" aria-expanded="false" aria-controls="navMenu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            Farm Vantara – India's Trusted Farm-to-Market AgriTech Platform
+                        </h1>
+                        <p class="hero-subtitle">
+                            Direct, transparent, and fair farm-to-market trade platform. Empowering farmers with direct access to verified B2B & B2C buyers. Eliminate middlemen, ensure fair prices, fresh produce. Join India's leading agricultural marketplace connecting farmers directly with businesses and consumers.
+                        </p>
+                        <div class="cta-buttons">
+                            <button class="btn-hero btn-farmer" aria-label="Join as a farmer to sell produce directly" onclick="openRegistration('farmer')">
+                                <i class="fas fa-tractor"></i>
+                                <span>Join as Farmer</span>
+                                <small>Earn 40% More</small>
+                            </button>
+                            <button class="btn-hero btn-business" aria-label="Buy as business for bulk procurement" onclick="openRegistration('business')">
+                                <i class="fas fa-building"></i>
+                                <span>Buy as Business</span>
+                                <small>Bulk Procurement</small>
+                            </button>
+                            <button class="btn-hero btn-consumer" aria-label="Shop as consumer for fresh farm produce" onclick="openRegistration('consumer')">
+                                <i class="fas fa-shopping-basket"></i>
+                                <span>Shop as Consumer</span>
+                                <small>Fresh & Direct</small>
+                            </button>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" id="farmersCount">0</span>
+                                <span class="stat-label">Farmers Connected</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="citiesCount">0</span>
+                                <span class="stat-label">Cities Served</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="satisfactionCount">0</span>
+                                <span class="stat-label">Satisfaction Rate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-visual" aria-hidden="true">
+                        <div class="hero-animation-container">
+                            <div class="floating-element element-1">
+                                <i class="fas fa-tractor"></i>
+                            </div>
+                            <div class="floating-element element-2">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="floating-element element-3">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-wave">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- About Farm Vantara Section -->
+        <section class="about-section" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About Farm Vantara – India's Leading AgriTech Platform</h2>
+                    <p class="section-subtitle">Transforming agriculture through technology, transparency, and direct market access</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p><strong>Farm Vantara is India's premier B2B & B2C AgriTech marketplace</strong> that connects farmers directly with businesses and consumers. We're revolutionizing agricultural trade by eliminating intermediaries and creating a transparent, efficient supply chain.</p>
+                        
+                        <h3>🌱 Why Farm Vantara Exists</h3>
+                        <p>India's agricultural sector faces significant challenges: price manipulation, delayed payments, and limited market access. Farm Vantara addresses these issues by creating a digital bridge between farms and markets, ensuring:</p>
+                        <ul>
+                            <li>Fair prices for farmers through direct selling</li>
+                            <li>Quality assurance for buyers with verified farmers</li>
+                            <li>Transparent transactions with real-time tracking</li>
+                            <li>Sustainable agricultural practices</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <picture>
+                            <img src="./aboutsection.jpg" alt="Indian farmer harvesting fresh crops in field using traditional methods" loading="lazy" width="800" height="600">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Proposition Section -->
+        <section class="value-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Why Choose Farm Vantara?</h2>
+                    <p class="section-subtitle">India's most transparent and efficient agricultural marketplace</p>
+                </div>
+                <div class="value-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="value-title">No Middlemen Commission</h3>
+                        <p class="value-description">Direct farmer-to-buyer connection eliminates intermediaries, ensuring farmers get 30-40% better prices and buyers save 20-25% on procurement.</p>
+                        <div class="value-badge">100% Direct Trade</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="value-title">Real-Time Market Intelligence</h3>
+                        <p class="value-description">Live price discovery, demand forecasting, and market insights help farmers optimize pricing and businesses plan procurement efficiently.</p>
+                        <div class="value-badge">Live Market Data</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3 class="value-title">Pan-India Logistics Network</h3>
+                        <p class="value-description">End-to-end cold chain logistics from farm pickup to doorstep delivery. Temperature-controlled transport for perishable produce.</p>
+                        <div class="value-badge">Doorstep Delivery</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="value-title">Secure & Timely Payments</h3>
+                        <p class="value-description">Farmers receive payments within 24 hours of delivery. Multiple secure payment options including UPI, net banking, and digital wallets.</p>
+                        <div class="value-badge">24hr Payment Guarantee</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="process-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">How Farm Vantara Works</h2>
+                    <p class="section-subtitle">Simple 4-step process for seamless agricultural trade</p>
+                </div>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Farmers List Produce</h3>
+                            <p>Farmers register and list their crops with quality specifications, quantity available, and location details on our platform.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Buyers Place Orders</h3>
+                            <p>Businesses and consumers browse listings, compare prices, and place orders directly with farmers.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Quality Verification</h3>
+                            <p>Our team verifies produce quality at source and arranges efficient logistics for transportation.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Delivery & Payment</h3>
+                            <p>Produce delivered to buyers. Farmers receive payment within 24 hours. Complete transparency maintained.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Market Prices Ticker -->
+        <section class="market-ticker" aria-label="Live market prices">
+            <div class="container">
+                <div class="ticker-header">
+                    <h3><i class="fas fa-chart-line"></i> Live Agricultural Market Prices Today</h3>
+                    <a href="market-prices.html" class="view-all">View All Crops <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="ticker-container">
+                    <div class="ticker-track" id="priceTicker" aria-live="polite">
+                        <!-- Prices populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Farmers Section -->
+        <section class="farmers-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Meet Our Farmer Champions</h2>
+                    <p class="section-subtitle">Real stories of transformation and success from Indian farmers</p>
+                </div>
+                <div class="farmers-grid">
+                    <div class="farmer-card">
+                        <div class="farmer-image">
+                            <picture>
+                                <img src="https://img.freepik.com/premium-photo/young-indian-farmer-green-agriculture-field_75648-6244.jpg?semt=ais_hybrid&w=740&q=80" alt="Rajesh Kumar, wheat farmer from Punjab holding fresh harvest" loading="lazy" width="800" height="600">
+                            </picture>
+                            <div class="farmer-badge">Top Seller</div>
+                        </div>
+                        <div class="farmer-info">
+                            <h3 class="farmer-name">Rajesh Kumar</h3>
+                            <p class="farmer-location"><i class="fas fa-map-marker-alt"></i> Punjab, India</p>
+                            <p class="farmer-crops"><i class="fas fa-seedling"></i> Wheat, Rice, Seasonal Vegetables</p>
+                            <div class="farmer-stats">
+                                <div class="stat">
+                                    <span class="stat-value">₹12.5L+</span>
+                                    <span class="stat-label">Annual Earnings</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">95%</span>
+                                    <span class="stat-label">Buyer Rating</span>
+                                </div>
+                            </div>
+                            <blockquote class="farmer-quote">
+                                "Farm Vantara doubled my income by connecting me directly with markets in Delhi and Mumbai. No more middlemen exploitation."
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="farmer-card">
+                        <div class="farmer-image">
+                            <picture>
+                                <img src="https://img.freepik.com/premium-photo/young-indian-woman-farmer-working-wheat-farm-field_136354-2660.jpg" alt="Priya Sharma, organic farmer from Maharashtra inspecting her produce" loading="lazy" width="800" height="600">
+                            </picture>
+                            <div class="farmer-badge">Organic Certified</div>
+                        </div>
+                        <div class="farmer-info">
+                            <h3 class="farmer-name">Priya Sharma</h3>
+                            <p class="farmer-location"><i class="fas fa-map-marker-alt"></i> Maharashtra, India</p>
+                            <p class="farmer-crops"><i class="fas fa-seedling"></i> Organic Fruits & Vegetables</p>
+                            <div class="farmer-stats">
+                                <div class="stat">
+                                    <span class="stat-value">₹8.2L+</span>
+                                    <span class="stat-label">Annual Earnings</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">98%</span>
+                                    <span class="stat-label">Buyer Rating</span>
+                                </div>
+                            </div>
+                            <blockquote class="farmer-quote">
+                                "Received 30% better prices for my organic produce through Farm Vantara. The platform understands the value of quality farming."
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="farmer-card">
+                        <div class="farmer-image">
+                            <picture>
+                                <img src="https://t3.ftcdn.net/jpg/05/99/59/02/360_F_599590282_rn8nuDZAs1m8tpOA9BpkqDFxGULAQqdx.jpg" alt="Arun Patel, cotton farmer from Gujarat in his field" loading="lazy" width="800" height="600">
+                            </picture>
+                            <div class="farmer-badge">Quality Award Winner</div>
+                        </div>
+                        <div class="farmer-info">
+                            <h3 class="farmer-name">Arun Patel</h3>
+                            <p class="farmer-location"><i class="fas fa-map-marker-alt"></i> Gujarat, India</p>
+                            <p class="farmer-crops"><i class="fas fa-seedling"></i> Cotton, Groundnuts, Pulses</p>
+                            <div class="farmer-stats">
+                                <div class="stat">
+                                    <span class="stat-value">₹6.7L+</span>
+                                    <span class="stat-label">Annual Earnings</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">92%</span>
+                                    <span class="stat-label">Buyer Rating</span>
+                                </div>
+                            </div>
+                            <blockquote class="farmer-quote">
+                                "The timely payments and market insights have transformed my farming business. I can now plan crops based on demand."
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sustainability & Impact Section -->
+        <section class="value-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Sustainability & Impact</h2>
+                    <p class="section-subtitle">Creating positive change in Indian agriculture</p>
+                </div>
+                <div class="value-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="value-title">Farmer Empowerment</h3>
+                        <p class="value-description">Direct market access increases farmer incomes by 30-40%, reducing rural poverty and improving livelihoods across India.</p>
+                        <div class="value-badge">5,000+ Farmers</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                        <h3 class="value-title">Sustainable Practices</h3>
+                        <p class="value-description">Promoting organic farming, reducing food miles, and minimizing post-harvest losses through efficient supply chains.</p>
+                        <div class="value-badge">Eco-Friendly</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3 class="value-title">Ethical Trade</h3>
+                        <p class="value-description">Transparent pricing ensures fair compensation for farmers while maintaining competitive prices for consumers.</p>
+                        <div class="value-badge">Fair Trade</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <h3 class="value-title">Rural Economy Boost</h3>
+                        <p class="value-description">Creating employment opportunities in rural areas and strengthening local agricultural ecosystems.</p>
+                        <div class="value-badge">250+ Villages</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration CTA Section -->
+        <section class="registration-cta">
+            <div class="container">
+                <div class="cta-card">
+                    <div class="cta-content">
+                        <h2 class="cta-title">Ready to Transform Your Agricultural Journey?</h2>
+                        <p class="cta-description">Join thousands of farmers and businesses already benefiting from India's most transparent farm-to-market platform.</p>
+                        <div class="cta-features">
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Free Registration for Farmers</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Zero Commission on First 10 Orders</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Dedicated Support in Regional Languages</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>24/7 Buyer & Seller Support</span>
+                            </div>
+                        </div>
+                        <div class="cta-buttons">
+                            <a href="tel:18001234567" class="btn-cta btn-cta-primary" aria-label="Call our assistance number">
+                                <i class="fas fa-phone-alt"></i> Call for Assistance: 1800-123-4567
+                            </a>
+                            <a href="https://wa.me/919553774933" class="btn-cta btn-cta-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+                                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cta-image">
+                        <picture>
+                            <img src="./registercta.png" alt="Happy Indian farmer with fresh produce in basket smiling at camera" loading="lazy" width="800" height="600">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                            <img src="./logo.png" alt="Farm Vantara Footer Logo - Transforming Indian Agriculture" class="footer-logo-img" width="275" height="100" loading="lazy">
+                    </div>
+                    <p class="footer-description">
+                        India's leading AgriTech platform connecting farmers directly with businesses and consumers since 2023. Empowering farmers with technology, transparency, and direct market access.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://facebook.com/farmvantara" target="_blank" rel="noopener nofollow" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/farmvantara" target="_blank" rel="noopener nofollow" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/farmvantara" target="_blank" rel="noopener nofollow" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/farmvantara" target="_blank" rel="noopener nofollow" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://linkedin.com/company/farmvantara" target="_blank" rel="noopener nofollow" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="/"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="farmers.html"><i class="fas fa-chevron-right"></i> For Farmers</a></li>
+                        <li><a href="business.html"><i class="fas fa-chevron-right"></i> For Businesses</a></li>
+                        <li><a href="shop.html"><i class="fas fa-chevron-right"></i> Shop Fresh</a></li>
+                        <li><a href="process.html"><i class="fas fa-chevron-right"></i> How It Works</a></li>
+                        <li><a href="impact.html"><i class="fas fa-chevron-right"></i> Our Impact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">For Farmers</h4>
+                    <ul class="footer-links">
+                        <li><a href="./register.html?role=farmer"><i class="fas fa-chevron-right"></i> Register Your Farm</a></li>
+                        <li><a href="market-prices.html"><i class="fas fa-chevron-right"></i> Live Market Prices</a></li>
+                        <li><a href="crop-listing.html"><i class="fas fa-chevron-right"></i> Crop Listing Guide</i></a></li>
+                        <li><a href="payments.html"><i class="fas fa-chevron-right"></i> Payment Methods</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Farmer Support</a></li>
+                        <li><a href="success-stories.html"><i class="fas fa-chevron-right"></i> Success Stories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> AgriTech Park, Sector 62, Noida, Uttar Pradesh 201309</p>
+                        <p><i class="fas fa-phone-alt"></i> 1800-123-4567 (Toll Free)</p>
+                        <p><i class="fas fa-envelope"></i> info.farmvantara@gmail.com</p>
+                        <p><i class="fab fa-whatsapp"></i> +91 9553774933</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-8PM | Sun: 10AM-6PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; <span class="current-year">2025</span> Farm Vantara – India's Leading AgriTech Platform. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a> | <a href="sitemap.xml">Sitemap</a></p>
+                    <div class="payment-methods">
+                        <i class="fas fa-credit-card" title="Credit Cards" aria-label="Credit Cards Accepted"></i>
+                        <i class="fas fa-university" title="Net Banking" aria-label="Net Banking Available"></i>
+                        <i class="fab fa-google-pay" title="Google Pay" aria-label="Google Pay Accepted"></i>
+                        <i class="fab fa-phonepe" title="PhoneP5e" aria-label="PhonePe Accepted"></i>
+                        <i class="fas fa-qrcode" title="UPI QR" aria-label="UPI QR Payments"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="cookie-consent" role="dialog" aria-labelledby="cookieConsentTitle" hidden>
+        <div class="cookie-content">
+            <h3 id="cookieConsentTitle">🍪 We Use Cookies</h3>
+            <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.</p>
+            <div class="cookie-buttons">
+                <button id="cookieAcceptAll" class="btn-cookie btn-accept">Accept All</button>
+                <button id="cookieSettings" class="btn-cookie btn-settings">Customize Settings</button>
+                <button id="cookieReject" class="btn-cookie btn-reject">Reject Non-Essential</button>
+            </div>
+            <a href="/privacy.html" class="cookie-privacy">Privacy Policy</a>
+        </div>
+    </div>
+
+    <!-- Fixed WhatsApp Button -->
+    <a href="https://wa.me/919553774933" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Enhanced Registration Modal -->
+    <div class="modal" id="registrationModal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true" hidden>
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Close registration modal">&times;</button>
+            
+            <div class="registration-flow">
+                <!-- Step 1: Role Selection -->
+                <div class="registration-step active" data-step="1">
+                    <h2 id="modalTitle">Join Farm Vantara</h2>
+                    <p class="step-subtitle">Select your role to get started</p>
+                    
+                    <div class="role-selection">
+                        <div class="role-option" data-role="farmer" tabindex="0" role="button" onclick="selectRole('farmer')">
+                            <div class="role-icon">
+                                <i class="fas fa-tractor"></i>
+                            </div>
+                            <div class="role-info">
+                                <h3>I'm a Farmer</h3>
+                                <p>List and sell your farm produce directly to buyers across India</p>
+                                <ul class="role-benefits">
+                                    <li>Free registration & listing</li>
+                                    <li>Direct buyer access</li>
+                                    <li>Guaranteed payments</li>
+                                </ul>
+                            </div>
+                            <div class="role-select">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="role-option" data-role="business" tabindex="0" role="button" onclick="selectRole('business')">
+                            <div class="role-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="role-info">
+                                <h3>I'm a Business</h3>
+                                <p>Procure fresh farm produce directly from verified farmers</p>
+                                <ul class="role-benefits">
+                                    <li>Bulk purchase discounts</li>
+                                    <li>Quality assurance</li>
+                                    <li>Reliable supply chain</li>
+                                </ul>
+                            </div>
+                            <div class="role-select">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="role-option" data-role="consumer" tabindex="0" role="button" onclick="selectRole('consumer')">
+                            <div class="role-icon">
+                                <i class="fas fa-shopping-basket"></i>
+                            </div>
+                            <div class="role-info">
+                                <h3>I'm a Consumer</h3>
+                                <p>Buy fresh farm produce directly from farmers in your city</p>
+                                <ul class="role-benefits">
+                                    <li>Farm-fresh quality</li>
+                                    <li>Competitive prices</li>
+                                    <li>Home delivery</li>
+                                </ul>
+                            </div>
+                            <div class="role-select">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Registration Form -->
+                <div class="registration-step" data-step="2" hidden>
+                    <h2 id="formTitle">Complete Your Registration</h2>
+                    <form id="registrationForm" novalidate>
+                        <div id="dynamicFormContent">
+                            <!-- Form will be dynamically generated based on role -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registered: ', registration);
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+
+        // Performance Monitoring Class
+        class PerformanceMonitor {
+            constructor() {
+                this.metrics = {};
+                this.init();
+            }
+            
+            init() {
+                // Largest Contentful Paint
+                if ('PerformanceObserver' in window) {
+                    const lcpObserver = new PerformanceObserver((entryList) => {
+                        const entries = entryList.getEntries();
+                        const lastEntry = entries[entries.length - 1];
+                        this.metrics.lcp = lastEntry.renderTime || lastEntry.loadTime;
+                        console.log('LCP:', this.metrics.lcp);
+                        this.sendToAnalytics('LCP', this.metrics.lcp);
+                    });
+                    lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+                    
+                    // First Input Delay
+                    const fidObserver = new PerformanceObserver((entryList) => {
+                        const entries = entryList.getEntries();
+                        for (const entry of entries) {
+                            const delay = entry.processingStart - entry.startTime;
+                            this.metrics.fid = delay;
+                            console.log('FID:', this.metrics.fid);
+                            this.sendToAnalytics('FID', this.metrics.fid);
+                        }
+                    });
+                    fidObserver.observe({ entryTypes: ['first-input'] });
+                }
+            }
+            
+            sendToAnalytics(metric, value) {
+                // Send to your analytics platform
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'web_vitals', {
+                        event_category: 'Web Vitals',
+                        event_label: metric,
+                        value: Math.round(value),
+                        non_interaction: true,
+                    });
+                }
+            }
+        }
+
+        // Error Tracking Class
+        class ErrorTracker {
+            constructor() {
+                this.errors = [];
+                this.init();
+            }
+            
+            init() {
+                window.addEventListener('error', this.handleError.bind(this));
+                window.addEventListener('unhandledrejection', this.handlePromiseRejection.bind(this));
+            }
+            
+            handleError(event) {
+                const error = {
+                    type: 'JavaScript Error',
+                    message: event.message,
+                    filename: event.filename,
+                    lineno: event.lineno,
+                    colno: event.colno,
+                    timestamp: new Date().toISOString(),
+                    userAgent: navigator.userAgent
+                };
+                
+                this.errors.push(error);
+                this.sendToServer(error);
+                
+                return false;
+            }
+            
+            handlePromiseRejection(event) {
+                const error = {
+                    type: 'Promise Rejection',
+                    reason: event.reason,
+                    timestamp: new Date().toISOString()
+                };
+                
+                this.errors.push(error);
+                this.sendToServer(error);
+            }
+            
+            sendToServer(error) {
+                const data = JSON.stringify({
+                    error: error,
+                    url: window.location.href,
+                    referrer: document.referrer
+                });
+                
+                if (navigator.sendBeacon) {
+                    navigator.sendBeacon('/api/log-error', data);
+                }
+            }
+        }
+
+        // Cookie Consent Class
+        class CookieConsent {
+            constructor() {
+                this.consent = localStorage.getItem('cookieConsent');
+                this.banner = document.getElementById('cookieConsent');
+                this.init();
+            }
+            
+            init() {
+                if (!this.consent) {
+                    setTimeout(() => this.showBanner(), 1000);
+                }
+                
+                this.setupEventListeners();
+            }
+            
+            showBanner() {
+                this.banner.hidden = false;
+                setTimeout(() => this.banner.classList.add('show'), 100);
+            }
+            
+            setupEventListeners() {
+                document.getElementById('cookieAcceptAll').addEventListener('click', () => {
+                    this.setConsent('all');
+                    this.hideBanner();
+                });
+                
+                document.getElementById('cookieReject').addEventListener('click', () => {
+                    this.setConsent('essential');
+                    this.hideBanner();
+                });
+                
+                document.getElementById('cookieSettings').addEventListener('click', () => {
+                    this.showSettings();
+                });
+            }
+            
+            setConsent(type) {
+                const consent = {
+                    type: type,
+                    date: new Date().toISOString(),
+                    version: '1.0'
+                };
+                
+                localStorage.setItem('cookieConsent', JSON.stringify(consent));
+                
+                if (type === 'all') {
+                    this.initAnalytics();
+                }
+            }
+            
+            hideBanner() {
+                this.banner.classList.remove('show');
+                setTimeout(() => {
+                    this.banner.hidden = true;
+                }, 500);
+            }
+            
+            initAnalytics() {
+                console.log('Analytics initialized with consent');
+                // Initialize Google Analytics, Facebook Pixel, etc.
+            }
+            
+            showSettings() {
+                console.log('Show cookie settings modal');
+                // Implement detailed cookie settings
+            }
+        }
+
+        // Accessible Modal Class
+        class AccessibleModal {
+            constructor(modal) {
+                this.modal = modal;
+                this.focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+                this.firstFocusableElement = null;
+                this.lastFocusableElement = null;
+                this.previouslyFocused = null;
+                this.init();
+            }
+            
+            init() {
+                this.modal.addEventListener('keydown', this.handleKeydown.bind(this));
+            }
+            
+            open() {
+                this.previouslyFocused = document.activeElement;
+                this.modal.hidden = false;
+                this.modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                
+                setTimeout(() => {
+                    const focusableContent = this.modal.querySelectorAll(this.focusableElements);
+                    this.firstFocusableElement = focusableContent[0];
+                    this.lastFocusableElement = focusableContent[focusableContent.length - 1];
+                    this.firstFocusableElement.focus();
+                }, 100);
+            }
+            
+            close() {
+                this.modal.hidden = true;
+                this.modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = 'auto';
+                
+                if (this.previouslyFocused) {
+                    this.previouslyFocused.focus();
+                }
+            }
+            
+            handleKeydown(e) {
+                if (e.key === 'Escape') {
+                    this.close();
+                }
+                
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        if (document.activeElement === this.firstFocusableElement) {
+                            e.preventDefault();
+                            this.lastFocusableElement.focus();
+                        }
+                    } else {
+                        if (document.activeElement === this.lastFocusableElement) {
+                            e.preventDefault();
+                            this.firstFocusableElement.focus();
+                        }
+                    }
+                }
+            }
+        }
+
+        // Main Application
+        class FarmVantaraApp {
+            constructor() {
+                this.currentRole = null;
+                this.modalManager = null;
+                this.performanceMonitor = null;
+                this.errorTracker = null;
+                this.cookieConsent = null;
+                this.init();
+            }
+            
+            init() {
+                // Initialize modules
+                this.performanceMonitor = new PerformanceMonitor();
+                this.errorTracker = new ErrorTracker();
+                this.cookieConsent = new CookieConsent();
+                
+                // Initialize modal
+                const modal = document.getElementById('registrationModal');
+                if (modal) {
+                    this.modalManager = new AccessibleModal(modal);
+                }
+                
+                // Setup event listeners
+                this.setupEventListeners();
+                
+                // Initialize components
+                this.initComponents();
+                
+                // Track performance
+                this.trackPerformance();
+                
+                console.log('Farm Vantara App Initialized');
+            }
+            
+            setupEventListeners() {
+                // Mobile menu toggle
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+                const navMenu = document.getElementById('navMenu');
+                
+                if (mobileMenuBtn && navMenu) {
+                    mobileMenuBtn.addEventListener('click', () => {
+                        const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                        navMenu.classList.toggle('active');
+                        mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+                        mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                            ? '<i class="fas fa-times"></i>' 
+                            : '<i class="fas fa-bars"></i>';
+                    });
+                    
+                    // Close mobile menu when clicking outside
+                    document.addEventListener('click', (event) => {
+                        if (!navMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                            navMenu.classList.remove('active');
+                            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                }
+                
+                // Header scroll effect
+                const mainHeader = document.getElementById('mainHeader');
+                if (mainHeader) {
+                    window.addEventListener('scroll', () => {
+                        if (window.scrollY > 50) {
+                            mainHeader.classList.add('scrolled');
+                        } else {
+                            mainHeader.classList.remove('scrolled');
+                        }
+                    });
+                }
+                
+                // Registration button
+                const registerBtn = document.getElementById('registerBtn');
+                if (registerBtn) {
+                    registerBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.openRegistration();
+                    });
+                }
+                
+                // Close modal
+                const closeModal = document.querySelector('.close-modal');
+                if (closeModal && this.modalManager) {
+                    closeModal.addEventListener('click', () => {
+                        this.modalManager.close();
+                    });
+                }
+                
+                // Language switcher
+                const languageSelect = document.getElementById('languageSelect');
+                if (languageSelect) {
+                    languageSelect.addEventListener('change', function() {
+                        const language = this.value;
+                        const languages = {
+                            en: 'English',
+                            hi: 'Hindi',
+                            ta: 'Tamil',
+                            te: 'Telugu',
+                            mr: 'Marathi'
+                        };
+                        console.log(`Language changed to ${languages[language]}`);
+                    });
+                }
+                
+                // Smooth scrolling for anchor links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        const href = this.getAttribute('href');
+                        if (href !== '#') {
+                            e.preventDefault();
+                            const target = document.querySelector(href);
+                            if (target) {
+                                target.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                            }
+                        }
+                    });
+                });
+            }
+            
+            initComponents() {
+                // Animated counters
+                this.animateCounter(document.getElementById('farmersCount'), 5000, 2000);
+                this.animateCounter(document.getElementById('citiesCount'), 250, 1500);
+                this.animateCounter(document.getElementById('satisfactionCount'), 98, 1000);
+                
+                // Market price ticker
+                this.initMarketTicker();
+                
+                // Intersection Observer for scroll animations
+                this.initScrollAnimations();
+                
+                // Set current year in footer
+                this.setCurrentYear();
+            }
+            
+            animateCounter(element, target, duration) {
+                if (!element) return;
+                
+                let start = 0;
+                const increment = target / (duration / 16);
+                const timer = setInterval(() => {
+                    start += increment;
+                    if (element.id === 'satisfactionCount') {
+                        element.textContent = Math.floor(start) + '%';
+                    } else {
+                        element.textContent = Math.floor(start).toLocaleString();
+                    }
+                    if (start >= target) {
+                        if (element.id === 'satisfactionCount') {
+                            element.textContent = target + '%';
+                        } else {
+                            element.textContent = target.toLocaleString();
+                        }
+                        clearInterval(timer);
+                    }
+                }, 16);
+            }
+            
+            initMarketTicker() {
+                const prices = [
+                    { crop: "Wheat", price: "₹2,450", change: "+2.5%", type: "positive" },
+                    { crop: "Basmati Rice", price: "₹3,200", change: "+1.8%", type: "positive" },
+                    { crop: "Tomato", price: "₹1,800", change: "-3.2%", type: "negative" },
+                    { crop: "Potato", price: "₹1,200", change: "+4.1%", type: "positive" },
+                    { crop: "Onion", price: "₹2,100", change: "+5.2%", type: "positive" },
+                    { crop: "Carrot", price: "₹1,500", change: "-1.5%", type: "negative" },
+                    { crop: "Cabbage", price: "₹900", change: "+2.3%", type: "positive" },
+                    { crop: "Cauliflower", price: "₹1,100", change: "+3.7%", type: "positive" },
+                    { crop: "Corn", price: "₹1,800", change: "+1.2%", type: "positive" },
+                    { crop: "Soybean", price: "₹3,500", change: "-2.1%", type: "negative" },
+                    { crop: "Cotton", price: "₹5,800", change: "+3.5%", type: "positive" },
+                    { crop: "Sugarcane", price: "₹3,200", change: "+1.2%", type: "positive" }
+                ];
+        
+                const tickerTrack = document.getElementById('priceTicker');
+                if (!tickerTrack) return;
+                
+                // Create ticker items (duplicated for seamless scrolling)
+                for (let i = 0; i < 3; i++) {
+                    prices.forEach(price => {
+                        const tickerItem = document.createElement('div');
+                        tickerItem.className = 'ticker-item';
+                        tickerItem.innerHTML = `
+                            <span class="ticker-crop">${price.crop}</span>
+                            <span class="ticker-price">${price.price}</span>/Quintal
+                            <span class="ticker-change ${price.type}">
+                                <i class="fas fa-${price.type === 'positive' ? 'arrow-up' : 'arrow-down'}"></i>
+                                ${price.change}
+                            </span>
+                        `;
+                        tickerTrack.appendChild(tickerItem);
+                    });
+                }
+            }
+            
+            initScrollAnimations() {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -100px 0px'
+                };
+        
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, observerOptions);
+        
+                document.querySelectorAll('.value-card, .farmer-card').forEach(card => {
+                    observer.observe(card);
+                });
+            }
+            
+            setCurrentYear() {
+                const yearElements = document.querySelectorAll('.current-year');
+                yearElements.forEach(element => {
+                    element.textContent = new Date().getFullYear();
+                });
+            }
+            
+            trackPerformance() {
+                window.addEventListener('load', () => {
+                    const timing = performance.timing;
+                    const loadTime = timing.loadEventEnd - timing.navigationStart;
+                    console.log(`Page load time: ${loadTime}ms`);
+                });
+            }
+            
+            openRegistration(role = null) {
+                if (role) {
+                    this.selectRole(role);
+                }
+                
+                if (this.modalManager) {
+                    this.modalManager.open();
+                }
+            }
+            
+            selectRole(role) {
+                this.currentRole = role;
+                
+                // Update UI
+                document.querySelectorAll('.role-option').forEach(option => {
+                    option.classList.remove('selected');
+                });
+                
+                const selectedOption = document.querySelector(`.role-option[data-role="${role}"]`);
+                if (selectedOption) {
+                    selectedOption.classList.add('selected');
+                    
+                    // Navigate to form step
+                    setTimeout(() => {
+                        document.querySelector('[data-step="1"]').hidden = true;
+                        document.querySelector('[data-step="2"]').hidden = false;
+                        document.getElementById('formTitle').textContent = `Register as ${role.charAt(0).toUpperCase() + role.slice(1)}`;
+                        this.generateRegistrationForm(role);
+                    }, 300);
+                }
+            }
+            
+            generateRegistrationForm(role) {
+                const formContent = document.getElementById('dynamicFormContent');
+                if (!formContent) return;
+                
+                let formHTML = '';
+                
+                const commonFields = `
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required autocomplete="tel">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State *</label>
+                        <select id="state" name="state" required>
+                            <option value="">Select State</option>
+                            <option value="punjab">Punjab</option>
+                            <option value="maharashtra">Maharashtra</option>
+                            <option value="gujarat">Gujarat</option>
+                            <option value="up">Uttar Pradesh</option>
+                            <option value="tamilnadu">Tamil Nadu</option>
+                        </select>
+                    </div>
+                `;
+                
+                if (role === 'farmer') {
+                    formHTML = `
+                        ${commonFields}
+                        <div class="form-group">
+                            <label for="farmSize">Farm Size (Acres) *</label>
+                            <input type="number" id="farmSize" name="farmSize" required min="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="crops">Main Crops *</label>
+                            <input type="text" id="crops" name="crops" required placeholder="e.g., Wheat, Rice, Vegetables">
+                        </div>
+                        <div class="form-group">
+                            <label for="annualProduction">Annual Production (Quintal) *</label>
+                            <input type="number" id="annualProduction" name="annualProduction" required min="1">
+                        </div>
+                    `;
+                } else if (role === 'business') {
+                    formHTML = `
+                        ${commonFields}
+                        <div class="form-group">
+                            <label for="businessName">Business Name *</label>
+                            <input type="text" id="businessName" name="businessName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="businessType">Business Type *</label>
+                            <select id="businessType" name="businessType" required>
+                                <option value="">Select Type</option>
+                                <option value="retailer">Retailer</option>
+                                <option value="wholesaler">Wholesaler</option>
+                                <option value="restaurant">Restaurant/Hotel</option>
+                                <option value="processor">Food Processor</option>
+                                <option value="exporter">Exporter</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="monthlyRequirement">Monthly Requirement (Quintal) *</label>
+                            <input type="number" id="monthlyRequirement" name="monthlyRequirement" required min="1">
+                        </div>
+                    `;
+                } else if (role === 'consumer') {
+                    formHTML = `
+                        ${commonFields}
+                        <div class="form-group">
+                            <label for="city">City *</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pincode">Pincode *</label>
+                            <input type="text" id="pincode" name="pincode" required pattern="[0-9]{6}">
+                        </div>
+                        <div class="form-group">
+                            <label for="preferredProduce">Preferred Produce</label>
+                            <input type="text" id="preferredProduce" name="preferredProduce" placeholder="e.g., Vegetables, Fruits, Dairy">
+                        </div>
+                    `;
+                }
+                
+                formHTML += `
+                    <div class="form-group">
+                        <label for="password">Create Password *</label>
+                        <input type="password" id="password" name="password" required minlength="8" autocomplete="new-password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password *</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required autocomplete="new-password">
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the <a href="/terms.html">Terms of Service</a> and <a href="/privacy.html">Privacy Policy</a> *</label>
+                    </div>
+                    <button type="submit" class="btn-register" style="width: 100%; margin-top: 20px;">
+                        <i class="fas fa-user-plus"></i> Register Now
+                    </button>
+                `;
+                
+                formContent.innerHTML = formHTML;
+                
+                // Add form validation
+                const form = document.getElementById('registrationForm');
+                if (form) {
+                    form.addEventListener('submit', this.handleFormSubmit.bind(this));
+                }
+            }
+            
+            handleFormSubmit(e) {
+                e.preventDefault();
+                const form = e.target;
+                
+                // Simple validation
+                const password = form.querySelector('#password').value;
+                const confirmPassword = form.querySelector('#confirmPassword').value;
+                
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match!');
+                    return;
+                }
+                
+                // Show loading state
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<span class="loading-spinner"></span> Processing...';
+                submitBtn.disabled = true;
+                
+                // Simulate API call
+                setTimeout(() => {
+                    alert(`Registration successful! Welcome to Farm Vantara as a ${this.currentRole}.`);
+                    if (this.modalManager) {
+                        this.modalManager.close();
+                    }
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 1500);
+            }
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new FarmVantaraApp();
+        });
+
+        // Global functions for button onclick handlers
+        function openRegistration(role) {
+            if (window.app) {
+                window.app.openRegistration(role);
+            }
+        }
+        
+        function selectRole(role) {
+            if (window.app) {
+                window.app.selectRole(role);
+            }
+        }
+
+        // Request notification  permission
+        function requestNotificationPermission() {
+            if ('Notification' in window && Notification.permission === 'default') {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        console.log('Notification permission granted');
+                    }
+                });
+            }
+        }
+
+        // Initialize on user interaction
+        document.querySelector('.btn-register').addEventListener('click', requestNotificationPermission);
+    </script>
+</body>
+</html>

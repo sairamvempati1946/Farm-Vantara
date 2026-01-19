@@ -1,0 +1,2899 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    <meta name="apple-mobile-web-app-orientations" content="portrait">
+    <meta name="google" content="notranslate">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="cleartype" content="on">
+    <meta name="imagetoolbar" content="no">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline';
+        style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline';
+        img-src 'self' data: https:;
+        font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+        connect-src 'self' https://api.farmvantara.com;
+        frame-src 'none';
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+        upgrade-insecure-requests;
+    ">
+    <meta http-equiv="Content-Security-Policy-Report-Only" content="
+        default-src 'self';
+        report-uri https://api.farmvantara.com/csp-report;
+    ">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="
+        camera=(), 
+        microphone=(), 
+        geolocation=(), 
+        payment=()
+    ">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    
+    <!-- Primary Meta Tags -->
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="alternate" hreflang="en-in" href="https://farmvantara.com/login.html">
+    <title>Login | Farm Vantara – Access Your AgriTech Account</title>
+    <meta name="description" content="Login to your Farm Vantara account as farmer, business buyer, or consumer. Access India's leading farm-to-market platform.">
+    <meta name="keywords" content="farm vantara login, farmer login, agri business login, farm platform login, B2B agriculture login, farm to market login">
+    <meta name="author" content="Farm Vantara">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://farmvantara.com/login.html">
+    <meta property="og:title" content="Login | Farm Vantara – Access Your AgriTech Account">
+    <meta property="og:description" content="Login to your Farm Vantara account. Connect with agricultural markets across India.">
+    <meta property="og:image" content="https://farmvantara.com/images/login-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Farm Vantara">
+    <meta property="og:locale" content="en_IN">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://farmvantara.com/login.html">
+    <meta property="twitter:title" content="Login | Farm Vantara – Access Your AgriTech Account">
+    <meta property="twitter:description" content="Login to your Farm Vantara account. Connect with agricultural markets across India.">
+    <meta property="twitter:image" content="https://farmvantara.com/images/twitter-login.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://farmvantara.com/login.html">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS Inlined -->
+    <style>
+        :root {
+            --primary-green: #27ae60;
+            --dark-green: #219653;
+            --light-green: #6fcf97;
+            --accent-yellow: #f2c94c;
+            --accent-orange: #f2994a;
+            --dark-blue: #2d3436;
+            --light-gray: #f8f9fa;
+            --medium-gray: #dfe6e9;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --white: #ffffff;
+            --error-red: #e74c3c;
+            --warning-orange: #f39c12;
+            --info-blue: #3498db;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --gradient-primary: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+            --gradient-yellow: linear-gradient(135deg, #f2c94c 0%, #f2994a 100%);
+            --gradient-blue: linear-gradient(135deg, #2d9cdb 0%, #2f80ed 100%);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-dark: #ffffff;
+                --text-light: #b2bec3;
+                --white: #121212;
+                --light-gray: #1e1e1e;
+                --medium-gray: #2d3436;
+                --dark-blue: #000000;
+                --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Screen Reader Only */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Header */
+        .main-header {
+            background-color: var(--text-dark);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 75px;
+            width: 225px;
+            transition: var(--transition);
+        }
+
+        .back-home {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .back-home:hover {
+            background: rgba(39, 174, 96, 0.1);
+            transform: translateX(-5px);
+        }
+
+        /* Login Hero */
+        .login-hero {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><defs><radialGradient id="a" cx="20%" cy="80%"><stop offset="0%" stop-color="%2327ae60" stop-opacity="0.1"/><stop offset="50%" stop-color="%2327ae60" stop-opacity="0.05"/><stop offset="100%" stop-color="%2327ae60" stop-opacity="0"/></radialGradient><radialGradient id="b" cx="80%" cy="20%"><stop offset="0%" stop-color="%23f2c94c" stop-opacity="0.1"/><stop offset="50%" stop-color="%23f2c94c" stop-opacity="0.05"/><stop offset="100%" stop-color="%23f2c94c" stop-opacity="0"/></radialGradient></defs><rect width="100%" height="100%" fill="%23f8fff9"/><rect width="100%" height="100%" fill="url(%23a)"/><rect width="100%" height="100%" fill="url(%23b)"/></svg>');
+            padding: 60px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-green);
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #000000;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 500;
+        }
+
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .loading-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .loading-content {
+            text-align: center;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-hover);
+            max-width: 90%;
+            width: 400px;
+        }
+
+        .loading-spinner-large {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(39, 174, 96, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--primary-green);
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        /* Login Container - UPDATED FOR SIDE-BY-SIDE LAYOUT */
+        .login-container {
+            padding: 60px 0;
+            background: url("./loginbg.jpg");
+            background-size: cover;
+            background-position: center;
+            flex: 1;
+        }
+
+        .login-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: stretch;
+        }
+
+        .login-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-column-left {
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding-right: 40px;
+        }
+
+        .login-column-right {
+            padding-left: 40px;
+        }
+
+        @media (max-width: 992px) {
+            .login-wrapper {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            
+            .login-column-left {
+                border-right: none;
+                padding-right: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding-bottom: 60px;
+            }
+            
+            .login-column-right {
+                padding-left: 0;
+            }
+        }
+
+        .login-card {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            padding: 40px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .login-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+
+        .login-icon i {
+            font-size: 36px;
+            color: white;
+        }
+
+        .login-title {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .login-subtitle {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        /* Demo Credentials Banner */
+        .demo-banner {
+            background: var(--primary-green);
+            color: var(--text-dark);
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            text-align: center;
+            animation: pulse 2s infinite;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .demo-banner:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .demo-banner h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .demo-banner p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(242, 201, 76, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(242, 201, 76, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(242, 201, 76, 0); }
+        }
+
+        /* Password Strength Indicator */
+        .password-strength {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .strength-meter {
+            height: 6px;
+            background: var(--medium-gray);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .strength-fill {
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .strength-fill.very-weak { width: 20%; background: var(--error-red); }
+        .strength-fill.weak { width: 40%; background: #e67e22; }
+        .strength-fill.fair { width: 60%; background: #f1c40f; }
+        .strength-fill.good { width: 80%; background: #2ecc71; }
+        .strength-fill.strong { width: 100%; background: var(--dark-green); }
+
+        .strength-text {
+            font-size: 12px;
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .strength-label {
+            font-weight: 600;
+        }
+
+        /* Password Requirements */
+        .password-requirements {
+            background: var(--light-gray);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .password-requirements.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .password-requirements p {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .password-requirements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .password-requirements li {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .password-requirements li::before {
+            content: '○';
+            font-size: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .password-requirements li.valid {
+            color: var(--dark-green);
+        }
+
+        .password-requirements li.valid::before {
+            content: '✓';
+            color: var(--dark-green);
+        }
+
+        /* Login Form */
+        .login-form {
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        label .required {
+            color: var(--error-red);
+            margin-left: 4px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--medium-gray);
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 15px;
+            transition: var(--transition);
+            background: var(--white);
+            color: var(--text-dark);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+        }
+
+        input.error {
+            border-color: var(--error-red);
+        }
+
+        .error-message {
+            color: var(--error-red);
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* Password Input */
+        .password-input {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 16px;
+            transition: var(--transition);
+            padding: 5px;
+            z-index: 2;
+        }
+
+        .password-toggle:hover {
+            color: var(--primary-green);
+        }
+
+        /* CAPTCHA & Honeypot */
+        .captcha-container {
+            margin-bottom: 20px;
+        }
+
+        .honeypot-field {
+            position: absolute;
+            left: -9999px;
+            height: 0;
+            width: 0;
+            overflow: hidden;
+        }
+
+        /* Form Options */
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .remember-me input {
+            width: auto;
+            transform: scale(1.1);
+        }
+
+        .remember-me label {
+            margin: 0;
+            font-weight: 500;
+            cursor: pointer;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .forgot-password {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        /* Login Button */
+        .login-button {
+            width: 100%;
+            padding: 16px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .login-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(39, 174, 96, 0.3);
+        }
+
+        .login-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Session Warning */
+        .session-warning {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--warning-orange);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-hover);
+            z-index: 10000;
+            max-width: 350px;
+            display: none;
+            animation: slideInUp 0.3s ease;
+        }
+
+        .session-warning.active {
+            display: block;
+        }
+
+        .session-warning h4 {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .session-warning p {
+            font-size: 14px;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .session-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .session-actions button {
+            flex: 1;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .session-actions .stay-logged-in {
+            background: white;
+            color: var(--warning-orange);
+        }
+
+        .session-actions .logout-now {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+
+        /* Quick Login */
+        .quick-login {
+            margin-bottom: 20px;
+        }
+
+        .quick-login-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .quick-login-button {
+            padding: 12px;
+            background: rgba(39, 174, 96, 0.1);
+            border: 1px solid rgba(39, 174, 96, 0.2);
+            border-radius: 6px;
+            color: var(--primary-green);
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .quick-login-button:hover {
+            background: rgba(39, 174, 96, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Rate Limit Warning */
+        .rate-limit-warning {
+            background: rgba(231, 76, 60, 0.1);
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .rate-limit-warning.active {
+            display: block;
+        }
+
+        .rate-limit-warning h4 {
+            color: var(--error-red);
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rate-limit-warning p {
+            color: var(--text-light);
+            font-size: 13px;
+        }
+
+        /* Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--medium-gray);
+        }
+
+        .divider span {
+            padding: 0 15px;
+        }
+
+        /* Social Login */
+        .social-login {
+            margin-bottom: 40px;
+        }
+
+        .social-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .social-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px;
+            border: 2px solid var(--medium-gray);
+            border-radius: 8px;
+            background: var(--white);
+            color: var(--text-dark);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .social-button:hover {
+            background: var(--light-gray);
+            transform: translateY(-2px);
+        }
+
+        .social-button.google {
+            color: #DB4437;
+        }
+
+        .social-button.facebook {
+            color: #4267B2;
+        }
+
+        .social-button.apple {
+            color: var(--text-dark);
+        }
+
+        /* Register Section - UPDATED FOR SIDE-BY-SIDE LAYOUT */
+        .register-section {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .register-card {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            padding: 40px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .register-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .register-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+
+        .register-icon i {
+            font-size: 36px;
+            color: white;
+        }
+
+        .register-title {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .register-subtitle {
+            color: var(--text-light);
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        .register-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .register-text {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        .register-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 30px;
+            background: var(--white);
+            color: var(--info-blue);
+            border: 2px solid var(--info-blue);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .register-button:hover {
+            background: rgba(45, 156, 219, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(45, 156, 219, 0.2);
+        }
+
+        .register-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: auto;
+        }
+
+        .register-option {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px;
+            border: 2px solid var(--medium-gray);
+            border-radius: 12px;
+            background: var(--white);
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .register-option:hover {
+            border-color: var(--info-blue);
+            background: rgba(45, 156, 219, 0.05);
+            transform: translateX(5px);
+            box-shadow: var(--shadow);
+        }
+
+        .register-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--info-blue);
+            transform: translateX(-100%);
+            transition: var(--transition);
+        }
+
+        .register-option:hover::before {
+            transform: translateX(0);
+        }
+
+        .register-option-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(45, 156, 219, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .register-option-icon i {
+            font-size: 20px;
+            color: var(--info-blue);
+        }
+
+        .register-option:hover .register-option-icon {
+            background: rgba(45, 156, 219, 0.2);
+            transform: scale(1.1);
+        }
+
+        .register-option-text {
+            flex: 1;
+        }
+
+        .register-option-text h4 {
+            font-size: 16px;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+        }
+
+        .register-option-text p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .register-option-arrow {
+            color: var(--info-blue);
+            font-size: 14px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: var(--transition);
+        }
+
+        .register-option:hover .register-option-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .register-benefits {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid var(--medium-gray);
+        }
+
+        .register-benefits h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .benefits-list li i {
+            color: var(--primary-green);
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        /* Success State */
+        .success-state {
+            padding: 40px 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .success-state.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: successScale 0.5s ease;
+        }
+
+        @keyframes successScale {
+            0% { transform: scale(0); }
+            70% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .success-icon i {
+            font-size: 48px;
+            color: white;
+        }
+
+        .success-title {
+            font-size: 2rem;
+            color: var(--dark-green);
+            margin-bottom: 15px;
+        }
+
+        .success-message {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Success Actions */
+        .success-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .logout-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: var(--white);
+            color: var(--error-red);
+            border: 2px solid var(--error-red);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 15px;
+        }
+
+        .logout-button:hover {
+            background: rgba(231, 76, 60, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Alert Styles */
+        .custom-alert {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-green);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-hover);
+            z-index: 10000;
+            max-width: 350px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            animation: slideInRight 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .custom-alert.error {
+            background: var(--error-red);
+        }
+
+        .custom-alert.warning {
+            background: var(--warning-orange);
+        }
+
+        .custom-alert.info {
+            background: var(--info-blue);
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOutRight {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+
+        /* Footer */
+        .main-footer {
+            background-color: var(--text-dark);
+            color: white;
+            padding: 50px 0 25px;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-logo-img {
+            height: 70px;
+            width: 210px;
+        }
+
+        .footer-description {
+            color: rgba(0, 0, 0, 0.811);
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-green);
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            color: rgb(0, 0, 0);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 35px;
+            height: 3px;
+            background: var(--gradient-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(0, 0, 0, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: var(--light-green);
+            padding-left: 8px;
+        }
+
+        .contact-info p {
+            color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 18px;
+            font-size: 14px;
+        }
+
+        .contact-info i {
+            color: var(--primary-green);
+            margin-right: 12px;
+            margin-top: 3px;
+            min-width: 18px;
+            font-size: 14px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(0, 0, 0, 0.7);
+            font-size: 13px;
+        }
+
+        /* Print Styles */
+        @media print {
+            .main-header,
+            .login-hero,
+            .social-login,
+            .register-section,
+            .main-footer,
+            .demo-banner,
+            .quick-login,
+            .session-warning,
+            .custom-alert {
+                display: none !important;
+            }
+
+            body {
+                background: white !important;
+                color: black !important;
+            }
+
+            .login-card {
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+            }
+
+            .login-button {
+                background: #27ae60 !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        /* No Script Styles */
+        .noscript-warning {
+            background: var(--gradient-yellow);
+            color: var(--text-dark);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .noscript-warning p {
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .login-card,
+            .register-card {
+                padding: 30px 25px;
+            }
+            
+            .login-title,
+            .register-title {
+                font-size: 1.6rem;
+            }
+            
+            .social-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .quick-login-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .session-warning {
+                left: 20px;
+                right: 20px;
+                max-width: none;
+            }
+            
+            .login-wrapper {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .logo-img {
+                height: 60px;
+                width: 180px;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .login-card,
+            .register-card {
+                padding: 25px 20px;
+            }
+            
+            .form-options {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .login-icon,
+            .register-icon {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .login-icon i,
+            .register-icon i {
+                font-size: 32px;
+            }
+            
+            .register-option {
+                padding: 15px;
+            }
+            
+            .register-option-icon {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .register-option-icon i {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            
+            .login-title,
+            .register-title {
+                font-size: 1.4rem;
+            }
+            
+            .success-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NoScript Warning -->
+    <noscript>
+        <div class="noscript-warning">
+            <p>JavaScript is required for enhanced login features. Please enable JavaScript or use the basic form below.</p>
+        </div>
+    </noscript>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner-large"></div>
+            <h3>Processing...</h3>
+            <p>Please wait while we authenticate your credentials</p>
+        </div>
+    </div>
+
+    <!-- Session Warning -->
+    <div class="session-warning" id="sessionWarning">
+        <h4>Session About to Expire</h4>
+        <p>Your session will expire in 60 seconds. Do you want to stay logged in?</p>
+        <div class="session-actions">
+            <button class="stay-logged-in" onclick="loginApp.extendSession()">Stay Logged In</button>
+            <button class="logout-now" onclick="loginApp.logoutUser()">Logout Now</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="./index.html" class="logo">
+                    <img src="./logo.png" alt="Farm Vantara Logo" class="logo-img" width="225" height="75">
+                </a>
+                <a href="./index.html" class="back-home">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Login Container with Side-by-Side Layout -->
+    <section class="login-container">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome Back to Farm Vantara</h1>
+                <p class="hero-subtitle">Login to your account to continue your journey with India's leading farm-to-market platform</p>
+            </div>
+            <div class="login-wrapper">
+                <!-- Left Column: Login Form -->
+                <div class="login-column login-column-left">
+                    <!-- Login Card -->
+                    <div class="login-card" id="loginCard">
+                        <!-- Demo Credentials Banner -->
+                        <div class="demo-banner" id="demoBanner">
+                            <h4>ADMIN Credentials Available</h4>
+                            <p>Try quick login buttons below or use: admin@farmvantara.com / Password: admin@123</p>
+                        </div>
+
+                        <!-- Rate Limit Warning -->
+                        <div class="rate-limit-warning" id="rateLimitWarning">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Too Many Attempts</h4>
+                            <p>Too many login attempts. Please wait 15 minutes before trying again.</p>
+                        </div>
+
+                        <div class="login-header">
+                            <div class="login-icon">
+                                <i class="fas fa-sign-in-alt"></i>
+                            </div>
+                            <h2 class="login-title">Login to Your Account</h2>
+                            <p class="login-subtitle">Enter your credentials to access your dashboard</p>
+                        </div>
+
+                        <!-- Quick Login -->
+                        <div class="quick-login">
+                            <div class="quick-login-buttons">
+                                <button class="quick-login-button" data-email="farmer@farmvantara.com" data-password="demo123">
+                                    Farmer
+                                </button>
+                                <button class="quick-login-button" data-email="business@farmvantara.com" data-password="demo123">
+                                    Business
+                                </button>
+                                <button class="quick-login-button" data-email="consumer@farmvantara.com" data-password="demo123">
+                                    Consumer
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Login Form -->
+                        <form class="login-form" id="loginForm" novalidate>
+                            <!-- CSRF Token (In production, this would be generated server-side) -->
+                            <input type="hidden" name="csrf_token" id="csrfToken" value="mock_csrf_token_123456">
+                            
+                            <!-- Honeypot Field -->
+                            <div class="honeypot-field">
+                                <label for="website" class="sr-only">Leave this field empty</label>
+                                <input type="url" id="website" name="website" tabindex="-1" autocomplete="off">
+                            </div>
+
+                            <!-- Email Field -->
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required 
+                                    placeholder="your@email.com"
+                                    autocomplete="email"
+                                    inputmode="email">
+                                <div class="error-message" id="emailError"></div>
+                            </div>
+
+                            <!-- Password Field -->
+                            <div class="form-group">
+                                <label for="password">Password <span class="required">*</span></label>
+                                <div class="password-input">
+                                    <input type="password" id="password" name="password" required 
+                                        minlength="8" 
+                                        placeholder="Enter your password"
+                                        autocomplete="current-password">
+                                    <button type="button" class="password-toggle" id="passwordToggle" aria-label="Toggle password visibility">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                
+                                <!-- Password Strength Indicator -->
+                                <div class="password-strength">
+                                    <div class="strength-meter">
+                                        <div class="strength-fill" id="strengthFill"></div>
+                                    </div>
+                                    <div class="strength-text">
+                                        <span>Password Strength:</span>
+                                        <span class="strength-label" id="strengthLabel">None</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Password Requirements -->
+                                <div class="password-requirements" id="passwordRequirements">
+                                    <p>Password must contain:</p>
+                                    <ul>
+                                        <li data-requirement="length">At least 8 characters</li>
+                                        <li data-requirement="uppercase">One uppercase letter</li>
+                                        <li data-requirement="lowercase">One lowercase letter</li>
+                                        <li data-requirement="number">One number</li>
+                                        <li data-requirement="special">One special character</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="error-message" id="passwordError"></div>
+                            </div>
+
+                            <!-- CAPTCHA Container -->
+                            <div class="captcha-container" id="captchaContainer">
+                                <!-- Invisible CAPTCHA would be loaded here in production -->
+                            </div>
+
+                            <div class="form-options">
+                                <div class="remember-me">
+                                    <input type="checkbox" id="remember" name="remember">
+                                    <label for="remember">Remember me</label>
+                                </div>
+                                <a href="#" class="forgot-password" id="forgotPassword">
+                                    Forgot Password?
+                                </a>
+                            </div>
+
+                            <button type="submit" class="login-button" id="loginButton">
+                                <i class="fas fa-sign-in-alt"></i> <span>Login</span>
+                            </button>
+                            
+                            <p class="login-subtitle" style="text-align: center; font-size: 12px;">
+                                <i class="fas fa-lightbulb"></i> Tip: Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to submit the form
+                            </p>
+                        </form>
+
+                        <!-- Divider -->
+                        <div class="divider">
+                            <span>Or continue with</span>
+                        </div>
+
+                        <!-- Social Login -->
+                        <div class="social-login">
+                            <div class="social-buttons">
+                                <button type="button" class="social-button google" onclick="loginApp.socialLogin('google')">
+                                    <i class="fab fa-google"></i> Google
+                                </button>
+                                <button type="button" class="social-button facebook" onclick="loginApp.socialLogin('facebook')">
+                                    <i class="fab fa-facebook-f"></i> Facebook
+                                </button>
+                                <button type="button" class="social-button apple" onclick="loginApp.socialLogin('apple')">
+                                    <i class="fab fa-apple"></i> Apple
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Register Section -->
+                <div class="login-column login-column-right">
+                    <div class="register-section">
+                        <div class="register-card">
+                            <div class="register-header">
+                                <div class="register-icon">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <h2 class="register-title">Join Farm Vantara</h2>
+                                <p class="register-subtitle">Create your account and start your journey with India's leading AgriTech platform</p>
+                            </div>
+
+                            <div class="register-content">
+                                <p class="register-text">Don't have an account yet? Join our community today!</p>
+                                
+                                <a href="./register.html" class="register-button">
+                                    <i class="fas fa-user-plus"></i> Create New Account
+                                </a>
+
+                                <div class="register-options">
+                                    <a href="./register.html?role=farmer" class="register-option">
+                                        <div class="register-option-icon">
+                                            <i class="fas fa-tractor"></i>
+                                        </div>
+                                        <div class="register-option-text">
+                                            <h4>Register as Farmer</h4>
+                                            <p>Sell your produce directly to businesses and consumers</p>
+                                        </div>
+                                        <div class="register-option-arrow">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </div>
+                                    </a>
+                                    
+                                    <a href="./register.html?role=business" class="register-option">
+                                        <div class="register-option-icon">
+                                            <i class="fas fa-building"></i>
+                                        </div>
+                                        <div class="register-option-text">
+                                            <h4>Register as Business</h4>
+                                            <p>Source fresh produce directly from farmers</p>
+                                        </div>
+                                        <div class="register-option-arrow">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </div>
+                                    </a>
+                                    
+                                    <a href="./register.html?role=consumer" class="register-option">
+                                        <div class="register-option-icon">
+                                            <i class="fas fa-shopping-basket"></i>
+                                        </div>
+                                        <div class="register-option-text">
+                                            <h4>Register as Consumer</h4>
+                                            <p>Buy fresh farm products at best prices</p>
+                                        </div>
+                                        <div class="register-option-arrow">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="register-benefits">
+                                    <h4>Why Join Farm Vantara?</h4>
+                                    <ul class="benefits-list">
+                                        <li><i class="fas fa-check-circle"></i> Direct farm-to-market access</li>
+                                        <li><i class="fas fa-check-circle"></i> Transparent pricing and quality</li>
+                                        <li><i class="fas fa-check-circle"></i> Secure and easy transactions</li>
+                                        <li><i class="fas fa-check-circle"></i> Dedicated support for all users</li>
+                                        <li><i class="fas fa-check-circle"></i> Grow your business with our tools</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success State (Full Width) -->
+            <div class="success-state" id="successState">
+                <div class="success-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h2 class="success-title" id="successTitle">Login Successful!</h2>
+                <p class="success-message" id="successMessage">
+                    Welcome back to Farm Vantara! You are being redirected to your dashboard.
+                </p>
+                <div class="success-actions" id="successActions">
+                    <!-- Actions will be dynamically added -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="./logo.png" alt="Farm Vantara Logo" class="footer-logo-img">
+                    </div>
+                    <p class="footer-description">
+                        India's leading AgriTech platform connecting farmers directly with businesses and consumers. Empowering farmers with technology, transparency, and direct market access.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://facebook.com/farmvantara" target="_blank" rel="noopener nofollow" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/farmvantara" target="_blank" rel="noopener nofollow" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/farmvantara" target="_blank" rel="noopener nofollow" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/farmvantara" target="_blank" rel="noopener nofollow" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://linkedin.com/company/farmvantara" target="_blank" rel="noopener nofollow" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="./index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="./farmers.html"><i class="fas fa-chevron-right"></i> For Farmers</a></li>
+                        <li><a href="./business.html"><i class="fas fa-chevron-right"></i> For Businesses</a></li>
+                        <li><a href="./shop.html"><i class="fas fa-chevron-right"></i> Shop Fresh</a></li>
+                        <li><a href="./process.html"><i class="fas fa-chevron-right"></i> How It Works</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="./contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                        <li><a href="./faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                        <li><a href="./support.html"><i class="fas fa-chevron-right"></i> Help Center</a></li>
+                        <li><a href="./privacy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                        <li><a href="./terms.html"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> AgriTech Park, Sector 62, Noida, Uttar Pradesh 201309</p>
+                        <p><i class="fas fa-phone-alt"></i> 1800-123-4567 (Toll Free)</p>
+                        <p><i class="fas fa-envelope"></i> info.farmvantara@gmail.com</p>
+                        <p><i class="fab fa-whatsapp"></i> +91 9553774933</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear">2024</span> Farm Vantara – India's Leading AgriTech Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enhanced JavaScript -->
+    <script>
+        // Enhanced Login Application with All Improvements
+        class LoginApp {
+            constructor() {
+                this.isLoggedIn = false;
+                this.redirectTimeout = null;
+                this.sessionTimer = null;
+                this.warningTimer = null;
+                this.loginAttempts = new Map();
+                this.maxLoginAttempts = 5;
+                this.lockoutTime = 15 * 60 * 1000; // 15 minutes
+                this.sessionTimeout = 5 * 60 * 1000; // 5 minutes
+                this.sessionWarningTime = 60 * 1000; // 1 minute warning
+                
+                // Predefined credentials with role-based redirection
+                this.predefinedCredentials = {
+                    'farmer@farmvantara.com': {
+                        password: 'demo123',
+                        role: 'farmer',
+                        name: 'Farmer User',
+                        redirectTo: 'farmerdashboard.html'
+                    },
+                    'business@farmvantara.com': {
+                        password: 'demo123',
+                        role: 'business',
+                        name: 'Business User',
+                        redirectTo: 'buyersdashboard.html'
+                    },
+                    'consumer@farmvantara.com': {
+                        password: 'demo123',
+                        role: 'consumer',
+                        name: 'Consumer User',
+                        redirectTo: 'shop.html'
+                    },
+                    'admin@farmvantara.com': {
+                        password: 'admin@123',
+                        role: 'admin',
+                        name: 'Admin User',
+                        redirectTo: 'adminpanel.html'
+                    }
+                };
+                
+                this.init();
+            }
+
+            init() {
+                // Set current year in footer
+                document.getElementById('currentYear').textContent = new Date().getFullYear();
+                
+                // Check if user is already logged in
+                this.checkLoginStatus();
+                
+                // Setup event listeners
+                this.setupEventListeners();
+                
+                // Setup keyboard shortcuts
+                this.setupKeyboardShortcuts();
+                
+                // Initialize analytics
+                this.initAnalytics();
+                
+                console.log('Farm Vantara Enhanced Login App Initialized');
+            }
+
+            checkLoginStatus() {
+                // Check for stored login token or session
+                const token = localStorage.getItem('farmvantara_token') || sessionStorage.getItem('farmvantara_token');
+                const userData = localStorage.getItem('farmvantara_user') || sessionStorage.getItem('farmvantara_user');
+                
+                if (token && userData) {
+                    try {
+                        const user = JSON.parse(userData);
+                        this.showSuccessState(user);
+                        this.isLoggedIn = true;
+                        this.startSessionTimer();
+                    } catch (e) {
+                        this.clearUserData();
+                    }
+                }
+            }
+
+            setupEventListeners() {
+                // Password toggle
+                const passwordToggle = document.getElementById('passwordToggle');
+                if (passwordToggle) {
+                    passwordToggle.addEventListener('click', () => this.togglePasswordVisibility());
+                }
+
+                // Form submission
+                const form = document.getElementById('loginForm');
+                if (form) {
+                    form.addEventListener('submit', (e) => this.handleSubmit(e));
+                }
+
+                // Real-time form validation
+                document.addEventListener('input', (e) => {
+                    if (e.target.matches('input')) {
+                        this.validateField(e.target);
+                    }
+                    
+                    // Password strength check
+                    if (e.target.id === 'password') {
+                        this.checkPasswordStrength(e.target.value);
+                        this.validatePasswordRequirements(e.target.value);
+                    }
+                });
+
+                // Quick login buttons
+                document.querySelectorAll('.quick-login-button').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const email = e.target.dataset.email;
+                        const password = e.target.dataset.password;
+                        this.fillDemoCredentials(email, password);
+                        this.trackAnalyticsEvent('quick_login_clicked', { role: email.split('@')[0] });
+                    });
+                });
+
+                // Forgot password
+                const forgotPassword = document.getElementById('forgotPassword');
+                if (forgotPassword) {
+                    forgotPassword.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.handleForgotPassword();
+                    });
+                }
+
+                // Demo banner click
+                const demoBanner = document.getElementById('demoBanner');
+                if (demoBanner) {
+                    demoBanner.addEventListener('click', () => {
+                        this.fillDemoCredentials('admin@farmvantara.com', 'admin123');
+                        this.trackAnalyticsEvent('demo_banner_clicked');
+                    });
+                }
+
+                // Form focus tracking for analytics
+                const inputs = document.querySelectorAll('input');
+                inputs.forEach(input => {
+                    input.addEventListener('focus', () => {
+                        this.trackAnalyticsEvent('form_field_focused', { field: input.id });
+                    });
+                    
+                    input.addEventListener('blur', () => {
+                        if (input.value.trim()) {
+                            this.trackAnalyticsEvent('form_field_completed', { field: input.id });
+                        }
+                    });
+                });
+            }
+
+            setupKeyboardShortcuts() {
+                document.addEventListener('keydown', (e) => {
+                    // Ctrl+Enter to submit form
+                    if (e.ctrlKey && e.key === 'Enter') {
+                        const loginForm = document.getElementById('loginForm');
+                        if (loginForm) {
+                            loginForm.requestSubmit();
+                            this.trackAnalyticsEvent('keyboard_shortcut_used', { shortcut: 'ctrl_enter' });
+                        }
+                    }
+                    
+                    // Escape to close alerts
+                    if (e.key === 'Escape') {
+                        const alert = document.querySelector('.custom-alert');
+                        if (alert) {
+                            alert.remove();
+                        }
+                        const sessionWarning = document.getElementById('sessionWarning');
+                        if (sessionWarning) {
+                            sessionWarning.classList.remove('active');
+                        }
+                        this.trackAnalyticsEvent('keyboard_shortcut_used', { shortcut: 'escape' });
+                    }
+                    
+                    // Alt+1,2,3 for quick login buttons
+                    if (e.altKey && (e.key === '1' || e.key === '2' || e.key === '3')) {
+                        const quickButtons = document.querySelectorAll('.quick-login-button');
+                        const index = parseInt(e.key) - 1;
+                        if (quickButtons[index]) {
+                            quickButtons[index].click();
+                            this.trackAnalyticsEvent('keyboard_shortcut_used', { shortcut: 'alt_' + e.key });
+                        }
+                    }
+                });
+            }
+
+            initAnalytics() {
+                // In production, this would initialize Google Analytics, Mixpanel, etc.
+                console.log('Analytics initialized (demo mode)');
+                this.trackAnalyticsEvent('page_view', { page: 'login' });
+            }
+
+            trackAnalyticsEvent(eventName, metadata = {}) {
+                // Remove any PII from metadata
+                const safeMetadata = { ...metadata };
+                delete safeMetadata.email;
+                delete safeMetadata.password;
+                delete safeMetadata.token;
+                
+                // Add timestamp and user agent info
+                safeMetadata.timestamp = new Date().toISOString();
+                safeMetadata.userAgent = navigator.userAgent;
+                safeMetadata.referrer = document.referrer;
+                
+                // In production, send to analytics endpoint
+                if (window.gtag) {
+                    gtag('event', eventName, safeMetadata);
+                }
+                
+                // Console log for demo purposes
+                console.log(`[Analytics] ${eventName}:`, safeMetadata);
+                
+                // Store in localStorage for debugging
+                try {
+                    const analyticsLog = JSON.parse(localStorage.getItem('farmvantara_analytics') || '[]');
+                    analyticsLog.push({
+                        event: eventName,
+                        ...safeMetadata,
+                        time: Date.now()
+                    });
+                    // Keep only last 100 events
+                    if (analyticsLog.length > 100) {
+                        analyticsLog.shift();
+                    }
+                    localStorage.setItem('farmvantara_analytics', JSON.stringify(analyticsLog));
+                } catch (e) {
+                    // Silently fail in case of errors
+                }
+            }
+
+            checkRateLimit(email) {
+                const now = Date.now();
+                const userAttempts = this.loginAttempts.get(email) || [];
+                
+                // Remove attempts older than lockout time
+                const recentAttempts = userAttempts.filter(time => 
+                    now - time < this.lockoutTime
+                );
+                
+                // Check if user is locked out
+                if (recentAttempts.length >= this.maxLoginAttempts) {
+                    const timeLeft = this.lockoutTime - (now - recentAttempts[0]);
+                    const minutesLeft = Math.ceil(timeLeft / (60 * 1000));
+                    
+                    this.showRateLimitWarning(minutesLeft);
+                    this.trackAnalyticsEvent('rate_limit_triggered', { email, attempts: recentAttempts.length });
+                    return true;
+                }
+                
+                return false;
+            }
+
+            recordLoginAttempt(email) {
+                const now = Date.now();
+                const userAttempts = this.loginAttempts.get(email) || [];
+                userAttempts.push(now);
+                this.loginAttempts.set(email, userAttempts);
+                
+                // Cleanup old attempts
+                const cleanupTime = now - this.lockoutTime;
+                const cleanedAttempts = userAttempts.filter(time => time > cleanupTime);
+                this.loginAttempts.set(email, cleanedAttempts);
+                
+                this.trackAnalyticsEvent('login_attempt_recorded', { 
+                    email, 
+                    attemptCount: cleanedAttempts.length 
+                });
+            }
+
+            showRateLimitWarning(minutesLeft) {
+                const warning = document.getElementById('rateLimitWarning');
+                if (warning) {
+                    warning.querySelector('p').textContent = 
+                        `Too many login attempts. Please wait ${minutesLeft} minute${minutesLeft !== 1 ? 's' : ''} before trying again.`;
+                    warning.classList.add('active');
+                    
+                    // Auto-hide after 10 seconds
+                    setTimeout(() => {
+                        warning.classList.remove('active');
+                    }, 10000);
+                }
+            }
+
+            checkPasswordStrength(password) {
+                const strength = this.calculatePasswordStrength(password);
+                const strengthFill = document.getElementById('strengthFill');
+                const strengthLabel = document.getElementById('strengthLabel');
+                
+                if (strengthFill && strengthLabel) {
+                    // Reset classes
+                    strengthFill.className = 'strength-fill';
+                    
+                    // Update strength indicator
+                    if (password.length > 0) {
+                        strengthFill.classList.add(strength.class);
+                        strengthFill.style.width = strength.percentage + '%';
+                        strengthLabel.textContent = strength.label;
+                        strengthLabel.style.color = strength.color;
+                    } else {
+                        strengthFill.style.width = '0%';
+                        strengthLabel.textContent = 'None';
+                        strengthLabel.style.color = 'var(--text-light)';
+                    }
+                }
+            }
+
+            calculatePasswordStrength(password) {
+                let score = 0;
+                const requirements = {
+                    length: password.length >= 8,
+                    uppercase: /[A-Z]/.test(password),
+                    lowercase: /[a-z]/.test(password),
+                    number: /[0-9]/.test(password),
+                    special: /[^A-Za-z0-9]/.test(password)
+                };
+                
+                Object.values(requirements).forEach(met => {
+                    if (met) score++;
+                });
+                
+                const strengthLevels = [
+                    { label: 'Very Weak', class: 'very-weak', color: '#e74c3c', percentage: 20 },
+                    { label: 'Weak', class: 'weak', color: '#e67e22', percentage: 40 },
+                    { label: 'Fair', class: 'fair', color: '#f1c40f', percentage: 60 },
+                    { label: 'Good', class: 'good', color: '#2ecc71', percentage: 80 },
+                    { label: 'Strong', class: 'strong', color: '#27ae60', percentage: 100 }
+                ];
+                
+                return strengthLevels[score] || strengthLevels[0];
+            }
+
+            validatePasswordRequirements(password) {
+                const requirementsContainer = document.getElementById('passwordRequirements');
+                if (!requirementsContainer) return;
+                
+                if (password.length > 0) {
+                    requirementsContainer.classList.add('active');
+                    
+                    // Check each requirement
+                    const requirements = {
+                        length: password.length >= 8,
+                        uppercase: /[A-Z]/.test(password),
+                        lowercase: /[a-z]/.test(password),
+                        number: /[0-9]/.test(password),
+                        special: /[^A-Za-z0-9]/.test(password)
+                    };
+                    
+                    // Update requirement indicators
+                    Object.entries(requirements).forEach(([key, met]) => {
+                        const li = requirementsContainer.querySelector(`[data-requirement="${key}"]`);
+                        if (li) {
+                            li.classList.toggle('valid', met);
+                        }
+                    });
+                } else {
+                    requirementsContainer.classList.remove('active');
+                }
+            }
+
+            fillDemoCredentials(email, password) {
+                const emailField = document.getElementById('email');
+                const passwordField = document.getElementById('password');
+                
+                if (emailField && passwordField) {
+                    emailField.value = email;
+                    passwordField.value = password;
+                    
+                    // Trigger validation and strength check
+                    this.validateField(emailField);
+                    this.validateField(passwordField);
+                    this.checkPasswordStrength(password);
+                    this.validatePasswordRequirements(password);
+                    
+                    // Show notification with role info
+                    const role = this.predefinedCredentials[email]?.role || 'user';
+                    this.showAlert(`Demo ${role} credentials filled! Click "Login" to continue.`, 'info');
+                    
+                    // Focus on login button
+                    document.getElementById('loginButton').focus();
+                }
+            }
+
+            togglePasswordVisibility() {
+                const passwordInput = document.getElementById('password');
+                const toggleIcon = document.getElementById('passwordToggle').querySelector('i');
+                
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    toggleIcon.className = 'fas fa-eye-slash';
+                    toggleIcon.setAttribute('aria-label', 'Hide password');
+                    this.trackAnalyticsEvent('password_visibility_toggled', { visible: true });
+                } else {
+                    passwordInput.type = 'password';
+                    toggleIcon.className = 'fas fa-eye';
+                    toggleIcon.setAttribute('aria-label', 'Show password');
+                    this.trackAnalyticsEvent('password_visibility_toggled', { visible: false });
+                }
+            }
+
+            validateField(field) {
+                const value = field.value.trim();
+                const errorElement = document.getElementById(field.id + 'Error');
+                
+                if (!errorElement) return true;
+
+                // Clear previous error
+                errorElement.classList.remove('show');
+                field.classList.remove('error');
+
+                // Required field validation
+                if (field.hasAttribute('required') && !value) {
+                    this.showError(field, 'This field is required');
+                    return false;
+                }
+
+                // Email validation
+                if (field.type === 'email' && value) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(value)) {
+                        this.showError(field, 'Please enter a valid email address');
+                        return false;
+                    }
+                }
+
+                // Password validation
+                if (field.id === 'password' && value) {
+                    const requirements = this.calculatePasswordStrength(value);
+                    if (requirements.label === 'Very Weak' || requirements.label === 'Weak') {
+                        this.showError(field, 'Please use a stronger password');
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            showError(field, message) {
+                const errorElement = document.getElementById(field.id + 'Error');
+                if (errorElement) {
+                    errorElement.textContent = message;
+                    errorElement.classList.add('show');
+                    field.classList.add('error');
+                    field.focus();
+                    
+                    // Announce error to screen readers
+                    const announcement = document.createElement('div');
+                    announcement.setAttribute('role', 'alert');
+                    announcement.setAttribute('aria-live', 'assertive');
+                    announcement.className = 'sr-only';
+                    announcement.textContent = `Error: ${message}`;
+                    document.body.appendChild(announcement);
+                    setTimeout(() => announcement.remove(), 1000);
+                    
+                    this.trackAnalyticsEvent('form_validation_error', { field: field.id, error: message });
+                }
+            }
+
+            validateForm() {
+                let isValid = true;
+                
+                const form = document.getElementById('loginForm');
+                if (!form) return false;
+                
+                // Check honeypot field
+                const honeypot = document.getElementById('website');
+                if (honeypot && honeypot.value.trim() !== '') {
+                    this.trackAnalyticsEvent('honeypot_triggered');
+                    console.warn('Potential bot detected - honeypot field was filled');
+                    // Don't reveal failure to user, just log it
+                    return false;
+                }
+                
+                const fields = form.querySelectorAll('input[required]');
+                
+                fields.forEach(field => {
+                    if (!this.validateField(field)) {
+                        isValid = false;
+                    }
+                });
+
+                return isValid;
+            }
+
+            showLoading(show = true) {
+                const loadingOverlay = document.getElementById('loadingOverlay');
+                if (loadingOverlay) {
+                    if (show) {
+                        loadingOverlay.classList.add('active');
+                        loadingOverlay.setAttribute('aria-busy', 'true');
+                    } else {
+                        loadingOverlay.classList.remove('active');
+                        loadingOverlay.setAttribute('aria-busy', 'false');
+                    }
+                }
+            }
+
+            async handleSubmit(e) {
+                e.preventDefault();
+                
+                // Track form submission start
+                this.trackAnalyticsEvent('form_submission_started');
+                
+                if (!this.validateForm()) {
+                    this.trackAnalyticsEvent('form_submission_failed', { reason: 'validation_error' });
+                    return;
+                }
+
+                // Show loading state
+                this.showLoading();
+                
+                // Collect form data
+                const formData = new FormData(e.target);
+                const email = formData.get('email').trim();
+                const password = formData.get('password');
+                
+                // Check rate limiting
+                if (this.checkRateLimit(email)) {
+                    this.showLoading(false);
+                    this.trackAnalyticsEvent('form_submission_failed', { reason: 'rate_limited' });
+                    return;
+                }
+
+                // Record login attempt
+                this.recordLoginAttempt(email);
+                
+                // Remember me option
+                const rememberMe = document.getElementById('remember').checked;
+                
+                // Simulate API call delay
+                setTimeout(() => {
+                    // Check if it's a predefined credential
+                    const predefinedUser = this.predefinedCredentials[email];
+                    
+                    if (predefinedUser && password === predefinedUser.password) {
+                        // Login with predefined credentials
+                        this.handleSuccessfulLogin(email, password, rememberMe, predefinedUser);
+                    } else if (this.isValidLogin(email, password)) {
+                        // Regular login validation
+                        this.handleSuccessfulLogin(email, password, rememberMe);
+                    } else {
+                        // Show error
+                        this.showAlert('Invalid email or password. Please try again.', 'error');
+                        this.trackAnalyticsEvent('login_failed', { reason: 'invalid_credentials' });
+                    }
+                    
+                    // Hide loading
+                    this.showLoading(false);
+                }, 1500);
+            }
+
+            handleSuccessfulLogin(email, password, rememberMe, predefinedUser = null) {
+                let userData;
+                
+                if (predefinedUser) {
+                    userData = {
+                        id: 'user_' + Math.random().toString(36).substr(2, 9),
+                        name: predefinedUser.name,
+                        email: email,
+                        role: predefinedUser.role,
+                        redirectTo: predefinedUser.redirectTo,
+                        avatar: this.generateAvatar(email),
+                        joinDate: new Date().toISOString()
+                    };
+                } else {
+                    userData = {
+                        id: 'user_' + Math.random().toString(36).substr(2, 9),
+                        name: this.extractNameFromEmail(email),
+                        email: email,
+                        role: this.detectRoleFromEmail(email),
+                        redirectTo: this.getRedirectUrlBasedOnRole(email),
+                        avatar: this.generateAvatar(email),
+                        joinDate: new Date().toISOString()
+                    };
+                }
+
+                const mockResponse = {
+                    success: true,
+                    token: 'mock_jwt_token_' + Date.now(),
+                    user: userData
+                };
+
+                // Store login data
+                const storage = rememberMe ? localStorage : sessionStorage;
+                storage.setItem('farmvantara_token', mockResponse.token);
+                storage.setItem('farmvantara_user', JSON.stringify(mockResponse.user));
+                
+                // Clear login attempts for this email
+                this.loginAttempts.delete(email);
+                
+                // Track successful login
+                this.trackAnalyticsEvent('login_successful', { 
+                    method: 'email',
+                    role: userData.role,
+                    rememberMe: rememberMe 
+                });
+                
+                // Show success state
+                this.showSuccessState(mockResponse.user);
+                this.isLoggedIn = true;
+                
+                // Start session timer
+                this.startSessionTimer();
+                
+                // Clear the form
+                this.resetForm();
+            }
+
+            isValidLogin(email, password) {
+                // Basic validation - in production, this would be an API call
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const isValid = emailRegex.test(email) && password.length >= 8;
+                
+                // Check password strength
+                const strength = this.calculatePasswordStrength(password);
+                return isValid && strength.label !== 'Very Weak';
+            }
+
+            extractNameFromEmail(email) {
+                const username = email.split('@')[0];
+                return username.charAt(0).toUpperCase() + username.slice(1);
+            }
+
+            detectRoleFromEmail(email) {
+                // Detect role based on email pattern
+                if (email.includes('farm') || email.includes('farmer')) return 'farmer';
+                if (email.includes('business') || email.includes('company') || email.includes('corp')) return 'business';
+                if (email.includes('grocery') || email.includes('shop') || email.includes('store')) return 'retailer';
+                if (email.includes('admin')) return 'admin';
+                if (email.includes('buyer') || email.includes('purchase')) return 'buyer';
+                return 'consumer';
+            }
+
+            getRedirectUrlBasedOnRole(email) {
+                const role = this.detectRoleFromEmail(email);
+                
+                const redirectUrls = {
+                    'farmer': 'farmerdashboard.html',
+                    'business': 'buyersdashboard.html',
+                    'buyer': 'buyersdashboard.html',
+                    'retailer': 'buyersdashboard.html',
+                    'consumer': 'shop.html',
+                    'admin': 'admindashboard.html',
+                    'default': 'dashboard.html'
+                };
+                
+                return redirectUrls[role] || redirectUrls.default;
+            }
+
+            generateAvatar(email) {
+                const colors = ['#27ae60', '#219653', '#f2c94c', '#f2994a', '#2d9cdb', '#2f80ed'];
+                const hash = email.split('').reduce((acc, char) => char.charCodeAt(0) + acc, 0);
+                const color = colors[hash % colors.length];
+                
+                return `https://ui-avatars.com/api/?name=${encodeURIComponent(email)}&background=${color.replace('#', '')}&color=fff&size=128`;
+            }
+
+            startSessionTimer() {
+                this.clearSessionTimers();
+                
+                this.warningTimer = setTimeout(() => {
+                    this.showSessionWarning();
+                }, this.sessionTimeout - this.sessionWarningTime);
+                
+                this.sessionTimer = setTimeout(() => {
+                    this.forceLogout();
+                }, this.sessionTimeout);
+            }
+
+            clearSessionTimers() {
+                if (this.warningTimer) clearTimeout(this.warningTimer);
+                if (this.sessionTimer) clearTimeout(this.sessionTimer);
+            }
+
+            showSessionWarning() {
+                const sessionWarning = document.getElementById('sessionWarning');
+                if (sessionWarning) {
+                    sessionWarning.classList.add('active');
+                    
+                    // Announce to screen readers
+                    const announcement = document.createElement('div');
+                    announcement.setAttribute('role', 'alert');
+                    announcement.setAttribute('aria-live', 'assertive');
+                    announcement.className = 'sr-only';
+                    announcement.textContent = 'Warning: Your session will expire in 60 seconds.';
+                    document.body.appendChild(announcement);
+                    setTimeout(() => announcement.remove(), 1000);
+                }
+            }
+
+            extendSession() {
+                const sessionWarning = document.getElementById('sessionWarning');
+                if (sessionWarning) {
+                    sessionWarning.classList.remove('active');
+                }
+                
+                this.startSessionTimer();
+                this.showAlert('Session extended. You will stay logged in for another 5 minutes.', 'success');
+                this.trackAnalyticsEvent('session_extended');
+            }
+
+            forceLogout() {
+                this.clearSessionTimers();
+                this.showAlert('Your session has expired. Please login again.', 'warning');
+                this.logoutUser();
+                this.trackAnalyticsEvent('session_expired');
+            }
+
+            showSuccessState(user) {
+                // Hide login card and register section
+                const loginCard = document.getElementById('loginCard');
+                const loginWrapper = document.querySelector('.login-wrapper');
+                
+                if (loginCard && loginWrapper) {
+                    loginWrapper.style.display = 'none';
+                }
+                
+                // Show success state
+                const successState = document.getElementById('successState');
+                if (successState) {
+                    successState.classList.add('active');
+                    
+                    // Update success message based on user role
+                    const roleMessages = {
+                        farmer: `Welcome back, ${user.name}! Ready to manage your farm and connect with buyers?`,
+                        business: `Welcome back, ${user.name}! Ready to source fresh produce for your business?`,
+                        buyer: `Welcome back, ${user.name}! Ready to find quality farm produce for your needs?`,
+                        retailer: `Welcome back, ${user.name}! Ready to stock up on fresh farm produce?`,
+                        consumer: `Welcome back, ${user.name}! Ready to shop for farm-fresh products?`,
+                        admin: `Welcome back, ${user.name}! Access the admin dashboard to manage the platform.`,
+                        demo: `Welcome back, ${user.name}! Explore the Farm Vantara platform features.`
+                    };
+                    
+                    const successTitle = document.getElementById('successTitle');
+                    const successMessage = document.getElementById('successMessage');
+                    
+                    if (successTitle) successTitle.textContent = `Welcome Back, ${user.name}!`;
+                    if (successMessage) successMessage.textContent = roleMessages[user.role] || roleMessages.consumer;
+                    
+                    // Add success actions with proper redirection
+                    const successActions = document.getElementById('successActions');
+                    if (successActions) {
+                        const redirectUrl = user.redirectTo || this.getRedirectUrlBasedOnRole(user.email);
+                        
+                        successActions.innerHTML = `
+                            <a href="${redirectUrl}" class="login-button" style="margin-bottom: 15px;">
+                                <i class="fas fa-tachometer-alt"></i> Go to Dashboard
+                            </a>
+                            <div class="success-actions">
+                                <a href="./index.html" class="register-button" style="padding: 12px 24px;">
+                                    <i class="fas fa-home"></i> Go to Homepage
+                                </a>
+                                <button class="logout-button" onclick="logoutUser()">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                                </button>
+                            </div>
+                        `;
+                        
+                        // Announce success to screen readers
+                        const announcement = document.createElement('div');
+                        announcement.setAttribute('role', 'alert');
+                        announcement.setAttribute('aria-live', 'assertive');
+                        announcement.className = 'sr-only';
+                        announcement.textContent = `Login successful. Welcome back, ${user.name}. You will be redirected to your dashboard in 3 seconds.`;
+                        document.body.appendChild(announcement);
+                        setTimeout(() => announcement.remove(), 1000);
+                    }
+                    
+                    // Auto-redirect to appropriate page after 3 seconds
+                    this.redirectTimeout = setTimeout(() => {
+                        const redirectUrl = user.redirectTo || this.getRedirectUrlBasedOnRole(user.email);
+                        window.location.href = redirectUrl;
+                    }, 3000);
+                }
+            }
+
+            resetForm() {
+                // Clear the login form
+                const form = document.getElementById('loginForm');
+                if (form) {
+                    form.reset();
+                }
+                
+                // Clear any error messages
+                document.querySelectorAll('.error-message').forEach(el => {
+                    el.classList.remove('show');
+                });
+                
+                // Clear error classes from inputs
+                document.querySelectorAll('input.error').forEach(el => {
+                    el.classList.remove('error');
+                });
+                
+                // Reset password visibility
+                const passwordInput = document.getElementById('password');
+                const toggleIcon = document.getElementById('passwordToggle').querySelector('i');
+                if (passwordInput) {
+                    passwordInput.type = 'password';
+                    if (toggleIcon) {
+                        toggleIcon.className = 'fas fa-eye';
+                        toggleIcon.setAttribute('aria-label', 'Show password');
+                    }
+                }
+                
+                // Reset strength indicator
+                const strengthFill = document.getElementById('strengthFill');
+                const strengthLabel = document.getElementById('strengthLabel');
+                if (strengthFill && strengthLabel) {
+                    strengthFill.style.width = '0%';
+                    strengthFill.className = 'strength-fill';
+                    strengthLabel.textContent = 'None';
+                    strengthLabel.style.color = 'var(--text-light)';
+                }
+                
+                // Hide requirements
+                const requirements = document.getElementById('passwordRequirements');
+                if (requirements) {
+                    requirements.classList.remove('active');
+                    requirements.querySelectorAll('li').forEach(li => {
+                        li.classList.remove('valid');
+                    });
+                }
+            }
+
+            clearUserData() {
+                // Clear all authentication data
+                localStorage.removeItem('farmvantara_token');
+                localStorage.removeItem('farmvantara_user');
+                sessionStorage.removeItem('farmvantara_token');
+                sessionStorage.removeItem('farmvantara_user');
+                
+                this.isLoggedIn = false;
+                this.clearSessionTimers();
+            }
+
+            logoutUser() {
+                // Clear any pending redirect
+                if (this.redirectTimeout) {
+                    clearTimeout(this.redirectTimeout);
+                }
+                
+                // Clear user data
+                this.clearUserData();
+                
+                // Hide success state
+                const successState = document.getElementById('successState');
+                if (successState) {
+                    successState.classList.remove('active');
+                }
+                
+                // Hide session warning
+                const sessionWarning = document.getElementById('sessionWarning');
+                if (sessionWarning) {
+                    sessionWarning.classList.remove('active');
+                }
+                
+                // Show login wrapper
+                const loginWrapper = document.querySelector('.login-wrapper');
+                if (loginWrapper) {
+                    loginWrapper.style.display = 'grid';
+                }
+                
+                // Reset the form
+                this.resetForm();
+                
+                // Show logout message
+                this.showAlert('You have been successfully logged out.', 'success');
+                
+                // Track logout
+                this.trackAnalyticsEvent('user_logged_out');
+                
+                // Scroll to top of login form
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            handleForgotPassword() {
+                const emailField = document.getElementById('email');
+                const email = emailField.value.trim();
+                
+                if (!email) {
+                    this.showAlert('Please enter your email address to reset password.', 'error');
+                    emailField.focus();
+                    this.trackAnalyticsEvent('forgot_password_clicked', { status: 'no_email' });
+                    return;
+                }
+                
+                // Show loading
+                this.showLoading();
+                
+                // Track forgot password attempt
+                this.trackAnalyticsEvent('forgot_password_clicked', { status: 'processing' });
+                
+                // Simulate API call
+                setTimeout(() => {
+                    this.showLoading(false);
+                    this.showAlert(`Password reset instructions sent to ${email}. Check your inbox.`, 'success');
+                    this.trackAnalyticsEvent('forgot_password_success', { email });
+                }, 1500);
+            }
+
+            showAlert(message, type = 'success') {
+                // Remove existing alerts
+                const existingAlert = document.querySelector('.custom-alert');
+                if (existingAlert) {
+                    existingAlert.remove();
+                }
+                
+                // Create alert element
+                const alertDiv = document.createElement('div');
+                alertDiv.className = `custom-alert ${type}`;
+                alertDiv.setAttribute('role', 'alert');
+                alertDiv.setAttribute('aria-live', 'assertive');
+                
+                // Set icon based on type
+                const icons = {
+                    error: 'fa-times-circle',
+                    info: 'fa-info-circle',
+                    warning: 'fa-exclamation-triangle',
+                    success: 'fa-check-circle'
+                };
+                
+                alertDiv.innerHTML = `
+                    <i class="fas ${icons[type] || icons.success}"></i>
+                    <span>${message}</span>
+                    <button class="sr-only" onclick="this.parentElement.remove()">Dismiss alert</button>
+                `;
+                
+                document.body.appendChild(alertDiv);
+                
+                // Announce to screen readers
+                const announcement = document.createElement('div');
+                announcement.setAttribute('role', 'alert');
+                announcement.setAttribute('aria-live', 'assertive');
+                announcement.className = 'sr-only';
+                announcement.textContent = message;
+                document.body.appendChild(announcement);
+                setTimeout(() => announcement.remove(), 1000);
+                
+                // Remove alert after 3 seconds
+                setTimeout(() => {
+                    alertDiv.style.animation = 'slideOutRight 0.3s ease forwards';
+                    setTimeout(() => {
+                        if (alertDiv.parentNode) {
+                            alertDiv.parentNode.removeChild(alertDiv);
+                        }
+                    }, 300);
+                }, 3000);
+            }
+
+            socialLogin(provider) {
+                this.trackAnalyticsEvent('social_login_clicked', { provider });
+                this.showAlert(`Redirecting to ${provider} login...\n\nNote: This is a demo. In a real application, you would be redirected to ${provider} OAuth login.`, 'info');
+                
+                // Simulate social login
+                setTimeout(() => {
+                    const mockUser = {
+                        id: 'social_user_' + Date.now(),
+                        name: this.capitalizeFirstLetter(provider) + ' User',
+                        email: `user@${provider}.com`,
+                        role: 'consumer', // Default role for social login
+                        redirectTo: 'shop.html', // Default redirect for consumers
+                        provider: provider,
+                        avatar: this.generateAvatar(`user@${provider}.com`)
+                    };
+                    
+                    // Store social login data
+                    localStorage.setItem('farmvantara_token', 'social_token_' + provider + '_' + Date.now());
+                    localStorage.setItem('farmvantara_user', JSON.stringify(mockUser));
+                    
+                    // Track successful social login
+                    this.trackAnalyticsEvent('social_login_success', { provider });
+                    
+                    // Clear the form
+                    this.resetForm();
+                    
+                    // Show success state
+                    this.showSuccessState(mockUser);
+                    this.isLoggedIn = true;
+                    
+                    // Start session timer
+                    this.startSessionTimer();
+                }, 1000);
+            }
+
+            capitalizeFirstLetter(string) {
+                return string.charAt(0).toUpperCase() + string.slice(1);
+            }
+        }
+
+        // Global function for logout
+        function logoutUser() {
+            if (window.loginApp) {
+                window.loginApp.logoutUser();
+            }
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', () => {
+            window.loginApp = new LoginApp();
+            
+            // Add alert animations if not present
+            if (!document.querySelector('#alertAnimations')) {
+                const style = document.createElement('style');
+                style.id = 'alertAnimations';
+                style.textContent = `
+                    @keyframes slideInRight {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    @keyframes slideOutRight {
+                        from { transform: translateX(0); opacity: 1; }
+                        to { transform: translateX(100%); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        });
+
+        // Add print event listener
+        window.addEventListener('beforeprint', () => {
+            console.log('Printing login page...');
+        });
+
+        // Add offline/online detection
+        window.addEventListener('online', () => {
+            if (window.loginApp) {
+                window.loginApp.showAlert('You are back online!', 'success');
+            }
+        });
+
+        window.addEventListener('offline', () => {
+            if (window.loginApp) {
+                window.loginApp.showAlert('You are offline. Some features may not work.', 'warning');
+            }
+        });
+
+        // Add page visibility detection for analytics
+        document.addEventListener('visibilitychange', () => {
+            if (window.loginApp && document.hidden) {
+                window.loginApp.trackAnalyticsEvent('page_visibility_changed', { visible: false });
+            }
+        });
+
+        // Add beforeunload event for form abandonment tracking
+        window.addEventListener('beforeunload', (e) => {
+            const form = document.getElementById('loginForm');
+            if (form && form.checkValidity() && window.loginApp) {
+                const email = document.getElementById('email').value;
+                if (email) {
+                    window.loginApp.trackAnalyticsEvent('form_abandonment', { 
+                        email: email,
+                        fields_filled: Array.from(form.elements).filter(el => el.value).length
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
