@@ -1,0 +1,2792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Dashboard | Farm Vantara</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js for Data Visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        :root {
+            --primary-green: #27ae60;
+            --dark-green: #219653;
+            --light-green: #6fcf97;
+            --accent-yellow: #f2c94c;
+            --accent-orange: #f2994a;
+            --dark-blue: #2d3436;
+            --light-gray: #f8f9fa;
+            --medium-gray: #dfe6e9;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --gradient-primary: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+            --gradient-yellow: linear-gradient(135deg, #f2c94c 0%, #f2994a 100%);
+            --gradient-blue: linear-gradient(135deg, #2d9cdb 0%, #2f80ed 100%);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-dark: #ffffff;
+                --text-light: #b2bec3;
+                --white: #121212;
+                --light-gray: #1e1e1e;
+                --medium-gray: #2d3436;
+                --dark-blue: #000000;
+                --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .main-header {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: 180px;
+            transition: var(--transition);
+        }
+
+        /* User Profile */
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .user-role {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* Dashboard Layout */
+        .dashboard {
+            display: flex;
+            min-height: calc(100vh - 90px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background: var(--white);
+            box-shadow: 2px 0 20px rgba(0, 0, 0, 0.05);
+            padding: 30px 20px;
+            position: sticky;
+            top: 90px;
+            height: calc(100vh - 90px);
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .sidebar-header h2 {
+            font-size: 1.4rem;
+            color: var(--dark-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar-header h2 i {
+            color: var(--primary-green);
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 14px 18px;
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 10px;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .sidebar-nav a:hover {
+            background: rgba(39, 174, 96, 0.1);
+            color: var(--primary-green);
+        }
+
+        .sidebar-nav a.active {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.2);
+        }
+
+        .sidebar-nav a i {
+            width: 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            background: var(--light-gray);
+            overflow-y: auto;
+        }
+
+        /* Dashboard Header */
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-title h1 {
+            font-size: 1.8rem;
+            color: var(--dark-green);
+        }
+
+        .dashboard-title p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .dashboard-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 120px;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(39, 174, 96, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--text-dark);
+            border: 2px solid var(--medium-gray);
+        }
+
+        .btn-secondary:hover {
+            background: var(--medium-gray);
+        }
+
+        .btn-success {
+            background: #27ae60;
+            color: white;
+            border: none;
+        }
+
+        .btn-success:hover {
+            background: #219653;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(39, 174, 96, 0.3);
+        }
+
+        .btn-warning {
+            background: #f2c94c;
+            color: var(--text-dark);
+            border: none;
+        }
+
+        .btn-warning:hover {
+            background: #f2994a;
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(39, 174, 96, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-green);
+            font-size: 22px;
+        }
+
+        .stat-trend {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: rgba(39, 174, 96, 0.1);
+            color: var(--primary-green);
+        }
+
+        .stat-trend.negative {
+            background: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* Dashboard Sections */
+        .dashboard-section {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .section-header h2 {
+            font-size: 1.4rem;
+            color: var(--dark-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-header h2 i {
+            color: var(--primary-green);
+        }
+
+        /* Products List */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            border: 1px solid var(--medium-gray);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            background: var(--white);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-image {
+            height: 180px;
+            background: linear-gradient(135deg, #f8fff9 0%, #e8f5e9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .product-image i {
+            font-size: 80px;
+            color: var(--primary-green);
+            opacity: 0.8;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .product-status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-available {
+            background: rgba(39, 174, 96, 0.1);
+            color: var(--primary-green);
+        }
+
+        .status-low {
+            background: rgba(242, 201, 76, 0.1);
+            color: #f2c94c;
+        }
+
+        .status-out {
+            background: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+        }
+
+        .product-details {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .product-detail {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-label {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 12px;
+            min-width: auto;
+            flex: 1;
+        }
+
+        /* Charts */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 1200px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .chart-container {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .chart-header h3 {
+            font-size: 1.2rem;
+            color: var(--dark-green);
+        }
+
+        /* Orders Table */
+        .orders-table-container {
+            overflow-x: auto;
+        }
+
+        .orders-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .orders-table th {
+            text-align: left;
+            padding: 15px;
+            background: var(--light-gray);
+            color: var(--text-dark);
+            font-weight: 600;
+            border-bottom: 2px solid var(--medium-gray);
+            font-size: 14px;
+        }
+
+        .orders-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--medium-gray);
+            font-size: 14px;
+        }
+
+        .orders-table tr:hover {
+            background: rgba(39, 174, 96, 0.05);
+        }
+
+        .order-status {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            background: rgba(242, 201, 76, 0.1);
+            color: #f2c94c;
+        }
+
+        .status-confirmed {
+            background: rgba(39, 174, 96, 0.1);
+            color: var(--primary-green);
+        }
+
+        .status-shipped {
+            background: rgba(45, 156, 219, 0.1);
+            color: #2d9cdb;
+        }
+
+        .status-delivered {
+            background: rgba(39, 174, 96, 0.2);
+            color: var(--dark-green);
+        }
+
+        .status-cancelled {
+            background: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .modal-header h2 {
+            font-size: 1.6rem;
+            color: var(--dark-green);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: #e74c3c;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        label .required {
+            color: #e74c3c;
+            margin-left: 4px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--medium-gray);
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            transition: var(--transition);
+            background: var(--white);
+            color: var(--text-dark);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--medium-gray);
+        }
+
+        /* Crop Selection */
+        .crop-selection {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .crop-option {
+            border: 2px solid var(--medium-gray);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .crop-option:hover {
+            border-color: var(--primary-green);
+            background: rgba(39, 174, 96, 0.05);
+        }
+
+        .crop-option.selected {
+            border-color: var(--primary-green);
+            background: rgba(39, 174, 96, 0.1);
+            color: var(--primary-green);
+        }
+
+        .crop-icon {
+            font-size: 20px;
+            color: var(--primary-green);
+        }
+
+        /* Notifications */
+        .notifications {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            z-index: 3000;
+        }
+
+        .notification {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            min-width: 300px;
+            transform: translateX(100%);
+            animation: slideIn 0.5s ease forwards;
+            border-left: 4px solid var(--primary-green);
+        }
+
+        @keyframes slideIn {
+            to { transform: translateX(0); }
+        }
+
+        .notification.success {
+            border-left-color: var(--primary-green);
+        }
+
+        .notification.warning {
+            border-left-color: #f2c94c;
+        }
+
+        .notification.error {
+            border-left-color: #e74c3c;
+        }
+
+        .notification-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(39, 174, 96, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-green);
+            font-size: 18px;
+        }
+
+        .notification-content h4 {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+
+        .notification-content p {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .dashboard {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                padding: 20px;
+            }
+            
+            .sidebar-nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .sidebar-nav li {
+                margin-bottom: 0;
+            }
+            
+            .sidebar-nav a {
+                padding: 10px 15px;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dashboard-actions {
+                flex-direction: column;
+            }
+            
+            .orders-table-container {
+                font-size: 12px;
+            }
+            
+            .orders-table th,
+            .orders-table td {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .logo-img {
+                height: 50px;
+                width: 150px;
+            }
+            
+            .main-content {
+                padding: 15px;
+            }
+            
+            .dashboard-title h1 {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                padding: 10px 15px;
+                min-width: 100px;
+            }
+            
+            .modal-content {
+                padding: 20px;
+            }
+            
+            .notifications {
+                right: 15px;
+                left: 15px;
+            }
+            
+            .notification {
+                min-width: auto;
+                width: 100%;
+            }
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-light);
+        }
+
+        .empty-state i {
+            font-size: 60px;
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+        }
+
+        .empty-state h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .empty-state p {
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="./index.html" class="logo">
+                    <img src="./logo.png" alt="Farm Vantara Logo" class="logo-img">
+                </a>
+                <div class="user-profile">
+                    <div class="user-avatar" id="userInitials">FV</div>
+                    <div class="user-info">
+                        <div class="user-name" id="userName">Rajesh Kumar</div>
+                        <div class="user-role">Farmer Account</div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-tractor"></i> Farmer Dashboard</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="active" onclick="showSection('overview')"><i class="fas fa-home"></i> Overview</a></li>
+                    <li><a href="#" onclick="showSection('products')"><i class="fas fa-seedling"></i> My Products</a></li>
+                    <li><a href="#" onclick="showSection('stock')"><i class="fas fa-warehouse"></i> Live Stock</a></li>
+                    <li><a href="#" onclick="showSection('orders')"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                    <li><a href="#" onclick="showSection('sales')"><i class="fas fa-chart-line"></i> Sales Reports</a></li>
+                    <li><a href="#" onclick="showSection('vendors')"><i class="fas fa-users"></i> My Buyers</a></li>
+                    <li><a href="#" onclick="showSection('list')"><i class="fas fa-plus-circle"></i> List Product</a></li>
+                    <li><a href="#" onclick="showSection('settings')"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="./login.html" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Overview Section -->
+            <div class="dashboard-section" id="overview">
+                <div class="dashboard-header">
+                    <div class="dashboard-title">
+                        <h1>Welcome back, Rajesh!</h1>
+                        <p>Manage your farm produce, track sales, and connect with buyers</p>
+                    </div>
+                    <div class="dashboard-actions">
+                        <button class="btn btn-primary" onclick="showSection('list')">
+                            <i class="fas fa-plus"></i> List New Product
+                        </button>
+                        <button class="btn btn-secondary" onclick="refreshData()">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-rupee-sign"></i>
+                            </div>
+                            <div class="stat-trend">+12.5%</div>
+                        </div>
+                        <div class="stat-value">₹1,24,850</div>
+                        <div class="stat-label">Total Revenue (This Month)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="stat-trend">+8.2%</div>
+                        </div>
+                        <div class="stat-value">42</div>
+                        <div class="stat-label">Active Orders</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-box-open"></i>
+                            </div>
+                            <div class="stat-trend">-3.1%</div>
+                        </div>
+                        <div class="stat-value">1,250 kg</div>
+                        <div class="stat-label">Available Stock</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-trend">+15.7%</div>
+                        </div>
+                        <div class="stat-value">18</div>
+                        <div class="stat-label">Active Buyers</div>
+                    </div>
+                </div>
+
+                <!-- Charts Grid -->
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-chart-line"></i> Sales Trend (Last 30 Days)</h3>
+                            <select id="chartPeriod" onchange="updateSalesChart()" style="width: auto;">
+                                <option value="7">Last 7 Days</option>
+                                <option value="30" selected>Last 30 Days</option>
+                                <option value="90">Last 90 Days</option>
+                            </select>
+                        </div>
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-chart-pie"></i> Product Distribution</h3>
+                        </div>
+                        <canvas id="productChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Orders -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-clock"></i> Recent Orders</h2>
+                        <a href="#" onclick="showSection('orders')" class="btn btn-secondary">View All</a>
+                    </div>
+                    <div class="orders-table-container">
+                        <table class="orders-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Buyer</th>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentOrders">
+                                <!-- Orders will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- My Products Section -->
+            <div class="dashboard-section" id="products" style="display: none;">
+                <div class="section-header">
+                    <h2><i class="fas fa-seedling"></i> My Products</h2>
+                    <button class="btn btn-primary" onclick="showSection('list')">
+                        <i class="fas fa-plus"></i> Add New Product
+                    </button>
+                </div>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Live Stock Section -->
+            <div class="dashboard-section" id="stock" style="display: none;">
+                <div class="section-header">
+                    <h2><i class="fas fa-warehouse"></i> Live Stock Monitoring</h2>
+                    <div class="dashboard-actions">
+                        <button class="btn btn-primary" onclick="updateStockModal()">
+                            <i class="fas fa-edit"></i> Update Stock
+                        </button>
+                    </div>
+                </div>
+                <div class="products-grid" id="stockGrid">
+                    <!-- Stock items will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Orders Section -->
+            <div class="dashboard-section" id="orders" style="display: none;">
+                <div class="section-header">
+                    <h2><i class="fas fa-shopping-cart"></i> Order Management</h2>
+                    <div class="dashboard-actions">
+                        <select id="orderFilter" onchange="filterOrders()" style="padding: 8px 12px; border-radius: 8px;">
+                            <option value="all">All Orders</option>
+                            <option value="pending">Pending</option>
+                            <option value="confirmed">Confirmed</option>
+                            <option value="shipped">Shipped</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="orders-table-container">
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Buyer</th>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTable">
+                            <!-- Orders will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Sales Reports Section -->
+            <div class="dashboard-section" id="sales" style="display: none;">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-line"></i> Sales Reports & Analytics</h2>
+                    <div class="dashboard-actions">
+                        <button class="btn btn-primary" onclick="generateReport()">
+                            <i class="fas fa-download"></i> Export Report
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="stats-grid" style="margin-bottom: 30px;">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="stat-trend">Current Month</div>
+                        </div>
+                        <div class="stat-value">₹1,24,850</div>
+                        <div class="stat-label">Total Sales</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-weight"></i>
+                            </div>
+                            <div class="stat-trend">+15.2%</div>
+                        </div>
+                        <div class="stat-value">3,450 kg</div>
+                        <div class="stat-label">Quantity Sold</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <div class="stat-trend">+22.5%</div>
+                        </div>
+                        <div class="stat-value">42</div>
+                        <div class="stat-label">Total Orders</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div class="stat-trend">94.5%</div>
+                        </div>
+                        <div class="stat-value">37/42</div>
+                        <div class="stat-label">Successful Orders</div>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-chart-bar"></i> Monthly Sales Comparison</h3>
+                        </div>
+                        <canvas id="monthlySalesChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-chart-pie"></i> Top Selling Products</h3>
+                        </div>
+                        <canvas id="topProductsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Detailed Reports -->
+                <div class="dashboard-section" style="margin-top: 30px;">
+                    <div class="section-header">
+                        <h2><i class="fas fa-file-alt"></i> Detailed Sales Report</h2>
+                    </div>
+                    <div class="orders-table-container">
+                        <table class="orders-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Order ID</th>
+                                    <th>Buyer</th>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="salesReportTable">
+                                <!-- Sales report will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- My Buyers Section -->
+            <div class="dashboard-section" id="vendors" style="display: none;">
+                <div class="section-header">
+                    <h2><i class="fas fa-users"></i> My Buyers & Vendors</h2>
+                    <button class="btn btn-primary" onclick="showBuyerModal()">
+                        <i class="fas fa-plus"></i> Add New Buyer
+                    </button>
+                </div>
+                <div class="products-grid" id="buyersGrid">
+                    <!-- Buyers will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- List Product Section -->
+            <div class="dashboard-section" id="list" style="display: none;">
+                <div class="section-header">
+                    <h2><i class="fas fa-plus-circle"></i> List New Product</h2>
+                    <button class="btn btn-secondary" onclick="showSection('products')">
+                        <i class="fas fa-arrow-left"></i> Back to Products
+                    </button>
+                </div>
+                <form id="productForm" onsubmit="submitProduct(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="productName">Product Name <span class="required">*</span></label>
+                            <input type="text" id="productName" name="productName" required placeholder="e.g., Organic Wheat">
+                        </div>
+                        <div class="form-group">
+                            <label for="productCategory">Category <span class="required">*</span></label>
+                            <select id="productCategory" name="productCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="grains">Grains</option>
+                                <option value="vegetables">Vegetables</option>
+                                <option value="fruits">Fruits</option>
+                                <option value="pulses">Pulses</option>
+                                <option value="spices">Spices</option>
+                                <option value="dairy">Dairy</option>
+                                <option value="flowers">Flowers</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="quantity">Quantity Available (kg) <span class="required">*</span></label>
+                            <input type="number" id="quantity" name="quantity" required min="1" step="0.1" placeholder="e.g., 100">
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price per kg (₹) <span class="required">*</span></label>
+                            <input type="number" id="price" name="price" required min="1" step="0.1" placeholder="e.g., 50">
+                        </div>
+                    </div>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="harvestDate">Harvest Date</label>
+                            <input type="date" id="harvestDate" name="harvestDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="expiryDate">Expiry Date</label>
+                            <input type="date" id="expiryDate" name="expiryDate">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productDescription">Description</label>
+                        <textarea id="productDescription" name="productDescription" rows="3" placeholder="Describe your product quality, farming method, etc."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Product Images (Optional)</label>
+                        <div style="border: 2px dashed var(--medium-gray); border-radius: 8px; padding: 30px; text-align: center;">
+                            <i class="fas fa-cloud-upload-alt" style="font-size: 40px; color: var(--text-light); margin-bottom: 15px;"></i>
+                            <p style="color: var(--text-light); margin-bottom: 15px;">Drag & drop product images here or click to browse</p>
+                            <button type="button" class="btn btn-secondary" onclick="document.getElementById('imageUpload').click()">
+                                <i class="fas fa-upload"></i> Upload Images
+                            </button>
+                            <input type="file" id="imageUpload" multiple accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="reset" class="btn btn-secondary">Clear Form</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-check"></i> List Product
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Settings Section -->
+            <div class="dashboard-section" id="settings" style="display: none;">
+                <div class="section-header">
+                    <h2><i class="fas fa-cog"></i> Account Settings</h2>
+                </div>
+                <form id="settingsForm" onsubmit="updateSettings(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="farmName">Farm Name</label>
+                            <input type="text" id="farmName" name="farmName" placeholder="Your farm name">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactNumber">Contact Number</label>
+                            <input type="tel" id="contactNumber" name="contactNumber" placeholder="9876543210">
+                        </div>
+                    </div>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="farmLocation">Farm Location</label>
+                            <input type="text" id="farmLocation" name="farmLocation" placeholder="Village, District, State">
+                        </div>
+                        <div class="form-group">
+                            <label for="farmSize">Farm Size (Acres)</label>
+                            <input type="number" id="farmSize" name="farmSize" min="0" step="0.1" placeholder="e.g., 5.5">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="preferredPayment">Preferred Payment Method</label>
+                        <select id="preferredPayment" name="preferredPayment">
+                            <option value="">Select Payment Method</option>
+                            <option value="upi">UPI</option>
+                            <option value="bank">Bank Transfer</option>
+                            <option value="cash">Cash on Delivery</option>
+                            <option value="check">Cheque</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Notification Preferences</label>
+                        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" name="newOrderNotify" checked>
+                                <span>New order notifications</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" name="priceAlertNotify" checked>
+                                <span>Price alerts</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" name="stockAlertNotify" checked>
+                                <span>Low stock alerts</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" name="marketNewsNotify">
+                                <span>Market news & updates</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    
+    <!-- Product Detail Modal -->
+    <div class="modal" id="productDetailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Product Details</h2>
+                <button class="modal-close" onclick="closeModal('productDetailModal')">&times;</button>
+            </div>
+            <div id="productDetailContent">
+                <!-- Product details will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Update Stock Modal -->
+    <div class="modal" id="updateStockModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Update Stock</h2>
+                <button class="modal-close" onclick="closeModal('updateStockModal')">&times;</button>
+            </div>
+            <form id="stockUpdateForm" onsubmit="updateStockQuantity(event)">
+                <div class="form-group">
+                    <label for="stockProduct">Select Product</label>
+                    <select id="stockProduct" name="stockProduct" required>
+                        <option value="">Select Product</option>
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="newQuantity">New Quantity (kg)</label>
+                    <input type="number" id="newQuantity" name="newQuantity" required min="0" step="0.1" placeholder="Enter new quantity">
+                </div>
+                <div class="form-group">
+                    <label for="stockReason">Reason for Update (Optional)</label>
+                    <textarea id="stockReason" name="stockReason" rows="3" placeholder="e.g., New harvest, sold stock, etc."></textarea>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('updateStockModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update Stock</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order Action Modal -->
+    <div class="modal" id="orderActionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Update Order Status</h2>
+                <button class="modal-close" onclick="closeModal('orderActionModal')">&times;</button>
+            </div>
+            <div id="orderActionContent">
+                <!-- Order action content will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Buyer Modal -->
+    <div class="modal" id="addBuyerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Buyer</h2>
+                <button class="modal-close" onclick="closeModal('addBuyerModal')">&times;</button>
+            </div>
+            <form id="buyerForm" onsubmit="addBuyer(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="buyerName">Buyer Name <span class="required">*</span></label>
+                        <input type="text" id="buyerName" name="buyerName" required placeholder="Enter buyer name">
+                    </div>
+                    <div class="form-group">
+                        <label for="buyerType">Buyer Type <span class="required">*</span></label>
+                        <select id="buyerType" name="buyerType" required>
+                            <option value="">Select Type</option>
+                            <option value="retailer">Retailer</option>
+                            <option value="wholesaler">Wholesaler</option>
+                            <option value="restaurant">Restaurant</option>
+                            <option value="consumer">Consumer</option>
+                            <option value="processor">Processor</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="buyerPhone">Phone Number</label>
+                        <input type="tel" id="buyerPhone" name="buyerPhone" placeholder="Enter phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="buyerEmail">Email Address</label>
+                        <input type="email" id="buyerEmail" name="buyerEmail" placeholder="Enter email address">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="buyerLocation">Location</label>
+                    <input type="text" id="buyerLocation" name="buyerLocation" placeholder="City, State">
+                </div>
+                
+                <div class="form-group">
+                    <label for="preferredProducts">Preferred Products</label>
+                    <textarea id="preferredProducts" name="preferredProducts" rows="3" placeholder="Products this buyer usually purchases"></textarea>
+                </div>
+                
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addBuyerModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Buyer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notifications Container -->
+    <div class="notifications" id="notificationsContainer"></div>
+
+    <script>
+        // Dashboard Application
+        class FarmerDashboard {
+            constructor() {
+                this.currentSection = 'overview';
+                this.userData = {
+                    name: 'Rajesh Kumar',
+                    farmName: 'Green Valley Farm',
+                    location: 'Punjab, India',
+                    farmSize: 15
+                };
+                this.products = [];
+                this.orders = [];
+                this.buyers = [];
+                this.salesData = [];
+                this.init();
+            }
+
+            init() {
+                // Load sample data
+                this.loadSampleData();
+                
+                // Initialize charts
+                this.initCharts();
+                
+                // Setup event listeners
+                this.setupEventListeners();
+                
+                // Update UI
+                this.updateUserInfo();
+                this.renderProducts();
+                this.renderOrders();
+                this.renderRecentOrders();
+                this.renderBuyers();
+                this.renderSalesReport();
+                
+                console.log('Farmer Dashboard Initialized');
+            }
+
+            loadSampleData() {
+                // Sample products data
+                this.products = [
+                    {
+                        id: 1,
+                        name: 'Organic Wheat',
+                        category: 'grains',
+                        quantity: 450,
+                        price: 45,
+                        harvestDate: '2024-01-15',
+                        expiryDate: '2024-12-31',
+                        description: 'High quality organic wheat grown without pesticides',
+                        status: 'available',
+                        image: null
+                    },
+                    {
+                        id: 2,
+                        name: 'Basmati Rice',
+                        category: 'grains',
+                        quantity: 200,
+                        price: 85,
+                        harvestDate: '2024-01-10',
+                        expiryDate: '2024-12-31',
+                        description: 'Premium basmati rice, aromatic and long grain',
+                        status: 'low',
+                        image: null
+                    },
+                    {
+                        id: 3,
+                        name: 'Tomatoes',
+                        category: 'vegetables',
+                        quantity: 150,
+                        price: 35,
+                        harvestDate: '2024-01-20',
+                        expiryDate: '2024-02-20',
+                        description: 'Fresh organic tomatoes, farm to table',
+                        status: 'available',
+                        image: null
+                    },
+                    {
+                        id: 4,
+                        name: 'Potatoes',
+                        category: 'vegetables',
+                        quantity: 300,
+                        price: 25,
+                        harvestDate: '2024-01-05',
+                        expiryDate: '2024-04-05',
+                        description: 'Fresh potatoes, perfect for all dishes',
+                        status: 'available',
+                        image: null
+                    }
+                ];
+
+                // Sample orders data
+                this.orders = [
+                    {
+                        id: 'ORD-001',
+                        buyer: 'Fresh Mart Supermarket',
+                        product: 'Organic Wheat',
+                        quantity: 50,
+                        amount: 2250,
+                        status: 'delivered',
+                        date: '2024-01-25',
+                        buyerType: 'retailer'
+                    },
+                    {
+                        id: 'ORD-002',
+                        buyer: 'Rahul Sharma',
+                        product: 'Basmati Rice',
+                        quantity: 25,
+                        amount: 2125,
+                        status: 'confirmed',
+                        date: '2024-01-26',
+                        buyerType: 'consumer'
+                    },
+                    {
+                        id: 'ORD-003',
+                        buyer: 'Spice Bazaar',
+                        product: 'Tomatoes',
+                        quantity: 30,
+                        amount: 1050,
+                        status: 'shipped',
+                        date: '2024-01-27',
+                        buyerType: 'wholesaler'
+                    },
+                    {
+                        id: 'ORD-004',
+                        buyer: 'Green Leaf Restaurant',
+                        product: 'Potatoes',
+                        quantity: 40,
+                        amount: 1000,
+                        status: 'pending',
+                        date: '2024-01-28',
+                        buyerType: 'restaurant'
+                    },
+                    {
+                        id: 'ORD-005',
+                        buyer: 'Farm Fresh Store',
+                        product: 'Organic Wheat',
+                        quantity: 75,
+                        amount: 3375,
+                        status: 'pending',
+                        date: '2024-01-29',
+                        buyerType: 'retailer'
+                    }
+                ];
+
+                // Sample buyers data
+                this.buyers = [
+                    {
+                        id: 1,
+                        name: 'Fresh Mart Supermarket',
+                        type: 'retailer',
+                        phone: '9876543210',
+                        email: 'freshmart@example.com',
+                        location: 'Delhi',
+                        totalOrders: 12,
+                        totalSpent: 45000
+                    },
+                    {
+                        id: 2,
+                        name: 'Rahul Sharma',
+                        type: 'consumer',
+                        phone: '9876543211',
+                        email: 'rahul@example.com',
+                        location: 'Chandigarh',
+                        totalOrders: 5,
+                        totalSpent: 12500
+                    },
+                    {
+                        id: 3,
+                        name: 'Spice Bazaar',
+                        type: 'wholesaler',
+                        phone: '9876543212',
+                        location: 'Ludhiana',
+                        totalOrders: 8,
+                        totalSpent: 32000
+                    },
+                    {
+                        id: 4,
+                        name: 'Green Leaf Restaurant',
+                        type: 'restaurant',
+                        phone: '9876543213',
+                        email: 'greenleaf@example.com',
+                        location: 'Amritsar',
+                        totalOrders: 6,
+                        totalSpent: 18000
+                    }
+                ];
+
+                // Sample sales data for charts
+                this.salesData = {
+                    daily: [2200, 1800, 3100, 2800, 3400, 2900, 4100, 3800, 3500, 3200, 3900, 4200, 3700, 4100],
+                    monthly: [85000, 92000, 105000, 98000, 112000, 124850, 135000, 142000],
+                    products: [
+                        { name: 'Wheat', value: 45000 },
+                        { name: 'Rice', value: 38000 },
+                        { name: 'Tomatoes', value: 22000 },
+                        { name: 'Potatoes', value: 18000 },
+                        { name: 'Others', value: 1850 }
+                    ]
+                };
+            }
+
+            setupEventListeners() {
+                // Update stock modal initialization
+                const stockProductSelect = document.getElementById('stockProduct');
+                if (stockProductSelect) {
+                    this.products.forEach(product => {
+                        const option = document.createElement('option');
+                        option.value = product.id;
+                        option.textContent = product.name;
+                        stockProductSelect.appendChild(option);
+                    });
+                }
+            }
+
+            updateUserInfo() {
+                document.getElementById('userName').textContent = this.userData.name;
+                document.getElementById('userInitials').textContent = 
+                    this.userData.name.split(' ').map(n => n[0]).join('');
+            }
+
+            // Navigation
+            showSection(sectionId) {
+                // Hide all sections
+                document.querySelectorAll('.dashboard-section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                // Show selected section
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.style.display = 'block';
+                    this.currentSection = sectionId;
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.sidebar-nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    
+                    // Find and activate corresponding nav link
+                    const navLink = document.querySelector(`.sidebar-nav a[onclick*="${sectionId}"]`);
+                    if (navLink) {
+                        navLink.classList.add('active');
+                    }
+                    
+                    // Scroll to top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }
+
+            // Products Management
+            renderProducts() {
+                const container = document.getElementById('productsGrid');
+                if (!container) return;
+                
+                if (this.products.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state" style="grid-column: 1 / -1;">
+                            <i class="fas fa-seedling"></i>
+                            <h3>No Products Listed</h3>
+                            <p>You haven't listed any products yet. Start by adding your first product.</p>
+                            <button class="btn btn-primary" onclick="showSection('list')">
+                                <i class="fas fa-plus"></i> Add First Product
+                            </button>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                container.innerHTML = this.products.map(product => `
+                    <div class="product-card">
+                        <div class="product-image">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-header">
+                                <div class="product-name">${product.name}</div>
+                                <div class="product-status status-${product.status}">
+                                    ${this.getStatusText(product.status)}
+                                </div>
+                            </div>
+                            <div class="product-details">
+                                <div class="product-detail">
+                                    <div class="detail-label">Quantity</div>
+                                    <div class="detail-value">${product.quantity} kg</div>
+                                </div>
+                                <div class="product-detail">
+                                    <div class="detail-label">Price</div>
+                                    <div class="detail-value">₹${product.price}/kg</div>
+                                </div>
+                                <div class="product-detail">
+                                    <div class="detail-label">Total Value</div>
+                                    <div class="detail-value">₹${(product.quantity * product.price).toLocaleString()}</div>
+                                </div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-success btn-small" onclick="viewProduct(${product.id})">
+                                    <i class="fas fa-eye"></i> View
+                                </button>
+                                <button class="btn btn-secondary btn-small" onclick="editProduct(${product.id})">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                                <button class="btn btn-warning btn-small" onclick="updateStock(${product.id})">
+                                    <i class="fas fa-warehouse"></i> Stock
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            renderStockGrid() {
+                const container = document.getElementById('stockGrid');
+                if (!container) return;
+                
+                container.innerHTML = this.products.map(product => `
+                    <div class="product-card">
+                        <div class="product-image">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-header">
+                                <div class="product-name">${product.name}</div>
+                                <div class="product-status status-${product.status}">
+                                    ${this.getStatusText(product.status)}
+                                </div>
+                            </div>
+                            <div class="product-details">
+                                <div class="product-detail">
+                                    <div class="detail-label">Current Stock</div>
+                                    <div class="detail-value">${product.quantity} kg</div>
+                                </div>
+                                <div class="product-detail">
+                                    <div class="detail-label">Last Updated</div>
+                                    <div class="detail-value">Today</div>
+                                </div>
+                                <div class="product-detail">
+                                    <div class="detail-label">Status</div>
+                                    <div class="detail-value">${this.getStockStatus(product.quantity)}</div>
+                                </div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-primary btn-small" onclick="updateStock(${product.id})">
+                                    <i class="fas fa-edit"></i> Update
+                                </button>
+                                <button class="btn btn-secondary btn-small" onclick="viewStockHistory(${product.id})">
+                                    <i class="fas fa-history"></i> History
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            getStatusText(status) {
+                const statusMap = {
+                    'available': 'Available',
+                    'low': 'Low Stock',
+                    'out': 'Out of Stock'
+                };
+                return statusMap[status] || status;
+            }
+
+            getStockStatus(quantity) {
+                if (quantity >= 200) return 'High';
+                if (quantity >= 50) return 'Medium';
+                return 'Low';
+            }
+
+            // Orders Management
+            renderOrders() {
+                const container = document.getElementById('ordersTable');
+                if (!container) return;
+                
+                container.innerHTML = this.orders.map(order => `
+                    <tr>
+                        <td>${order.id}</td>
+                        <td>${order.buyer}</td>
+                        <td>${order.product}</td>
+                        <td>${order.quantity} kg</td>
+                        <td>₹${order.amount}</td>
+                        <td><span class="order-status status-${order.status}">${this.getOrderStatusText(order.status)}</span></td>
+                        <td>${this.formatDate(order.date)}</td>
+                        <td>
+                            <button class="btn btn-success btn-small" style="padding: 5px 10px; font-size: 11px;" onclick="viewOrder('${order.id}')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn btn-primary btn-small" style="padding: 5px 10px; font-size: 11px;" onclick="updateOrderStatus('${order.id}')">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+
+            renderRecentOrders() {
+                const container = document.getElementById('recentOrders');
+                if (!container) return;
+                
+                const recentOrders = this.orders.slice(0, 5);
+                container.innerHTML = recentOrders.map(order => `
+                    <tr>
+                        <td>${order.id}</td>
+                        <td>${order.buyer}</td>
+                        <td>${order.product}</td>
+                        <td>${order.quantity} kg</td>
+                        <td>₹${order.amount}</td>
+                        <td><span class="order-status status-${order.status}">${this.getOrderStatusText(order.status)}</span></td>
+                        <td>${this.formatDate(order.date)}</td>
+                    </tr>
+                `).join('');
+            }
+
+            getOrderStatusText(status) {
+                const statusMap = {
+                    'pending': 'Pending',
+                    'confirmed': 'Confirmed',
+                    'shipped': 'Shipped',
+                    'delivered': 'Delivered',
+                    'cancelled': 'Cancelled'
+                };
+                return statusMap[status] || status;
+            }
+
+            formatDate(dateString) {
+                const date = new Date(dateString);
+                return date.toLocaleDateString('en-IN', {
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric'
+                });
+            }
+
+            // Buyers Management
+            renderBuyers() {
+                const container = document.getElementById('buyersGrid');
+                if (!container) return;
+                
+                if (this.buyers.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state" style="grid-column: 1 / -1;">
+                            <i class="fas fa-users"></i>
+                            <h3>No Buyers Yet</h3>
+                            <p>You haven't connected with any buyers yet. Start listing products to attract buyers.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                container.innerHTML = this.buyers.map(buyer => `
+                    <div class="product-card">
+                        <div class="product-image">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-header">
+                                <div class="product-name">${buyer.name}</div>
+                                <div class="product-status status-available">
+                                    ${buyer.type.charAt(0).toUpperCase() + buyer.type.slice(1)}
+                                </div>
+                            </div>
+                            <div class="product-details">
+                                <div class="product-detail">
+                                    <div class="detail-label">Location</div>
+                                    <div class="detail-value">${buyer.location}</div>
+                                </div>
+                                <div class="product-detail">
+                                    <div class="detail-label">Total Orders</div>
+                                    <div class="detail-value">${buyer.totalOrders}</div>
+                                </div>
+                                <div class="product-detail">
+                                    <div class="detail-label">Total Spent</div>
+                                    <div class="detail-value">₹${buyer.totalSpent.toLocaleString()}</div>
+                                </div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-success btn-small" onclick="viewBuyer(${buyer.id})">
+                                    <i class="fas fa-eye"></i> View
+                                </button>
+                                <button class="btn btn-primary btn-small" onclick="contactBuyer(${buyer.id})">
+                                    <i class="fas fa-phone"></i> Contact
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Sales Report
+            renderSalesReport() {
+                const container = document.getElementById('salesReportTable');
+                if (!container) return;
+                
+                // Generate sample sales report data
+                const reportData = this.orders.map(order => ({
+                    date: order.date,
+                    id: order.id,
+                    buyer: order.buyer,
+                    product: order.product,
+                    quantity: order.quantity,
+                    price: Math.round(order.amount / order.quantity),
+                    total: order.amount,
+                    status: order.status
+                }));
+                
+                container.innerHTML = reportData.map(item => `
+                    <tr>
+                        <td>${this.formatDate(item.date)}</td>
+                        <td>${item.id}</td>
+                        <td>${item.buyer}</td>
+                        <td>${item.product}</td>
+                        <td>${item.quantity} kg</td>
+                        <td>₹${item.price}/kg</td>
+                        <td>₹${item.total}</td>
+                        <td><span class="order-status status-${item.status}">${this.getOrderStatusText(item.status)}</span></td>
+                    </tr>
+                `).join('');
+            }
+
+            // Charts Initialization
+            initCharts() {
+                this.initSalesChart();
+                this.initProductChart();
+                this.initMonthlySalesChart();
+                this.initTopProductsChart();
+            }
+
+            initSalesChart() {
+                const ctx = document.getElementById('salesChart').getContext('2d');
+                const dates = [];
+                for (let i = 13; i >= 0; i--) {
+                    const date = new Date();
+                    date.setDate(date.getDate() - i);
+                    dates.push(date.toLocaleDateString('en-IN', { day: '2-digit', month: 'short' }));
+                }
+                
+                this.salesChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: dates,
+                        datasets: [{
+                            label: 'Daily Sales (₹)',
+                            data: this.salesData.daily,
+                            borderColor: 'rgba(39, 174, 96, 1)',
+                            backgroundColor: 'rgba(39, 174, 96, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `Sales: ₹${context.parsed.y.toLocaleString()}`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return '₹' + value.toLocaleString();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            initProductChart() {
+                const ctx = document.getElementById('productChart').getContext('2d');
+                
+                this.productChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Grains', 'Vegetables', 'Fruits', 'Pulses', 'Spices'],
+                        datasets: [{
+                            data: [45, 25, 15, 10, 5],
+                            backgroundColor: [
+                                'rgba(39, 174, 96, 0.8)',
+                                'rgba(242, 201, 76, 0.8)',
+                                'rgba(242, 153, 74, 0.8)',
+                                'rgba(45, 156, 219, 0.8)',
+                                'rgba(155, 89, 182, 0.8)'
+                            ],
+                            borderWidth: 2,
+                            borderColor: 'var(--white)'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                            }
+                        }
+                    }
+                });
+            }
+
+            initMonthlySalesChart() {
+                const ctx = document.getElementById('monthlySalesChart').getContext('2d');
+                const months = ['Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'];
+                
+                this.monthlySalesChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: months,
+                        datasets: [{
+                            label: 'Monthly Sales (₹)',
+                            data: this.salesData.monthly,
+                            backgroundColor: 'rgba(39, 174, 96, 0.8)',
+                            borderColor: 'rgba(39, 174, 96, 1)',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return '₹' + (value/1000) + 'k';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            initTopProductsChart() {
+                const ctx = document.getElementById('topProductsChart').getContext('2d');
+                
+                this.topProductsChart = new Chart(ctx, {
+                    type: 'polarArea',
+                    data: {
+                        labels: this.salesData.products.map(p => p.name),
+                        datasets: [{
+                            data: this.salesData.products.map(p => p.value),
+                            backgroundColor: [
+                                'rgba(39, 174, 96, 0.8)',
+                                'rgba(242, 201, 76, 0.8)',
+                                'rgba(242, 153, 74, 0.8)',
+                                'rgba(45, 156, 219, 0.8)',
+                                'rgba(155, 89, 182, 0.8)'
+                            ],
+                            borderWidth: 2,
+                            borderColor: 'var(--white)'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.label}: ₹${context.parsed.r.toLocaleString()}`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            updateSalesChart() {
+                const period = document.getElementById('chartPeriod').value;
+                let data = [];
+                
+                if (period === '7') {
+                    data = this.salesData.daily.slice(-7);
+                } else if (period === '30') {
+                    data = this.salesData.daily;
+                } else if (period === '90') {
+                    // Generate 90 days data
+                    data = Array.from({length: 90}, (_, i) => 
+                        Math.floor(Math.random() * 5000) + 2000
+                    );
+                }
+                
+                this.salesChart.data.datasets[0].data = data;
+                this.salesChart.update();
+            }
+
+            // Modal Functions
+            showModal(modalId) {
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            closeModal(modalId) {
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+
+            // Notifications
+            showNotification(message, type = 'success') {
+                const container = document.getElementById('notificationsContainer');
+                if (!container) return;
+                
+                const notification = document.createElement('div');
+                notification.className = `notification ${type}`;
+                notification.innerHTML = `
+                    <div class="notification-icon">
+                        <i class="fas fa-${type === 'success' ? 'check' : type === 'warning' ? 'exclamation' : 'times'}"></i>
+                    </div>
+                    <div class="notification-content">
+                        <h4>${type === 'success' ? 'Success' : type === 'warning' ? 'Warning' : 'Error'}</h4>
+                        <p>${message}</p>
+                    </div>
+                `;
+                
+                container.appendChild(notification);
+                
+                // Remove notification after 5 seconds
+                setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.5s ease forwards';
+                    setTimeout(() => {
+                        if (notification.parentNode) {
+                            notification.parentNode.removeChild(notification);
+                        }
+                    }, 500);
+                }, 5000);
+            }
+
+            // Product Operations
+            submitProduct(event) {
+                event.preventDefault();
+                const form = event.target;
+                const formData = new FormData(form);
+                
+                const product = {
+                    id: this.products.length + 1,
+                    name: formData.get('productName'),
+                    category: formData.get('productCategory'),
+                    quantity: parseFloat(formData.get('quantity')),
+                    price: parseFloat(formData.get('price')),
+                    harvestDate: formData.get('harvestDate'),
+                    expiryDate: formData.get('expiryDate'),
+                    description: formData.get('productDescription'),
+                    status: 'available',
+                    image: null
+                };
+                
+                this.products.push(product);
+                this.renderProducts();
+                this.renderStockGrid();
+                
+                this.showNotification('Product listed successfully!');
+                form.reset();
+                this.showSection('products');
+            }
+
+            viewProduct(productId) {
+                const product = this.products.find(p => p.id === productId);
+                if (!product) return;
+                
+                const content = document.getElementById('productDetailContent');
+                content.innerHTML = `
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                            <div style="width: 80px; height: 80px; background: rgba(39, 174, 96, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-seedling" style="font-size: 32px; color: var(--primary-green);"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.4rem; margin-bottom: 5px;">${product.name}</h3>
+                                <div class="product-status status-${product.status}" style="display: inline-block;">
+                                    ${this.getStatusText(product.status)}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                            <div>
+                                <label style="font-size: 12px; color: var(--text-light);">Category</label>
+                                <p style="font-weight: 600;">${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</p>
+                            </div>
+                            <div>
+                                <label style="font-size: 12px; color: var(--text-light);">Quantity Available</label>
+                                <p style="font-weight: 600;">${product.quantity} kg</p>
+                            </div>
+                            <div>
+                                <label style="font-size: 12px; color: var(--text-light);">Price</label>
+                                <p style="font-weight: 600;">₹${product.price}/kg</p>
+                            </div>
+                            <div>
+                                <label style="font-size: 12px; color: var(--text-light);">Total Value</label>
+                                <p style="font-weight: 600;">₹${(product.quantity * product.price).toLocaleString()}</p>
+                            </div>
+                        </div>
+                        
+                        ${product.harvestDate ? `
+                        <div style="margin-bottom: 15px;">
+                            <label style="font-size: 12px; color: var(--text-light);">Harvest Date</label>
+                            <p style="font-weight: 600;">${new Date(product.harvestDate).toLocaleDateString()}</p>
+                        </div>
+                        ` : ''}
+                        
+                        ${product.expiryDate ? `
+                        <div style="margin-bottom: 15px;">
+                            <label style="font-size: 12px; color: var(--text-light);">Expiry Date</label>
+                            <p style="font-weight: 600;">${new Date(product.expiryDate).toLocaleDateString()}</p>
+                        </div>
+                        ` : ''}
+                        
+                        ${product.description ? `
+                        <div style="margin-bottom: 15px;">
+                            <label style="font-size: 12px; color: var(--text-light);">Description</label>
+                            <p>${product.description}</p>
+                        </div>
+                        ` : ''}
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="btn btn-secondary" onclick="editProduct(${product.id})">
+                            <i class="fas fa-edit"></i> Edit Product
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="updateStock(${product.id})">
+                            <i class="fas fa-warehouse"></i> Update Stock
+                        </button>
+                    </div>
+                `;
+                
+                this.showModal('productDetailModal');
+            }
+
+            updateStock(productId) {
+                const product = this.products.find(p => p.id === productId);
+                if (!product) return;
+                
+                const content = document.getElementById('orderActionContent');
+                content.innerHTML = `
+                    <form onsubmit="handleStockUpdate(event, ${productId})">
+                        <div class="form-group">
+                            <label for="stockQuantity">Current Stock: ${product.quantity} kg</label>
+                            <input type="number" id="stockQuantity" name="stockQuantity" required 
+                                   min="0" step="0.1" 
+                                   placeholder="Enter new quantity" 
+                                   value="${product.quantity}">
+                        </div>
+                        <div class="form-group">
+                            <label for="stockReason">Reason for Update (Optional)</label>
+                            <textarea id="stockReason" name="stockReason" rows="3" 
+                                      placeholder="e.g., New harvest, sold stock, damaged stock, etc."></textarea>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" class="btn btn-secondary" onclick="closeModal('orderActionModal')">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Update Stock</button>
+                        </div>
+                    </form>
+                `;
+                
+                this.showModal('orderActionModal');
+            }
+
+            updateStockQuantity(event) {
+                event.preventDefault();
+                const form = event.target;
+                const formData = new FormData(form);
+                const productId = parseInt(formData.get('stockProduct'));
+                const newQuantity = parseFloat(formData.get('newQuantity'));
+                
+                const product = this.products.find(p => p.id === productId);
+                if (product) {
+                    const oldQuantity = product.quantity;
+                    product.quantity = newQuantity;
+                    
+                    // Update status based on quantity
+                    if (newQuantity >= 200) {
+                        product.status = 'available';
+                    } else if (newQuantity >= 50) {
+                        product.status = 'low';
+                    } else {
+                        product.status = 'out';
+                    }
+                    
+                    this.renderProducts();
+                    this.renderStockGrid();
+                    this.showNotification(`Stock updated: ${oldQuantity}kg → ${newQuantity}kg`);
+                    this.closeModal('updateStockModal');
+                }
+            }
+
+            updateOrderStatus(orderId) {
+                const order = this.orders.find(o => o.id === orderId);
+                if (!order) return;
+                
+                const content = document.getElementById('orderActionContent');
+                content.innerHTML = `
+                    <div style="margin-bottom: 20px;">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Update Order Status</h3>
+                        <p style="color: var(--text-light); margin-bottom: 20px;">
+                            Order: <strong>${order.id}</strong> - ${order.product} (${order.quantity}kg)
+                        </p>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-bottom: 20px;">
+                            <button type="button" class="btn ${order.status === 'pending' ? 'btn-primary' : 'btn-secondary'}" 
+                                    onclick="changeOrderStatus('${orderId}', 'pending')">
+                                Pending
+                            </button>
+                            <button type="button" class="btn ${order.status === 'confirmed' ? 'btn-primary' : 'btn-secondary'}" 
+                                    onclick="changeOrderStatus('${orderId}', 'confirmed')">
+                                Confirm
+                            </button>
+                            <button type="button" class="btn ${order.status === 'shipped' ? 'btn-primary' : 'btn-secondary'}" 
+                                    onclick="changeOrderStatus('${orderId}', 'shipped')">
+                                Ship
+                            </button>
+                            <button type="button" class="btn ${order.status === 'delivered' ? 'btn-primary' : 'btn-secondary'}" 
+                                    onclick="changeOrderStatus('${orderId}', 'delivered')">
+                                Deliver
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="btn btn-secondary" onclick="closeModal('orderActionModal')">Cancel</button>
+                    </div>
+                `;
+                
+                this.showModal('orderActionModal');
+            }
+
+            changeOrderStatus(orderId, newStatus) {
+                const order = this.orders.find(o => o.id === orderId);
+                if (order) {
+                    order.status = newStatus;
+                    this.renderOrders();
+                    this.renderRecentOrders();
+                    this.showNotification(`Order ${orderId} status updated to ${newStatus}`);
+                    this.closeModal('orderActionModal');
+                }
+            }
+
+            addBuyer(event) {
+                event.preventDefault();
+                const form = event.target;
+                const formData = new FormData(form);
+                
+                const buyer = {
+                    id: this.buyers.length + 1,
+                    name: formData.get('buyerName'),
+                    type: formData.get('buyerType'),
+                    phone: formData.get('buyerPhone'),
+                    email: formData.get('buyerEmail'),
+                    location: formData.get('buyerLocation'),
+                    totalOrders: 0,
+                    totalSpent: 0
+                };
+                
+                this.buyers.push(buyer);
+                this.renderBuyers();
+                this.showNotification('Buyer added successfully!');
+                form.reset();
+                this.closeModal('addBuyerModal');
+            }
+
+            // Utility Functions
+            refreshData() {
+                this.showNotification('Refreshing data...', 'warning');
+                // In a real app, this would fetch fresh data from the server
+                setTimeout(() => {
+                    this.showNotification('Data refreshed successfully!');
+                }, 1000);
+            }
+
+            generateReport() {
+                this.showNotification('Generating sales report...', 'warning');
+                setTimeout(() => {
+                    // Create a sample report
+                    const reportData = {
+                        date: new Date().toLocaleDateString(),
+                        totalSales: 124850,
+                        totalOrders: 42,
+                        topProduct: 'Organic Wheat',
+                        period: 'January 2024'
+                    };
+                    
+                    const reportContent = `
+                        Farm Vantara Sales Report
+                        =========================
+                        Date: ${reportData.date}
+                        Period: ${reportData.period}
+                        
+                        Summary:
+                        ---------
+                        Total Sales: ₹${reportData.totalSales.toLocaleString()}
+                        Total Orders: ${reportData.totalOrders}
+                        Average Order Value: ₹${Math.round(reportData.totalSales/reportData.totalOrders)}
+                        
+                        Top Product: ${reportData.topProduct}
+                        
+                        Thank you for using Farm Vantara!
+                    `;
+                    
+                    // Create download link
+                    const blob = new Blob([reportContent], { type: 'text/plain' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `sales-report-${new Date().toISOString().split('T')[0]}.txt`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                    
+                    this.showNotification('Report downloaded successfully!');
+                }, 1500);
+            }
+
+            filterOrders() {
+                const filter = document.getElementById('orderFilter').value;
+                let filteredOrders = this.orders;
+                
+                if (filter !== 'all') {
+                    filteredOrders = this.orders.filter(order => order.status === filter);
+                }
+                
+                const container = document.getElementById('ordersTable');
+                if (container) {
+                    container.innerHTML = filteredOrders.map(order => `
+                        <tr>
+                            <td>${order.id}</td>
+                            <td>${order.buyer}</td>
+                            <td>${order.product}</td>
+                            <td>${order.quantity} kg</td>
+                            <td>₹${order.amount}</td>
+                            <td><span class="order-status status-${order.status}">${this.getOrderStatusText(order.status)}</span></td>
+                            <td>${this.formatDate(order.date)}</td>
+                            <td>
+                                <button class="btn btn-success btn-small" style="padding: 5px 10px; font-size: 11px;" onclick="viewOrder('${order.id}')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn btn-primary btn-small" style="padding: 5px 10px; font-size: 11px;" onclick="updateOrderStatus('${order.id}')">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    `).join('');
+                }
+            }
+        }
+
+        // Global Functions
+        let dashboard;
+
+        function showSection(section) {
+            if (dashboard) {
+                dashboard.showSection(section);
+            }
+        }
+
+        function closeModal(modalId) {
+            if (dashboard) {
+                dashboard.closeModal(modalId);
+            }
+        }
+
+        function viewProduct(productId) {
+            if (dashboard) {
+                dashboard.viewProduct(productId);
+            }
+        }
+
+        function editProduct(productId) {
+            const product = dashboard.products.find(p => p.id === productId);
+            if (product) {
+                // Pre-fill form with product data
+                document.getElementById('productName').value = product.name;
+                document.getElementById('productCategory').value = product.category;
+                document.getElementById('quantity').value = product.quantity;
+                document.getElementById('price').value = product.price;
+                document.getElementById('harvestDate').value = product.harvestDate;
+                document.getElementById('expiryDate').value = product.expiryDate;
+                document.getElementById('productDescription').value = product.description;
+                
+                dashboard.showSection('list');
+                dashboard.showNotification('Edit the product details below', 'warning');
+            }
+        }
+
+        function updateStock(productId) {
+            if (dashboard) {
+                dashboard.updateStock(productId);
+            }
+        }
+
+        function handleStockUpdate(event, productId) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const newQuantity = parseFloat(formData.get('stockQuantity'));
+            
+            if (dashboard) {
+                const product = dashboard.products.find(p => p.id === productId);
+                if (product) {
+                    const oldQuantity = product.quantity;
+                    product.quantity = newQuantity;
+                    
+                    // Update status based on quantity
+                    if (newQuantity >= 200) {
+                        product.status = 'available';
+                    } else if (newQuantity >= 50) {
+                        product.status = 'low';
+                    } else {
+                        product.status = 'out';
+                    }
+                    
+                    dashboard.renderProducts();
+                    dashboard.renderStockGrid();
+                    dashboard.showNotification(`Stock updated: ${oldQuantity}kg → ${newQuantity}kg`);
+                    dashboard.closeModal('orderActionModal');
+                }
+            }
+        }
+
+        function updateStockModal() {
+            if (dashboard) {
+                dashboard.showModal('updateStockModal');
+            }
+        }
+
+        function viewOrder(orderId) {
+            const order = dashboard.orders.find(o => o.id === orderId);
+            if (order) {
+                dashboard.showNotification(`Viewing order: ${orderId} - ${order.product}`, 'warning');
+            }
+        }
+
+        function updateOrderStatus(orderId) {
+            if (dashboard) {
+                dashboard.updateOrderStatus(orderId);
+            }
+        }
+
+        function changeOrderStatus(orderId, newStatus) {
+            if (dashboard) {
+                dashboard.changeOrderStatus(orderId, newStatus);
+            }
+        }
+
+        function showBuyerModal() {
+            if (dashboard) {
+                dashboard.showModal('addBuyerModal');
+            }
+        }
+
+        function addBuyer(event) {
+            if (dashboard) {
+                dashboard.addBuyer(event);
+            }
+        }
+
+        function refreshData() {
+            if (dashboard) {
+                dashboard.refreshData();
+            }
+        }
+
+        function generateReport() {
+            if (dashboard) {
+                dashboard.generateReport();
+            }
+        }
+
+        function filterOrders() {
+            if (dashboard) {
+                dashboard.filterOrders();
+            }
+        }
+
+        function updateSalesChart() {
+            if (dashboard) {
+                dashboard.updateSalesChart();
+            }
+        }
+
+        function submitProduct(event) {
+            if (dashboard) {
+                dashboard.submitProduct(event);
+            }
+        }
+
+        function updateStockQuantity(event) {
+            if (dashboard) {
+                dashboard.updateStockQuantity(event);
+            }
+        }
+
+        function updateSettings(event) {
+            event.preventDefault();
+            if (dashboard) {
+                dashboard.showNotification('Settings updated successfully!');
+            }
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = './login.html';
+            }
+        }
+
+        // Initialize Dashboard
+        document.addEventListener('DOMContentLoaded', () => {
+            dashboard = new FarmerDashboard();
+        });
+    </script>
+</body>
+</html>

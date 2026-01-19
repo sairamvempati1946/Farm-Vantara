@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <title>For Farmers - Sell Crops Directly | Farm Vantara India</title>
+    <meta name="description" content="Join Farm Vantara - India's leading AgriTech platform for farmers. Sell crops directly to businesses & consumers, earn 40% more, get timely payments & market insights.">
+    <meta name="keywords" content="sell crops online India, farmer marketplace, direct selling to buyers, agricultural marketing platform, farmer registration, crop price discovery, farm produce selling">
+    <meta name="author" content="Farm Vantara">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://farmvantara.com/farmers.html">
+    <meta property="og:title" content="For Farmers - Sell Crops Directly | Farm Vantara">
+    <meta property="og:description" content="Sell your crops directly to verified buyers. Eliminate middlemen, get fair prices, and grow your farming business with Farm Vantara.">
+    <meta property="og:image" content="https://farmvantara.com/images/farmers-og.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://farmvantara.com/farmers.html">
+    <meta property="twitter:title" content="For Farmers - Sell Crops Directly | Farm Vantara">
+    <meta property="twitter:description" content="Sell your crops directly to verified buyers. Eliminate middlemen, get fair prices, and grow your farming business with Farm Vantara.">
+    <meta property="twitter:image" content="https://farmvantara.com/images/farmers-twitter.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://farmvantara.com/farmers.html">
+    
+    <!-- Schema.org for Farmer Page -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Farmer Marketplace Platform",
+      "provider": {
+        "@type": "Organization",
+        "name": "Farm Vantara",
+        "url": "https://farmvantara.com/"
+      },
+      "description": "Digital platform for farmers to sell crops directly to businesses and consumers",
+      "areaServed": {
+        "@type": "Country",
+        "name": "India"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR",
+        "description": "Free registration for farmers with zero commission on first 10 orders"
+      }
+    }
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reuse existing CSS variables and base styles from landing page */
+        :root {
+            --primary-green: #27ae60;
+            --dark-green: #219653;
+            --light-green: #6fcf97;
+            --accent-yellow: #f2c94c;
+            --accent-orange: #f2994a;
+            --dark-blue: #2d3436;
+            --light-gray: #f8f9fa;
+            --medium-gray: #dfe6e9;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --gradient-primary: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+            --gradient-yellow: linear-gradient(135deg, #f2c94c 0%, #f2994a 100%);
+            --gradient-blue: linear-gradient(135deg, #2d9cdb 0%, #2f80ed 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        /* Header - Same as Landing Page */
+        .main-header {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .main-header.scrolled {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        .main-header.scrolled .navbar {
+            padding: 10px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 15px;
+            margin-right: 40px;
+        }
+
+        .logo-img {
+            height: 75px;
+            width: 200px;
+            transition: var(--transition);
+        }
+
+        .main-header.scrolled .logo-img {
+            height: 45px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 26px;
+            color: var(--dark-green);
+            letter-spacing: -0.5px;
+            line-height: 1;
+        }
+
+        .logo-subtitle {
+            font-size: 11px;
+            color: var(--text-light);
+            letter-spacing: 1.2px;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: space-between;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 5px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .nav-item a:hover,
+        .nav-item a:focus {
+            color: var(--primary-green);
+            background: rgba(39, 174, 96, 0.08);
+            outline: none;
+        }
+
+        .nav-item.active a {
+            color: var(--primary-green);
+            background: rgba(39, 174, 96, 0.1);
+        }
+
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 3px;
+        }
+
+        /* Auth Buttons */
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: 30px;
+        }
+
+        .btn-login, .btn-register {
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .btn-login {
+            color: var(--primary-green);
+            border-color: var(--primary-green);
+            background: transparent;
+        }
+
+        .btn-login:hover {
+            background: var(--primary-green);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(39, 174, 96, 0.2);
+        }
+
+        .btn-register {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-register:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(39, 174, 96, 0.3);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-green);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: var(--transition);
+            margin-left: 15px;
+        }
+
+        /* Farmer Hero Section */
+        .farmer-hero {
+            background: linear-gradient(135deg, #f8fff9 0%, #e8f5e9 100%);
+            padding: 30px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .farmer-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(39, 174, 96, 0.1) 0%, transparent 50%);
+        }
+
+        .farmer-hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .farmer-hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .farmer-hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            color: var(--dark-green);
+        }
+
+        .farmer-hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .farmer-cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .btn-farmer-primary, .btn-farmer-secondary {
+            padding: 18px 35px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-farmer-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-farmer-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(39, 174, 96, 0.3);
+        }
+
+        .btn-farmer-secondary {
+            background: white;
+            color: var(--primary-green);
+            border: 2px solid var(--primary-green);
+        }
+
+        .btn-farmer-secondary:hover {
+            background: var(--primary-green);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .farmer-hero-stats {
+            display: flex;
+            gap: 50px;
+            padding-top: 40px;
+            border-top: 2px solid rgba(39, 174, 96, 0.1);
+        }
+
+        .farmer-stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .farmer-stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--dark-green);
+            line-height: 1;
+        }
+
+        .farmer-stat-label {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .farmer-hero-visual {
+            flex: 1;
+            position: relative;
+            height: 450px;
+        }
+
+        .farmer-visual-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .farmer-floating {
+            position: absolute;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .farmer-floating i {
+            font-size: 36px;
+            color: var(--primary-green);
+        }
+
+        .farmer-floating-1 {
+            width: 120px;
+            height: 120px;
+            top: 20px;
+            right: 100px;
+            animation-delay: 0s;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+        }
+
+        .farmer-floating-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 60px;
+            right: 40px;
+            animation-delay: -2s;
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 5px;
+            background: var(--gradient-primary);
+            border-radius: 5px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        /* Benefits Section - MODIFIED: Flow Chart Representation */
+        .benefits-section {
+            background: var(--white);
+            position: relative;
+        }
+
+        .flow-chart-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .flow-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            position: relative;
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+        }
+
+        .flow-step.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .flow-step-content {
+            flex: 1;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary-green);
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .flow-step.reverse .flow-step-content {
+            border-left: none;
+            border-right: 5px solid var(--primary-green);
+        }
+
+        .flow-step-content:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .flow-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(39, 174, 96, 0.3);
+        }
+
+        .flow-icon i {
+            font-size: 40px;
+            color: white;
+        }
+
+        .flow-step-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 40px;
+            height: 40px;
+            background: var(--accent-yellow);
+            color: var(--text-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 5px 15px rgba(242, 201, 76, 0.3);
+        }
+
+        .flow-step-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .flow-step-description {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .flow-step-highlight {
+            display: inline-block;
+            background: rgba(39, 174, 96, 0.1);
+            color: var(--dark-green);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        /* Flow Chart Connecting Lines */
+        .flow-connector {
+            position: absolute;
+            background: var(--primary-green);
+            z-index: 1;
+        }
+
+        .horizontal-connector {
+            height: 3px;
+            width: 100px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .vertical-connector {
+            width: 3px;
+            height: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .flow-step:nth-child(odd) .horizontal-connector {
+            right: -50px;
+        }
+
+        .flow-step:nth-child(even) .horizontal-connector {
+            left: -50px;
+        }
+
+        .vertical-connector {
+            bottom: -30px;
+        }
+
+        .flow-step:last-child .vertical-connector {
+            display: none;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background: var(--light-gray);
+            position: relative;
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            position: relative;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            position: relative;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 25px;
+        }
+
+        .step-title {
+            color: var(--dark-green);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .step-description {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .step-action {
+            color: var(--primary-green);
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* Crops Section */
+        .crops-section {
+            background: var(--white);
+        }
+
+        .crops-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .crop-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .crop-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .crop-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .crop-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .crop-card:hover .crop-image img {
+            transform: scale(1.1);
+        }
+
+        .crop-info {
+            padding: 25px;
+        }
+
+        .crop-name {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .crop-price {
+            color: var(--primary-green);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .crop-specs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .crop-demand {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(39, 174, 96, 0.1);
+            color: var(--dark-green);
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background: var(--light-gray);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-size: 18px;
+            color: var(--text-dark);
+            font-style: italic;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* CTA Section - IMPROVED with single line layout */
+        .farmer-cta-section {
+            background: var(--primary-green);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .farmer-cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .farmer-cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .farmer-cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .farmer-cta-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 60px;
+            opacity: 0.9;
+        }
+
+        /* Improved CTA Features Layout - Single Line */
+        .cta-features-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .cta-feature {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .cta-feature:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-feature i {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: var(--accent-yellow);
+        }
+
+        .cta-feature h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .cta-feature p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        /* Registration Form */
+        .registration-section {
+            background: var(--white);
+        }
+
+        .registration-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--medium-gray);
+            border-radius: 10px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        .btn-prev, .btn-next {
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-prev {
+            background: var(--light-gray);
+            color: var(--text-dark);
+        }
+
+        .btn-next {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        /* Footer */
+        .main-footer {
+            background-color: var(--dark-blue);
+            color: #b2bec3;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo-img {
+            height: 45px;
+            width: auto;
+            margin-bottom: 20px;
+        }
+
+        .footer-description {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-green);
+            transform: translateY(-5px);
+        }
+
+        .footer-title {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #b2bec3;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--light-green);
+            padding-left: 10px;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .contact-info i {
+            color: var(--primary-green);
+            margin-right: 15px;
+            margin-top: 5px;
+            min-width: 20px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: #95a5a6;
+            font-size: 14px;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: linear-gradient(135deg, #25d366, #1da851);
+            color: white;
+            border-radius: 50px;
+            padding: 16px 28px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .benefit-card {
+                flex: 0 0 calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .farmer-hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 60px;
+            }
+            
+            .farmer-hero-text {
+                margin-bottom: 0;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 90%;
+                max-width: 400px;
+                flex-direction: column;
+                background-color: white;
+                padding: 30px;
+                box-shadow: var(--shadow-hover);
+                transition: var(--transition);
+                z-index: 999;
+                border-radius: 0 20px 20px 0;
+                height: calc(100vh - 90px);
+                overflow-y: auto;
+                gap: 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 0;
+                width: 100%;
+            }
+            
+            .nav-item a {
+                padding: 18px 20px;
+                font-size: 16px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+                justify-content: flex-start;
+            }
+            
+            .auth-buttons {
+                margin: 30px 0 0;
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn-login, .btn-register {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                order: 3;
+            }
+            
+            .farmer-hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .farmer-hero-stats {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+            
+            .benefit-card {
+                flex: 0 0 calc(100% - 20px);
+            }
+            
+            .cta-features-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            /* Flow Chart Responsive */
+            .flow-step {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .flow-step.reverse {
+                flex-direction: column;
+            }
+            
+            .horizontal-connector {
+                display: none;
+            }
+            
+            .vertical-connector {
+                display: block;
+                height: 40px;
+                width: 3px;
+                left: 50%;
+                bottom: -20px;
+            }
+            
+            .flow-step-content {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .flow-icon {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .farmer-hero-title {
+                font-size: 2.3rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .benefits-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .registration-form-container {
+                padding: 30px 25px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .whatsapp-float .whatsapp-text {
+                display: none;
+            }
+            
+            .whatsapp-float {
+                bottom: 25px;
+                right: 25px;
+                padding: 16px;
+            }
+            
+            .cta-features-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .cta-feature {
+                min-width: 100%;
+            }
+            
+            .benefits-scroll-wrapper::before,
+            .benefits-scroll-wrapper::after {
+                width: 50px;
+            }
+            
+            .flow-chart {
+                gap: 40px;
+            }
+            
+            .flow-step-content {
+                padding: 30px 20px;
+            }
+            
+            .flow-icon {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .flow-icon i {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .farmer-hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn-farmer-primary, .btn-farmer-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .farmer-cta-title {
+                font-size: 2rem;
+            }
+            
+            .benefit-card {
+                min-width: 280px;
+            }
+            
+            .flow-step-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+    <header class="main-header" id="mainHeader">
+        <div class="container">
+            <nav class="navbar" aria-label="Main navigation">
+                <a href="index.html" class="logo">
+                    <img src="./logo.png" alt="Farm Vantara Logo" class="logo-img">
+                </a>
+                
+                <div class="nav-container">
+                    <!-- Navigation Menu -->
+                    <ul class="nav-menu" id="navMenu">
+                        <li class="nav-item"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li class="nav-item active"><a href="farmers.html"><i class="fas fa-user-tie"></i> For Farmers</a></li>
+                        <li class="nav-item"><a href="business.html"><i class="fas fa-building"></i> For Business</a></li>
+                        <li class="nav-item"><a href="shop.html"><i class="fas fa-shopping-cart"></i> Shop Fresh</a></li>
+                        <li class="nav-item"><a href="process.html"><i class="fas fa-cogs"></i> How It Works</a></li>
+                        <li class="nav-item"><a href="contact.html"><i class="fas fa-phone"></i> Contact</a></li>
+                    </ul>
+                    
+                    <!-- Auth Buttons -->
+                    <div class="auth-buttons">
+                        <a href="login.html" class="btn-login"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        <a href="#registration" class="btn-register"><i class="fas fa-user-plus"></i> Register</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" aria-label="Toggle menu" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Farmer Hero Section -->
+        <section class="farmer-hero">
+            <div class="container">
+                <div class="farmer-hero-content">
+                    <div class="farmer-hero-text">
+                        <h1 class="farmer-hero-title">Sell Your Crops Directly, Earn 40% More</h1>
+                        <p class="farmer-hero-subtitle">
+                            Eliminate middlemen, get fair market prices, 
+                            and receive payments within 24 hours. Join 5,000+ farmers already transforming their lives with Farm Vantara.
+                        </p>
+                        <div class="farmer-cta-buttons">
+                            <a href="#registration" class="btn-farmer-primary">
+                                <i class="fas fa-user-plus"></i> Register Your Farm Free
+                            </a>
+                            <a href="tel:+919553774933" class="btn-farmer-secondary">
+                                <i class="fas fa-phone-alt"></i> Call for Assistance
+                            </a>
+                        </div>
+                        <div class="farmer-hero-stats">
+                            <div class="farmer-stat-item">
+                                <span class="farmer-stat-number" id="farmerCount">0</span>
+                                <span class="farmer-stat-label">Farmers Connected</span>
+                            </div>
+                            <div class="farmer-stat-item">
+                                <span class="farmer-stat-number" id="earningCount">0</span>
+                                <span class="farmer-stat-label">Avg. Extra Earnings</span>
+                            </div>
+                            <div class="farmer-stat-item">
+                                <span class="farmer-stat-number" id="paymentCount">0</span>
+                                <span class="farmer-stat-label">Payment Success Rate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="farmer-hero-visual" aria-hidden="true">
+                        <div class="farmer-visual-container">
+                            <div class="farmer-floating farmer-floating-1">
+                                <i class="fas fa-rupee-sign"></i>
+                            </div>
+                            <div class="farmer-floating farmer-floating-2">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section - MODIFIED: Flow Chart Representation -->
+        <section class="benefits-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Your Journey to Better Farming</h2>
+                    <p class="section-subtitle">Follow our proven success path - From registration to increased earnings</p>
+                </div>
+                
+                <div class="flow-chart-container">
+                    <div class="flow-chart">
+                        <!-- Step 1: Registration -->
+                        <div class="flow-step">
+                            <div class="flow-icon">
+                                <i class="fas fa-user-plus"></i>
+                                <div class="flow-step-number">1</div>
+                            </div>
+                            <div class="flow-step-content">
+                                <h3 class="flow-step-title"><i class="fas fa-user-plus"></i> Easy Registration</h3>
+                                <p class="flow-step-description">Start with simple free registration. Provide basic farm details and get verified in less than 24 hours. No complicated paperwork required.</p>
+                                <span class="flow-step-highlight">Free & Simple Registration</span>
+                            </div>
+                            <div class="flow-connector horizontal-connector"></div>
+                            <div class="flow-connector vertical-connector"></div>
+                        </div>
+                        
+                        <!-- Step 2: Market Access -->
+                        <div class="flow-step reverse">
+                            <div class="flow-icon">
+                                <i class="fas fa-chart-line"></i>
+                                <div class="flow-step-number">2</div>
+                            </div>
+                            <div class="flow-step-content">
+                                <h3 class="flow-step-title"><i class="fas fa-chart-line"></i> Direct Market Access</h3>
+                                <p class="flow-step-description">Connect directly with verified buyers, restaurants, and retailers. Get real-time market prices and demand insights to make informed decisions.</p>
+                                <span class="flow-step-highlight">Eliminate Middlemen</span>
+                            </div>
+                            <div class="flow-connector horizontal-connector"></div>
+                            <div class="flow-connector vertical-connector"></div>
+                        </div>
+                        
+                        <!-- Step 3: Logistics Support -->
+                        <div class="flow-step">
+                            <div class="flow-icon">
+                                <i class="fas fa-truck"></i>
+                                <div class="flow-step-number">3</div>
+                            </div>
+                            <div class="flow-step-content">
+                                <h3 class="flow-step-title"><i class="fas fa-truck"></i> Complete Logistics Support</h3>
+                                <p class="flow-step-description">We handle everything from farm pickup to buyer delivery. Cold chain facilities for perishables, quality checks, and secure transportation.</p>
+                                <span class="flow-step-highlight">Doorstep Pickup & Delivery</span>
+                            </div>
+                            <div class="flow-connector horizontal-connector"></div>
+                            <div class="flow-connector vertical-connector"></div>
+                        </div>
+                        
+                        <!-- Step 4: Instant Payments -->
+                        <div class="flow-step reverse">
+                            <div class="flow-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <div class="flow-step-number">4</div>
+                            </div>
+                            <div class="flow-step-content">
+                                <h3 class="flow-step-title"><i class="fas fa-money-bill-wave"></i> Guaranteed Instant Payments</h3>
+                                <p class="flow-step-description">Receive payments within 24 hours of delivery. Multiple payment options including bank transfer, UPI, and cash pickup at your convenience.</p>
+                                <span class="flow-step-highlight">24-Hour Payment Guarantee</span>
+                            </div>
+                            <div class="flow-connector horizontal-connector"></div>
+                            <div class="flow-connector vertical-connector"></div>
+                        </div>
+                        
+                        <!-- Step 5: Continuous Support -->
+                        <div class="flow-step">
+                            <div class="flow-icon">
+                                <i class="fas fa-headset"></i>
+                                <div class="flow-step-number">5</div>
+                            </div>
+                            <div class="flow-step-content">
+                                <h3 class="flow-step-title"><i class="fas fa-headset"></i> Ongoing Farmer Support</h3>
+                                <p class="flow-step-description">24/7 support in your regional language. Crop planning advice, weather alerts, market trends, and farming best practices to maximize your yield.</p>
+                                <span class="flow-step-highlight">Always Available Support</span>
+                            </div>
+                            <div class="flow-connector horizontal-connector"></div>
+                            <div class="flow-connector vertical-connector"></div>
+                        </div>
+                        
+                        <!-- Step 6: Success & Growth -->
+                        <div class="flow-step reverse">
+                            <div class="flow-icon">
+                                <i class="fas fa-chart-bar"></i>
+                                <div class="flow-step-number">6</div>
+                            </div>
+                            <div class="flow-step-content">
+                                <h3 class="flow-step-title"><i class="fas fa-chart-bar"></i> Sustainable Growth & Success</h3>
+                                <p class="flow-step-description">Join thousands of successful farmers earning 30-40% more. Access to premium markets, export opportunities, and long-term business partnerships.</p>
+                                <span class="flow-step-highlight">40% Higher Earnings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">How It Works - Simple 4 Steps</h2>
+                    <p class="section-subtitle">Start selling your crops in less than 30 minutes</p>
+                </div>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Register Your Farm</h3>
+                        <p class="step-description">Complete free registration with basic details and farm documents. Takes less than 10 minutes.</p>
+                        <div class="step-action">
+                            <i class="fas fa-user-plus"></i> Free Registration
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">List Your Crops</h3>
+                        <p class="step-description">Add your available crops with quantity, quality specifications, and expected price.</p>
+                        <div class="step-action">
+                            <i class="fas fa-plus-circle"></i> Easy Listing
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Receive Orders</h3>
+                        <p class="step-description">Get direct orders from verified buyers. Negotiate prices through our secure platform.</p>
+                        <div class="step-action">
+                            <i class="fas fa-shopping-cart"></i> Direct Orders
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Sell & Get Paid</h3>
+                        <p class="step-description">We arrange pickup, quality check, and delivery. Receive payment within 24 hours.</p>
+                        <div class="step-action">
+                            <i class="fas fa-rupee-sign"></i> Instant Payment
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Selling Crops Section -->
+        <section class="crops-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Top Selling Crops on Farm Vantara</h2>
+                    <p class="section-subtitle">Get premium prices for these high-demand crops</p>
+                </div>
+                <div class="crops-grid">
+                    <div class="crop-card">
+                        <div class="crop-image">
+                            <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Organic Tomatoes" loading="lazy">
+                        </div>
+                        <div class="crop-info">
+                            <h3 class="crop-name">Organic Tomatoes</h3>
+                            <div class="crop-price">₹1,800 - ₹2,200 /Quintal</div>
+                            <div class="crop-specs">
+                                <span><i class="fas fa-map-marker-alt"></i> Pan-India Demand</span>
+                                <span><i class="fas fa-clock"></i> Year-round</span>
+                            </div>
+                            <div class="crop-demand">High Demand</div>
+                        </div>
+                    </div>
+                    <div class="crop-card">
+                        <div class="crop-image">
+                            <img src="https://cpimg.tistatic.com/11014135/b/4/Indian-Basmati-Rice..jpg" alt="Basmati Rice" loading="lazy">
+                        </div>
+                        <div class="crop-info">
+                            <h3 class="crop-name">Basmati Rice</h3>
+                            <div class="crop-price">₹3,200 - ₹3,800 /Quintal</div>
+                            <div class="crop-specs">
+                                <span><i class="fas fa-map-marker-alt"></i> Export Quality</span>
+                                <span><i class="fas fa-clock"></i> Seasonal</span>
+                            </div>
+                            <div class="crop-demand">Premium Price</div>
+                        </div>
+                    </div>
+                    <div class="crop-card">
+                        <div class="crop-image">
+                            <img src="https://www.quicklly.com/upload_images/blog/1712186243-alphonso-mangoes:-where-to-find-health-benefits-important-facts.jpg" alt="Alphonso Mangoes" loading="lazy">
+                        </div>
+                        <div class="crop-info">
+                            <h3 class="crop-name">Alphonso Mangoes</h3>
+                            <div class="crop-price">₹4,500 - ₹6,000 /Quintal</div>
+                            <div class="crop-specs">
+                                <span><i class="fas fa-map-marker-alt"></i> International Market</span>
+                                <span><i class="fas fa-clock"></i> Summer Season</span>
+                            </div>
+                            <div class="crop-demand">Export Opportunity</div>
+                        </div>
+                    </div>
+                    <div class="crop-card">
+                        <div class="crop-image">
+                            <img src="https://d1hm90tax3m3th.cloudfront.net/web/vegetables.jpg" alt="Organic Vegetables" loading="lazy">
+                        </div>
+                        <div class="crop-info">
+                            <h3 class="crop-name">Organic Vegetables</h3>
+                            <div class="crop-price">₹2,500 - ₹3,500 /Quintal</div>
+                            <div class="crop-specs">
+                                <span><i class="fas fa-map-marker-alt"></i> Urban Markets</span>
+                                <span><i class="fas fa-clock"></i> Year-round</span>
+                            </div>
+                            <div class="crop-demand">Growing Market</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Farmer Testimonials -->
+        <section class="testimonials-section" id="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Farmer Success Stories</h2>
+                    <p class="section-subtitle">Real farmers, real transformation with Farm Vantara</p>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">
+                            "I was earning ₹3-4 lakh annually through local traders. After joining Farm Vantara, 
+                            my income increased to ₹8 lakh in the first year itself. The direct market access changed everything."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://img.freepik.com/premium-photo/young-indian-farmer-green-agriculture-field_75648-6244.jpg?semt=ais_hybrid&w=740&q=80" alt="Rajesh Kumar" loading="lazy">
+                            </div>
+                            <div class="author-info">
+                                <h4>Rajesh Kumar</h4>
+                                <p>Wheat & Rice Farmer, Punjab</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">
+                            "The 24-hour payment guarantee is a game-changer in current .
+                            Earlier, I had to wait for weeks 
+                            to get paid. Now I get my money instantly and can plan my next crop cycle better."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://img.freepik.com/premium-photo/young-indian-woman-farmer-working-wheat-farm-field_136354-2660.jpg" alt="Priya Sharma" loading="lazy">
+                            </div>
+                            <div class="author-info">
+                                <h4>Priya Sharma</h4>
+                                <p>Organic Vegetable Farmer, Maharashtra</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">
+                            "The market insights helped me switch from traditional crops to high-demand organic 
+                            vegetables. My earnings increased by 60% in just 8 months. Best decision of my farming career."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://t3.ftcdn.net/jpg/05/99/59/02/360_F_599590282_rn8nuDZAs1m8tpOA9BpkqDFxGULAQqdx.jpg" alt="Arun Patel" loading="lazy">
+                            </div>
+                            <div class="author-info">
+                                <h4>Arun Patel</h4>
+                                <p>Cotton & Pulses Farmer, Gujarat</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section - IMPROVED with single line layout -->
+        <section class="farmer-cta-section">
+            <div class="container">
+                <div class="farmer-cta-content">
+                    <h2 class="farmer-cta-title">Ready to Transform Your Farming Journey?</h2>
+                    <p class="farmer-cta-subtitle">Join thousands of successful farmers who are earning more with Farm Vantara</p>
+                    
+                    <!-- IMPROVED: CTA Features in Single Line -->
+                    <div class="cta-features-container">
+                        <div class="cta-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Free Registration</h4>
+                            <p>No hidden charges</p>
+                        </div>
+                        <div class="cta-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Zero Commission</h4>
+                            <p>On first 10 orders</p>
+                        </div>
+                        <div class="cta-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Regional Support</h4>
+                            <p>In your local language</p>
+                        </div>
+                        <div class="cta-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Quality Training</h4>
+                            <p>Free farming workshops</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                        <a href="./register.html" class="btn-farmer-primary" style="background: white; color: var(--dark-green);">
+                            <i class="fas fa-user-plus"></i> Start Selling Now
+                        </a>
+                        <a href="tel:+919553774933" class="btn-farmer-secondary" style="background: transparent; border: 2px solid white; color: white;">
+                            <i class="fas fa-phone-alt"></i> Call: +91 95537 74933
+                        </a>
+                        <a href="https://wa.me/919553774933" class="btn-farmer-secondary" style="background: #25d366; border: none; color: white;">
+                            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="./logo.png" alt="Farm Vantara Logo" class="logo-img">
+                    <p class="footer-description">
+                        India's leading AgriTech platform connecting farmers directly with businesses and consumers. 
+                        Empowering farmers with technology, transparency, and direct market access.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">For Farmers</h4>
+                    <ul class="footer-links">
+                        <li><a href="farmers.html"><i class="fas fa-chevron-right"></i> Sell Crops</a></li>
+                        <li><a href="market-prices.html"><i class="fas fa-chevron-right"></i> Market Prices</a></li>
+                        <li><a href="crop-listing.html"><i class="fas fa-chevron-right"></i> Crop Listing Guide</a></li>
+                        <li><a href="payments.html"><i class="fas fa-chevron-right"></i> Payment Methods</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Farmer Support</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Success Stories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="business.html"><i class="fas fa-chevron-right"></i> For Businesses</a></li>
+                        <li><a href="shop.html"><i class="fas fa-chevron-right"></i> Shop Fresh</a></li>
+                        <li><a href="process.html"><i class="fas fa-chevron-right"></i> How It Works</a></li>
+                        <li><a href="impact.html"><i class="fas fa-chevron-right"></i> Our Impact</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> AgriTech Park, Sector 62, Noida, UP 201309</p>
+                        <p><i class="fas fa-phone-alt"></i> +91 95537 74933</p>
+                        <p><i class="fas fa-envelope"></i> info.farmvantara@gmail.com</p>
+                        <p><i class="fab fa-whatsapp"></i> +91 95537 74933</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-8PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Farm Vantara. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/919553774933" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            this.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Header scroll effect
+        const mainHeader = document.getElementById('mainHeader');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                mainHeader.classList.add('scrolled');
+            } else {
+                mainHeader.classList.remove('scrolled');
+            }
+        });
+
+        // Animated counters for farmer page
+        function animateCounter(element, target, suffix = '') {
+            let start = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                start += increment;
+                if (element.id === 'paymentCount') {
+                    element.textContent = Math.floor(start) + '%';
+                } else if (element.id === 'earningCount') {
+                    element.textContent = '+' + Math.floor(start) + '%';
+                } else {
+                    element.textContent = Math.floor(start).toLocaleString() + suffix;
+                }
+                if (start >= target) {
+                    clearInterval(timer);
+                }
+            }, 30);
+        }
+
+        // Start counters when page loads
+        window.addEventListener('load', function() {
+            animateCounter(document.getElementById('farmerCount'), 5000, '+');
+            animateCounter(document.getElementById('earningCount'), 40);
+            animateCounter(document.getElementById('paymentCount'), 99);
+        });
+
+        // Multi-step registration form
+        let currentStep = 1;
+        const totalSteps = 2;
+        
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        function showStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.form-step').forEach(stepEl => {
+                stepEl.classList.remove('active');
+            });
+            
+            // Show current step
+            document.getElementById('step' + step).classList.add('active');
+            
+            // Update button visibility
+            prevBtn.style.display = step === 1 ? 'none' : 'inline-block';
+            nextBtn.style.display = step === totalSteps ? 'none' : 'inline-block';
+            submitBtn.style.display = step === totalSteps ? 'inline-block' : 'none';
+        }
+        
+        nextBtn.addEventListener('click', function() {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        });
+        
+        prevBtn.addEventListener('click', function() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        });
+        
+        // Form submission
+        document.getElementById('farmerRegistrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('fullName').value,
+                mobile: document.getElementById('mobileNumber').value,
+                state: document.getElementById('state').value,
+                language: document.getElementById('language').value,
+                farmName: document.getElementById('farmName').value,
+                landArea: document.getElementById('landArea').value,
+                primaryCrop: document.getElementById('primaryCrop').value
+            };
+            
+            // Show success message
+            alert('Registration Successful! Our team will contact you within 24 hours to complete the verification process.');
+            
+            // Reset form
+            this.reset();
+            currentStep = 1;
+            showStep(currentStep);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Add hover effects to navigation items
+        document.querySelectorAll('.nav-item a').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Add animation to flow chart steps on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const flowSteps = document.querySelectorAll('.flow-step-content');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            flowSteps.forEach(step => {
+                step.style.opacity = '0';
+                step.style.transform = 'translateY(20px)';
+                step.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(step);
+            });
+            
+            // Animate flow icons
+            const flowIcons = document.querySelectorAll('.flow-icon');
+            flowIcons.forEach((icon, index) => {
+                icon.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+    </script>
+</body>
+</html>
