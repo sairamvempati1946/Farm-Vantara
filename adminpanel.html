@@ -1,0 +1,3096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Farm Vantara</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    
+    <style>
+        :root {
+            --primary-green: #27ae60;
+            --dark-green: #219653;
+            --light-green: #6fcf97;
+            --accent-yellow: #f2c94c;
+            --accent-orange: #f2994a;
+            --dark-blue: #2d3436;
+            --light-gray: #f8f9fa;
+            --medium-gray: #dfe6e9;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --white: #ffffff;
+            --danger-red: #eb5757;
+            --warning-orange: #f2994a;
+            --info-blue: #2d9cdb;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f5f7fa;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: linear-gradient(180deg, var(--dark-green) 0%, var(--primary-green) 100%);
+            color: white;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            transition: var(--transition);
+            z-index: 1000;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar-header {
+            padding: 25px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .admin-logo {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: var(--primary-green);
+            font-size: 24px;
+        }
+
+        .admin-name {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .admin-role {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .sidebar-menu {
+            padding: 20px 0;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            border-left: 3px solid transparent;
+            cursor: pointer;
+        }
+
+        .menu-item:hover,
+        .menu-item.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-left-color: var(--accent-yellow);
+        }
+
+        .menu-item i {
+            width: 24px;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .menu-item span {
+            font-weight: 500;
+        }
+
+        .menu-badge {
+            background: var(--danger-red);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            margin-left: auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 250px;
+            transition: var(--transition);
+        }
+
+        .top-bar {
+            background: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .toggle-sidebar {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: var(--text-dark);
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+
+        .toggle-sidebar:hover {
+            background: var(--light-gray);
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 30px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow-hover);
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+            z-index: 1000;
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .search-result-item {
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--medium-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-result-item:hover {
+            background: var(--light-gray);
+        }
+
+        .top-bar-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .notification {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--danger-red);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-green);
+            font-size: 18px;
+        }
+
+        /* Content Area */
+        .content-wrapper {
+            padding: 30px;
+        }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .page-subtitle {
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-green);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .stat-card.blue { border-left-color: var(--info-blue); }
+        .stat-card.orange { border-left-color: var(--warning-orange); }
+        .stat-card.red { border-left-color: var(--danger-red); }
+        .stat-card.yellow { border-left-color: var(--accent-yellow); }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .stat-title {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .stat-card .stat-icon { background: var(--primary-green); }
+        .stat-card.blue .stat-icon { background: var(--info-blue); }
+        .stat-card.orange .stat-icon { background: var(--warning-orange); }
+        .stat-card.red .stat-icon { background: var(--danger-red); }
+        .stat-card.yellow .stat-icon { background: var(--accent-yellow); }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .stat-change {
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stat-change.positive { color: var(--primary-green); }
+        .stat-change.negative { color: var(--danger-red); }
+
+        /* Charts Section */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .chart-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .chart-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .chart-controls select {
+            padding: 8px 15px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 6px;
+            background: white;
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+
+        /* Tables */
+        .data-table-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            display: none;
+        }
+
+        .data-table-card.active {
+            display: block;
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .table-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--dark-green);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--light-gray);
+            color: var(--text-dark);
+        }
+
+        .btn-secondary:hover {
+            background: var(--medium-gray);
+        }
+
+        .btn-danger {
+            background: var(--danger-red);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #d64545;
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+
+        /* Status Badges */
+        .status-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .status-active { background: #d4f8e8; color: var(--primary-green); }
+        .status-pending { background: #fff8e1; color: var(--warning-orange); }
+        .status-inactive { background: #ffeaea; color: var(--danger-red); }
+        .status-verified { background: #e3f2fd; color: var(--info-blue); }
+        .status-completed { background: #d4f8e8; color: var(--primary-green); }
+        .status-processing { background: #e3f2fd; color: var(--info-blue); }
+        .status-cancelled { background: #ffeaea; color: var(--danger-red); }
+
+        /* Quick Actions */
+        .quick-actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .action-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .action-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-green);
+        }
+
+        .action-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(39, 174, 96, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: var(--primary-green);
+        }
+
+        .action-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .action-desc {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: modalSlide 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes modalSlide {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            padding: 25px;
+            border-bottom: 1px solid var(--medium-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-body {
+            padding: 25px;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--text-dark);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 6px;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Section Content */
+        .section-content {
+            display: none;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .loading-spinner.active {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid var(--light-gray);
+            border-top: 4px solid var(--primary-green);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Alert Messages */
+        .alert {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .alert.active {
+            display: block;
+        }
+
+        .alert-success {
+            background: #d4f8e8;
+            color: var(--primary-green);
+            border-left: 4px solid var(--primary-green);
+        }
+
+        .alert-error {
+            background: #ffeaea;
+            color: var(--danger-red);
+            border-left: 4px solid var(--danger-red);
+        }
+
+        /* User Detail View */
+        .user-detail-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .user-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .user-avatar-lg {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: var(--primary-green);
+        }
+
+        .user-info h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .user-info p {
+            color: var(--text-light);
+        }
+
+        .user-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .user-stat-item {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .user-stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 5px;
+        }
+
+        .user-stat-label {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .charts-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            .sidebar {
+                transform: translateX(-100%);
+                width: 280px;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .search-bar {
+                max-width: 100%;
+                margin: 0;
+            }
+
+            .content-wrapper {
+                padding: 20px;
+            }
+
+            .charts-grid {
+                gap: 20px;
+            }
+
+            .chart-card {
+                padding: 20px;
+                min-width: 100%;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-actions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .user-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quick-actions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .table-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .table-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-green);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--dark-green);
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="admin-logo">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <div class="admin-name">Admin User</div>
+                <div class="admin-role">Super Administrator</div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="#dashboard" class="menu-item active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#farmers" class="menu-item" data-section="farmers">
+                    <i class="fas fa-tractor"></i>
+                    <span>Farmers Management</span>
+                    <span class="menu-badge">24</span>
+                </a>
+
+                <a href="#buyers" class="menu-item" data-section="buyers">
+                    <i class="fas fa-building"></i>
+                    <span>Buyers Management</span>
+                    <span class="menu-badge">18</span>
+                </a>
+
+                <a href="#consumers" class="menu-item" data-section="consumers">
+                    <i class="fas fa-users"></i>
+                    <span>Consumers Management</span>
+                </a>
+
+                <a href="#orders" class="menu-item" data-section="orders">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Orders & Transactions</span>
+                    <span class="menu-badge">156</span>
+                </a>
+
+                <a href="#products" class="menu-item" data-section="products">
+                    <i class="fas fa-seedling"></i>
+                    <span>Products & Listings</span>
+                </a>
+
+                <a href="#payments" class="menu-item" data-section="payments">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payments & Settlements</span>
+                </a>
+
+                <a href="#logistics" class="menu-item" data-section="logistics">
+                    <i class="fas fa-truck"></i>
+                    <span>Logistics & Delivery</span>
+                </a>
+
+                <a href="#reports" class="menu-item" data-section="reports">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Analytics & Reports</span>
+                </a>
+
+                <a href="#support" class="menu-item" data-section="support">
+                    <i class="fas fa-headset"></i>
+                    <span>Support & Tickets</span>
+                    <span class="menu-badge">5</span>
+                </a>
+
+                <a href="#settings" class="menu-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>System Settings</span>
+                </a>
+
+                <a href="#notifications" class="menu-item" data-section="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span>Notifications</span>
+                </a>
+
+                <a href="#security" class="menu-item" data-section="security">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Security & Audit</span>
+                </a>
+
+                <div class="menu-item logout-btn" style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <button class="toggle-sidebar" id="toggleSidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search farmers, orders, reports...">
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+
+                <div class="top-bar-actions">
+                    <div class="notification" id="notificationsBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">5</span>
+                    </div>
+
+                    <div class="notification" id="messagesBtn">
+                        <i class="fas fa-envelope"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+
+                    <div class="user-profile" id="userProfile">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600;">Admin User</div>
+                            <div style="font-size: 12px; color: var(--text-light);">Super Admin</div>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Wrapper -->
+            <div class="content-wrapper">
+                <!-- Alert Messages -->
+                <div class="alert" id="alertMessage"></div>
+
+                <!-- Loading Spinner -->
+                <div class="loading-spinner" id="loadingSpinner">
+                    <div class="spinner"></div>
+                    <p>Loading data...</p>
+                </div>
+
+                <!-- Dashboard Section (Default) -->
+                <div class="section-content active" id="dashboardSection">
+                    <!-- Page Header -->
+                    <div class="page-header">
+                        <h1 class="page-title">Admin Dashboard</h1>
+                        <p class="page-subtitle">Monitor all insights of Farmers, Buyers and Consumers at one place</p>
+                    </div>
+
+                    <!-- Stats Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <div class="stat-title">Total Farmers</div>
+                                <div class="stat-icon">
+                                    <i class="fas fa-tractor"></i>
+                                </div>
+                            </div>
+                            <div class="stat-number" id="totalFarmers">5,247</div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>12% from last month</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card blue">
+                            <div class="stat-header">
+                                <div class="stat-title">Business Buyers</div>
+                                <div class="stat-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                            </div>
+                            <div class="stat-number" id="totalBuyers">1,846</div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>8% from last month</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card orange">
+                            <div class="stat-header">
+                                <div class="stat-title">Active Consumers</div>
+                                <div class="stat-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                            </div>
+                            <div class="stat-number" id="totalConsumers">24,589</div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>15% from last month</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card red">
+                            <div class="stat-header">
+                                <div class="stat-title">Pending Orders</div>
+                                <div class="stat-icon">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                            </div>
+                            <div class="stat-number" id="pendingOrders">156</div>
+                            <div class="stat-change negative">
+                                <i class="fas fa-arrow-down"></i>
+                                <span>5% from yesterday</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card yellow">
+                            <div class="stat-header">
+                                <div class="stat-title">Today's Revenue</div>
+                                <div class="stat-icon">
+                                    <i class="fas fa-rupee-sign"></i>
+                                </div>
+                            </div>
+                            <div class="stat-number" id="todayRevenue">₹8,42,156</div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>22% from yesterday</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions-grid">
+                        <div class="action-card" onclick="openModal('addFarmer')">
+                            <div class="action-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="action-title">Add New Farmer</div>
+                            <div class="action-desc">Register new farmer with verification</div>
+                        </div>
+
+                        <div class="action-card" onclick="openModal('verifyBuyer')">
+                            <div class="action-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="action-title">Verify Business Buyer</div>
+                            <div class="action-desc">Approve business registration</div>
+                        </div>
+
+                        <div class="action-card" onclick="openModal('issueRefund')">
+                            <div class="action-icon">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <div class="action-title">Issue Refund</div>
+                            <div class="action-desc">Process customer refunds</div>
+                        </div>
+
+                        <div class="action-card" onclick="openModal('sendNotification')">
+                            <div class="action-icon">
+                                <i class="fas fa-bullhorn"></i>
+                            </div>
+                            <div class="action-title">Send Broadcast</div>
+                            <div class="action-desc">Send notification to all users</div>
+                        </div>
+
+                        <div class="action-card" onclick="generateReport()">
+                            <div class="action-icon">
+                                <i class="fas fa-file-export"></i>
+                            </div>
+                            <div class="action-title">Generate Report</div>
+                            <div class="action-desc">Export data analytics</div>
+                        </div>
+
+                        <div class="action-card" onclick="openModal('systemSettings')">
+                            <div class="action-icon">
+                                <i class="fas fa-sliders-h"></i>
+                            </div>
+                            <div class="action-title">System Settings</div>
+                            <div class="action-desc">Update platform configuration</div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Section -->
+                    <div class="charts-grid">
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <div class="chart-title">User Growth Analysis</div>
+                                <div class="chart-controls">
+                                    <select id="growthPeriod" onchange="updateGrowthChart(this.value)">
+                                        <option value="monthly">Monthly</option>
+                                        <option value="weekly">Weekly</option>
+                                        <option value="daily">Daily</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="growthChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <div class="chart-title">Revenue Distribution</div>
+                                <div class="chart-controls">
+                                    <select id="revenuePeriod" onchange="updateRevenueChart(this.value)">
+                                        <option value="monthly">This Month</option>
+                                        <option value="quarterly">This Quarter</option>
+                                        <option value="yearly">This Year</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="revenueChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <div class="chart-title">Top Crop Categories</div>
+                                <div class="chart-controls">
+                                    <select id="cropPeriod" onchange="updateCropChart(this.value)">
+                                        <option value="current">Current Month</option>
+                                        <option value="previous">Previous Month</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="cropChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <div class="chart-title">Regional Distribution</div>
+                                <div class="chart-controls">
+                                    <select id="regionFilter" onchange="updateRegionChart(this.value)">
+                                        <option value="all">All Regions</option>
+                                        <option value="north">North India</option>
+                                        <option value="south">South India</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="regionChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activities -->
+                    <div class="data-table-card active" id="activitiesTableCard">
+                        <div class="table-header">
+                            <h3>Recent Activities</h3>
+                            <div class="table-actions">
+                                <button class="btn btn-secondary" onclick="filterActivities()">
+                                    <i class="fas fa-filter"></i> Filter
+                                </button>
+                                <button class="btn btn-secondary" onclick="exportData('activities', 'csv')">
+                                    <i class="fas fa-download"></i> Export
+                                </button>
+                            </div>
+                        </div>
+                        <div class="table-container">
+                            <table id="activitiesTable" class="display" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>User Type</th>
+                                        <th>Activity</th>
+                                        <th>Details</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Pending Approvals -->
+                    <div class="data-table-card active" id="approvalsTableCard">
+                        <div class="table-header">
+                            <h3>Pending Approvals</h3>
+                            <div class="table-actions">
+                                <button class="btn btn-primary" onclick="approveAll()">
+                                    <i class="fas fa-check"></i> Approve All
+                                </button>
+                                <button class="btn btn-danger" onclick="rejectAll()">
+                                    <i class="fas fa-times"></i> Reject All
+                                </button>
+                            </div>
+                        </div>
+                        <div class="table-container">
+                            <table id="approvalsTable" class="display" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>User</th>
+                                        <th>Type</th>
+                                        <th>Request</th>
+                                        <th>Submitted</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farmers Management Section -->
+                <div class="section-content" id="farmersSection">
+                    <div class="page-header">
+                        <h1 class="page-title">Farmers Management</h1>
+                        <p class="page-subtitle">Manage farmer registrations, verifications, and activities</p>
+                    </div>
+                    <div class="data-table-card active" id="farmersTableCard">
+                        <div class="table-header">
+                            <h3>All Farmers</h3>
+                            <div class="table-actions">
+                                <button class="btn btn-primary" onclick="openModal('addFarmer')">
+                                    <i class="fas fa-user-plus"></i> Add Farmer
+                                </button>
+                                <button class="btn btn-secondary" onclick="exportData('farmers', 'csv')">
+                                    <i class="fas fa-download"></i> Export
+                                </button>
+                            </div>
+                        </div>
+                        <div class="table-container">
+                            <table id="farmersTable" class="display" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Location</th>
+                                        <th>Crops</th>
+                                        <th>Total Sales</th>
+                                        <th>Rating</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Buyers Management Section -->
+                <div class="section-content" id="buyersSection">
+                    <div class="page-header">
+                        <h1 class="page-title">Business Buyers Management</h1>
+                        <p class="page-subtitle">Monitor business buyers, orders, and transactions</p>
+                    </div>
+                    <div class="data-table-card active" id="buyersTableCard">
+                        <div class="table-header">
+                            <h3>All Business Buyers</h3>
+                            <div class="table-actions">
+                                <button class="btn btn-primary" onclick="openModal('verifyBuyer')">
+                                    <i class="fas fa-check-circle"></i> Verify Buyer
+                                </button>
+                                <button class="btn btn-secondary" onclick="exportData('buyers', 'csv')">
+                                    <i class="fas fa-download"></i> Export
+                                </button>
+                            </div>
+                        </div>
+                        <div class="table-container">
+                            <table id="buyersTable" class="display" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Business Name</th>
+                                        <th>Contact</th>
+                                        <th>Type</th>
+                                        <th>Monthly Spend</th>
+                                        <th>Orders</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other sections will be loaded dynamically -->
+                <div id="dynamicContent"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal" id="addFarmerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Farmer</h3>
+                <button class="close-modal" onclick="closeModal('addFarmer')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addFarmerForm">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" class="form-control" id="farmerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Number *</label>
+                        <input type="tel" class="form-control" id="farmerMobile" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" class="form-control" id="farmerEmail">
+                    </div>
+                    <div class="form-group">
+                        <label>State *</label>
+                        <select class="form-control" id="farmerState" required>
+                            <option value="">Select State</option>
+                            <option>Punjab</option>
+                            <option>Maharashtra</option>
+                            <option>Gujarat</option>
+                            <option>Uttar Pradesh</option>
+                            <option>Madhya Pradesh</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>District *</label>
+                        <input type="text" class="form-control" id="farmerDistrict" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Crops Grown *</label>
+                        <input type="text" class="form-control" id="farmerCrops" placeholder="Wheat, Rice, Vegetables" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Farm Size (Acres)</label>
+                        <input type="number" class="form-control" id="farmSize" step="0.1">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-save"></i> Register Farmer
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="verifyBuyerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Verify Business Buyer</h3>
+                <button class="close-modal" onclick="closeModal('verifyBuyer')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="verifyBuyerForm">
+                    <div class="form-group">
+                        <label>Business Name *</label>
+                        <input type="text" class="form-control" id="businessName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>GST Number *</label>
+                        <input type="text" class="form-control" id="gstNumber" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Business Type *</label>
+                        <select class="form-control" id="businessType" required>
+                            <option value="">Select Type</option>
+                            <option>Restaurant</option>
+                            <option>Hotel</option>
+                            <option>Retail Store</option>
+                            <option>Wholesaler</option>
+                            <option>Processing Unit</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly Procurement (₹) *</label>
+                        <input type="number" class="form-control" id="monthlyProcurement" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Person *</label>
+                        <input type="text" class="form-control" id="contactPerson" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Number *</label>
+                        <input type="tel" class="form-control" id="contactNumber" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-check-circle"></i> Verify & Approve
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="sendNotificationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Send Broadcast Notification</h3>
+                <button class="close-modal" onclick="closeModal('sendNotification')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="notificationForm">
+                    <div class="form-group">
+                        <label>Notification Type *</label>
+                        <select class="form-control" id="notificationType" required>
+                            <option value="">Select Type</option>
+                            <option value="all">All Users</option>
+                            <option value="farmers">Farmers Only</option>
+                            <option value="buyers">Business Buyers Only</option>
+                            <option value="consumers">Consumers Only</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject *</label>
+                        <input type="text" class="form-control" id="notificationSubject" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Message *</label>
+                        <textarea class="form-control" id="notificationMessage" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <select class="form-control" id="notificationPriority">
+                            <option value="normal">Normal</option>
+                            <option value="high">High</option>
+                            <option value="urgent">Urgent</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Send Notification
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="systemSettingsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>System Settings</h3>
+                <button class="close-modal" onclick="closeModal('systemSettings')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="settingsForm">
+                    <div class="form-group">
+                        <label>Platform Commission (%)</label>
+                        <input type="number" class="form-control" id="platformCommission" min="0" max="20" step="0.1" value="5">
+                    </div>
+                    <div class="form-group">
+                        <label>Farmer Payment Delay (Hours)</label>
+                        <input type="number" class="form-control" id="paymentDelay" min="1" max="72" value="24">
+                    </div>
+                    <div class="form-group">
+                        <label>Minimum Order Value (₹)</label>
+                        <input type="number" class="form-control" id="minOrderValue" min="0" value="500">
+                    </div>
+                    <div class="form-group">
+                        <label>Enable Automatic Farmer Verification</label>
+                        <select class="form-control" id="autoVerification">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Default Notification Language</label>
+                        <select class="form-control" id="defaultLanguage">
+                            <option value="en">English</option>
+                            <option value="hi">Hindi</option>
+                            <option value="ta">Tamil</option>
+                            <option value="te">Telugu</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-save"></i> Save Settings
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="issueRefundModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Issue Refund</h3>
+                <button class="close-modal" onclick="closeModal('issueRefund')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="refundForm">
+                    <div class="form-group">
+                        <label>Order ID *</label>
+                        <input type="text" class="form-control" id="orderId" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Refund Amount (₹) *</label>
+                        <input type="number" class="form-control" id="refundAmount" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Refund Reason *</label>
+                        <select class="form-control" id="refundReason" required>
+                            <option value="">Select Reason</option>
+                            <option value="quality">Quality Issue</option>
+                            <option value="delay">Delivery Delay</option>
+                            <option value="damage">Damaged Goods</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Additional Notes</label>
+                        <textarea class="form-control" id="refundNotes" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-hand-holding-usd"></i> Process Refund
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global Data Storage
+        const adminData = {
+            farmers: [],
+            buyers: [],
+            consumers: [],
+            orders: [],
+            products: [],
+            payments: [],
+            logistics: [],
+            support: [],
+            activities: [],
+            notifications: []
+        };
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDashboard();
+            loadAllData();
+            setupEventListeners();
+            initializeCharts();
+            simulateRealTimeUpdates();
+            loadUserPreferences();
+        });
+
+        // Initialize Dashboard
+        function initializeDashboard() {
+            console.log('Farm Vantara Admin Dashboard Initialized');
+            showAlert('Dashboard loaded successfully!', 'success');
+        }
+
+        // Load user preferences
+        function loadUserPreferences() {
+            const preferences = JSON.parse(localStorage.getItem('admin_preferences')) || {};
+            
+            // Apply preferences
+            if (preferences.sidebarCollapsed) {
+                document.getElementById('sidebar').classList.add('collapsed');
+                document.getElementById('mainContent').style.marginLeft = '60px';
+            }
+            
+            if (preferences.theme === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
+        }
+
+        // Save user preferences
+        function saveUserPreferences(key, value) {
+            const preferences = JSON.parse(localStorage.getItem('admin_preferences')) || {};
+            preferences[key] = value;
+            localStorage.setItem('admin_preferences', JSON.stringify(preferences));
+        }
+
+        // Load all data
+        function loadAllData() {
+            showLoading(true);
+            
+            // Simulate API calls
+            setTimeout(() => {
+                // Load Farmers Data (from farmerdashboard.html simulation)
+                adminData.farmers = getFarmersData();
+                
+                // Load Buyers Data (from buyersdashboard.html simulation)
+                adminData.buyers = getBuyersData();
+                
+                // Load other data
+                adminData.consumers = getConsumersData();
+                adminData.orders = getOrdersData();
+                adminData.products = getProductsData();
+                adminData.payments = getPaymentsData();
+                adminData.logistics = getLogisticsData();
+                adminData.support = getSupportTickets();
+                adminData.activities = getActivitiesData();
+                adminData.notifications = getNotificationsData();
+                
+                // Initialize tables
+                initializeTables();
+                
+                // Update stats
+                updateStats();
+                
+                showLoading(false);
+                showAlert('All data loaded successfully!', 'success');
+            }, 1500);
+        }
+
+        // Farmers Data (Simulated from farmerdashboard.html)
+        function getFarmersData() {
+            return [
+                {
+                    id: 'FARM-1001',
+                    name: 'Rajesh Kumar',
+                    location: 'Punjab',
+                    crops: 'Wheat, Rice',
+                    totalSales: '₹12,50,000',
+                    rating: '4.8',
+                    status: 'active',
+                    phone: '+91 9876543210',
+                    email: 'rajesh@example.com',
+                    farmSize: '12 acres',
+                    joined: '2023-01-15',
+                    orders: 45
+                },
+                {
+                    id: 'FARM-1002',
+                    name: 'Priya Sharma',
+                    location: 'Maharashtra',
+                    crops: 'Organic Vegetables',
+                    totalSales: '₹8,20,000',
+                    rating: '4.9',
+                    status: 'verified',
+                    phone: '+91 9876543211',
+                    email: 'priya@example.com',
+                    farmSize: '8 acres',
+                    joined: '2023-02-20',
+                    orders: 32
+                },
+                {
+                    id: 'FARM-1003',
+                    name: 'Arun Patel',
+                    location: 'Gujarat',
+                    crops: 'Cotton, Groundnuts',
+                    totalSales: '₹6,70,000',
+                    rating: '4.6',
+                    status: 'active',
+                    phone: '+91 9876543212',
+                    email: 'arun@example.com',
+                    farmSize: '15 acres',
+                    joined: '2023-03-10',
+                    orders: 28
+                },
+                {
+                    id: 'FARM-1004',
+                    name: 'Suresh Reddy',
+                    location: 'Andhra Pradesh',
+                    crops: 'Rice, Pulses',
+                    totalSales: '₹9,80,000',
+                    rating: '4.7',
+                    status: 'pending',
+                    phone: '+91 9876543213',
+                    email: 'suresh@example.com',
+                    farmSize: '20 acres',
+                    joined: '2023-04-05',
+                    orders: 38
+                }
+            ];
+        }
+
+        // Buyers Data (Simulated from buyersdashboard.html)
+        function getBuyersData() {
+            return [
+                {
+                    id: 'BIZ-2001',
+                    name: 'FreshMart Stores',
+                    contact: 'Rahul Verma',
+                    type: 'Retail Chain',
+                    monthlySpend: '₹2,50,000',
+                    orders: 120,
+                    status: 'verified',
+                    gst: '27ABCDE1234F1Z5',
+                    phone: '+91 9876543220',
+                    email: 'orders@freshmart.com',
+                    location: 'Delhi'
+                },
+                {
+                    id: 'BIZ-2002',
+                    name: 'Green Leaf Restaurant',
+                    contact: 'Anjali Mehta',
+                    type: 'Restaurant',
+                    monthlySpend: '₹1,80,000',
+                    orders: 85,
+                    status: 'active',
+                    gst: '29ABCDE1234F1Z6',
+                    phone: '+91 9876543221',
+                    email: 'procurement@greenleaf.com',
+                    location: 'Mumbai'
+                },
+                {
+                    id: 'BIZ-2003',
+                    name: 'Agro Processors Ltd',
+                    contact: 'Vikram Singh',
+                    type: 'Processing Unit',
+                    monthlySpend: '₹5,00,000',
+                    orders: 45,
+                    status: 'verified',
+                    gst: '24ABCDE1234F1Z7',
+                    phone: '+91 9876543222',
+                    email: 'purchase@agroprocessors.com',
+                    location: 'Punjab'
+                }
+            ];
+        }
+
+        // Other data functions
+        function getConsumersData() {
+            return [
+                { id: 'CUST-3001', name: 'Amit Sharma', email: 'amit@example.com', orders: 12, totalSpent: '₹24,500', status: 'active', location: 'Delhi' },
+                { id: 'CUST-3002', name: 'Priya Patel', email: 'priya@example.com', orders: 8, totalSpent: '₹18,200', status: 'active', location: 'Mumbai' },
+                { id: 'CUST-3003', name: 'Raj Kumar', email: 'raj@example.com', orders: 5, totalSpent: '₹12,800', status: 'inactive', location: 'Bangalore' }
+            ];
+        }
+
+        function getOrdersData() {
+            return [
+                { id: 'ORD-4001', farmer: 'Rajesh Kumar', buyer: 'FreshMart Stores', amount: '₹45,000', status: 'delivered', date: '2024-01-15' },
+                { id: 'ORD-4002', farmer: 'Priya Sharma', buyer: 'Green Leaf Restaurant', amount: '₹28,500', status: 'processing', date: '2024-01-16' },
+                { id: 'ORD-4003', farmer: 'Arun Patel', buyer: 'Agro Processors Ltd', amount: '₹67,000', status: 'pending', date: '2024-01-17' }
+            ];
+        }
+
+        function getActivitiesData() {
+            return [
+                {
+                    time: '10:30 AM',
+                    userType: 'Farmer',
+                    activity: 'New Registration',
+                    details: 'Rajesh Kumar - Punjab',
+                    status: 'completed',
+                    actions: '<button class="btn btn-secondary btn-sm" onclick="viewActivity(\'FARM-1001\')">View</button>'
+                },
+                {
+                    time: '09:45 AM',
+                    userType: 'Business',
+                    activity: 'Bulk Order',
+                    details: 'Order #ORD-7845 - ₹2,45,000',
+                    status: 'processing',
+                    actions: '<button class="btn btn-secondary btn-sm" onclick="viewOrder(\'ORD-7845\')">Track</button>'
+                },
+                {
+                    time: 'Yesterday',
+                    userType: 'Consumer',
+                    activity: 'Complaint Filed',
+                    details: 'Quality issue with vegetables',
+                    status: 'pending',
+                    actions: '<button class="btn btn-primary btn-sm" onclick="resolveComplaint(101)">Resolve</button>'
+                }
+            ];
+        }
+
+        function getPendingApprovalsData() {
+            return [
+                { id: 'APP-1001', user: 'Gopal Singh', type: 'Farmer', request: 'Registration', submitted: '2 hours ago' },
+                { id: 'APP-1002', user: 'Spice Hub Restaurant', type: 'Business', request: 'Verification', submitted: '5 hours ago' },
+                { id: 'APP-1003', user: 'Mohan Lal', type: 'Farmer', request: 'Bank Update', submitted: '1 day ago' }
+            ];
+        }
+
+        // Missing Functions - Added
+        function viewActivity(activityId) {
+            console.log(`Viewing activity ${activityId}`);
+            showAlert(`Opening activity ${activityId} details`, 'info');
+        }
+
+        function viewOrder(orderId) {
+            console.log(`Viewing order ${orderId}`);
+            showAlert(`Opening order ${orderId} details`, 'info');
+        }
+
+        function resolveComplaint(complaintId) {
+            if (confirm(`Resolve complaint #${complaintId}?`)) {
+                showAlert(`Complaint #${complaintId} resolved successfully!`, 'success');
+            }
+        }
+
+        function filterActivities() {
+            showAlert('Filter functionality would open here', 'info');
+        }
+
+        function approveRequest(requestId) {
+            showAlert(`Request ${requestId} approved!`, 'success');
+            // Refresh table
+            const table = $('#approvalsTable').DataTable();
+            table.ajax.reload();
+        }
+
+        function rejectRequest(requestId) {
+            showAlert(`Request ${requestId} rejected!`, 'error');
+            // Refresh table
+            const table = $('#approvalsTable').DataTable();
+            table.ajax.reload();
+        }
+
+        // Initialize DataTables
+        function initializeTables() {
+            // Activities Table
+            if ($.fn.DataTable.isDataTable('#activitiesTable')) {
+                $('#activitiesTable').DataTable().destroy();
+            }
+            $('#activitiesTable').DataTable({
+                data: adminData.activities,
+                columns: [
+                    { data: 'time' },
+                    { data: 'userType' },
+                    { data: 'activity' },
+                    { data: 'details' },
+                    { 
+                        data: 'status',
+                        render: function(data) {
+                            return `<span class="status-badge status-${data}">${data.charAt(0).toUpperCase() + data.slice(1)}</span>`;
+                        }
+                    },
+                    { data: 'actions' }
+                ],
+                pageLength: 10,
+                responsive: true,
+                order: [[0, 'desc']]
+            });
+
+            // Approvals Table
+            if ($.fn.DataTable.isDataTable('#approvalsTable')) {
+                $('#approvalsTable').DataTable().destroy();
+            }
+            $('#approvalsTable').DataTable({
+                data: getPendingApprovalsData(),
+                columns: [
+                    { data: 'id' },
+                    { data: 'user' },
+                    { data: 'type' },
+                    { data: 'request' },
+                    { data: 'submitted' },
+                    { 
+                        data: 'id',
+                        render: function(data, type, row) {
+                            return `
+                                <div style="display: flex; gap: 5px;">
+                                    <button class="btn btn-primary btn-sm" onclick="approveRequest('${data}')">
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                    <button class="btn btn-danger btn-sm" onclick="rejectRequest('${data}')">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            `;
+                        }
+                    }
+                ],
+                pageLength: 5,
+                responsive: true
+            });
+
+            // Farmers Table
+            if ($.fn.DataTable.isDataTable('#farmersTable')) {
+                $('#farmersTable').DataTable().destroy();
+            }
+            $('#farmersTable').DataTable({
+                data: adminData.farmers,
+                columns: [
+                    { data: 'id' },
+                    { data: 'name' },
+                    { data: 'location' },
+                    { data: 'crops' },
+                    { data: 'totalSales' },
+                    { data: 'rating' },
+                    { 
+                        data: 'status',
+                        render: function(data) {
+                            return `<span class="status-badge status-${data}">${data.charAt(0).toUpperCase() + data.slice(1)}</span>`;
+                        }
+                    },
+                    {
+                        data: 'id',
+                        render: function(data, type, row) {
+                            return `
+                                <div style="display: flex; gap: 5px;">
+                                    <button class="btn btn-secondary btn-sm" onclick="viewFarmer('${data}')">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm" onclick="editFarmer('${data}')">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn btn-danger btn-sm" onclick="deleteFarmer('${data}')">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            `;
+                        }
+                    }
+                ],
+                pageLength: 10,
+                responsive: true
+            });
+
+            // Buyers Table
+            if ($.fn.DataTable.isDataTable('#buyersTable')) {
+                $('#buyersTable').DataTable().destroy();
+            }
+            $('#buyersTable').DataTable({
+                data: adminData.buyers,
+                columns: [
+                    { data: 'id' },
+                    { data: 'name' },
+                    { data: 'contact' },
+                    { data: 'type' },
+                    { data: 'monthlySpend' },
+                    { data: 'orders' },
+                    { 
+                        data: 'status',
+                        render: function(data) {
+                            return `<span class="status-badge status-${data}">${data.charAt(0).toUpperCase() + data.slice(1)}</span>`;
+                        }
+                    },
+                    {
+                        data: 'id',
+                        render: function(data, type, row) {
+                            return `
+                                <div style="display: flex; gap: 5px;">
+                                    <button class="btn btn-secondary btn-sm" onclick="viewBuyer('${data}')">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm" onclick="editBuyer('${data}')">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </div>
+                            `;
+                        }
+                    }
+                ],
+                pageLength: 10,
+                responsive: true
+            });
+        }
+
+        // Setup Event Listeners
+        function setupEventListeners() {
+            // Sidebar Toggle
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('mainContent');
+            const toggleBtn = document.getElementById('toggleSidebar');
+
+            toggleBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+                if (window.innerWidth <= 992) {
+                    if (sidebar.classList.contains('active')) {
+                        mainContent.style.marginLeft = '280px';
+                    } else {
+                        mainContent.style.marginLeft = '0';
+                    }
+                }
+            });
+
+            // Menu Item Click
+            document.querySelectorAll('.menu-item').forEach(item => {
+                if (!item.classList.contains('logout-btn')) {
+                    item.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const section = this.getAttribute('data-section');
+                        loadSection(section);
+                    });
+                }
+            });
+
+            // Logout Button
+            document.querySelector('.logout-btn').addEventListener('click', function() {
+                logout();
+            });
+
+            // Search Functionality with Debouncing
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('searchResults');
+            let searchTimeout;
+
+            searchInput.addEventListener('input', function(e) {
+                clearTimeout(searchTimeout);
+                const searchTerm = e.target.value.toLowerCase();
+                
+                searchTimeout = setTimeout(() => {
+                    if (searchTerm.length > 2) {
+                        performSearch(searchTerm);
+                    } else {
+                        searchResults.classList.remove('active');
+                    }
+                }, 300);
+            });
+
+            // Close search results when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                    searchResults.classList.remove('active');
+                }
+            });
+
+            // Form Submissions
+            document.getElementById('addFarmerForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                addNewFarmer();
+            });
+
+            document.getElementById('verifyBuyerForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                verifyBusinessBuyer();
+            });
+
+            document.getElementById('notificationForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                sendNotification();
+            });
+
+            document.getElementById('settingsForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveSystemSettings();
+            });
+
+            // Refund form
+            const refundForm = document.getElementById('refundForm');
+            if (refundForm) {
+                refundForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    processRefund();
+                });
+            }
+        }
+
+        // Load Section
+        function loadSection(section) {
+            // Update active menu
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelector(`.menu-item[data-section="${section}"]`).classList.add('active');
+
+            // Hide all sections
+            document.querySelectorAll('.section-content').forEach(sec => {
+                sec.classList.remove('active');
+            });
+            document.querySelectorAll('.data-table-card').forEach(card => {
+                card.classList.remove('active');
+            });
+
+            // Show loading
+            showLoading(true);
+
+            // Load section content
+            setTimeout(() => {
+                if (section === 'dashboard') {
+                    document.getElementById('dashboardSection').classList.add('active');
+                    document.getElementById('activitiesTableCard').classList.add('active');
+                    document.getElementById('approvalsTableCard').classList.add('active');
+                } else if (section === 'farmers') {
+                    document.getElementById('farmersSection').classList.add('active');
+                    updatePageTitle('Farmers Management', 'Manage farmer registrations, verifications, and activities');
+                } else if (section === 'buyers') {
+                    document.getElementById('buyersSection').classList.add('active');
+                    updatePageTitle('Business Buyers Management', 'Monitor business buyers, orders, and transactions');
+                } else {
+                    // Load other sections dynamically
+                    loadDynamicSection(section);
+                }
+                showLoading(false);
+            }, 500);
+        }
+
+        // Load Dynamic Section
+        function loadDynamicSection(section) {
+            const content = document.getElementById('dynamicContent');
+            let html = '';
+
+            switch(section) {
+                case 'consumers':
+                    html = `
+                        <div class="section-content active">
+                            <div class="page-header">
+                                <h1 class="page-title">Consumers Management</h1>
+                                <p class="page-subtitle">Track consumer activities, orders, and feedback</p>
+                            </div>
+                            <div class="data-table-card active">
+                                <div class="table-header">
+                                    <h3>All Consumers</h3>
+                                    <div class="table-actions">
+                                        <button class="btn btn-secondary" onclick="exportData('consumers', 'csv')">
+                                            <i class="fas fa-download"></i> Export
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="table-container">
+                                    <table id="consumersTable" class="display" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Orders</th>
+                                                <th>Total Spent</th>
+                                                <th>Status</th>
+                                                <th>Location</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            ${adminData.consumers.map(consumer => `
+                                                <tr>
+                                                    <td>${safeRender(consumer.id)}</td>
+                                                    <td>${safeRender(consumer.name)}</td>
+                                                    <td>${safeRender(consumer.email)}</td>
+                                                    <td>${safeRender(consumer.orders)}</td>
+                                                    <td>${safeRender(consumer.totalSpent)}</td>
+                                                    <td><span class="status-badge status-${consumer.status}">${consumer.status.charAt(0).toUpperCase() + consumer.status.slice(1)}</span></td>
+                                                    <td>${safeRender(consumer.location)}</td>
+                                                </tr>
+                                            `).join('')}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+
+                case 'orders':
+                    html = `
+                        <div class="section-content active">
+                            <div class="page-header">
+                                <h1 class="page-title">Orders & Transactions</h1>
+                                <p class="page-subtitle">View and manage all platform orders and payments</p>
+                            </div>
+                            <div class="data-table-card active">
+                                <div class="table-header">
+                                    <h3>Recent Orders</h3>
+                                    <div class="table-actions">
+                                        <button class="btn btn-secondary" onclick="exportData('orders', 'csv')">
+                                            <i class="fas fa-download"></i> Export
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="table-container">
+                                    <table id="ordersTable" class="display" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Order ID</th>
+                                                <th>Farmer</th>
+                                                <th>Buyer</th>
+                                                <th>Amount</th>
+                                                <th>Status</th>
+                                                <th>Date</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            ${adminData.orders.map(order => `
+                                                <tr>
+                                                    <td>${safeRender(order.id)}</td>
+                                                    <td>${safeRender(order.farmer)}</td>
+                                                    <td>${safeRender(order.buyer)}</td>
+                                                    <td>${safeRender(order.amount)}</td>
+                                                    <td><span class="status-badge status-${order.status}">${order.status.charAt(0).toUpperCase() + order.status.slice(1)}</span></td>
+                                                    <td>${safeRender(order.date)}</td>
+                                                    <td>
+                                                        <button class="btn btn-secondary btn-sm" onclick="viewOrder('${safeRender(order.id)}')">
+                                                            <i class="fas fa-eye"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            `).join('')}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+
+                // Add other sections similarly...
+                default:
+                    html = `<div class="section-content active">
+                        <div class="page-header">
+                            <h1 class="page-title">${section.charAt(0).toUpperCase() + section.slice(1)}</h1>
+                            <p class="page-subtitle">Content for ${section} section</p>
+                        </div>
+                        <div class="user-detail-card">
+                            <p>This section is under development. Full functionality coming soon.</p>
+                        </div>
+                    </div>`;
+            }
+
+            content.innerHTML = html;
+            
+            // Initialize DataTable if needed
+            if (section === 'consumers' || section === 'orders') {
+                setTimeout(() => {
+                    $(`#${section}Table`).DataTable({
+                        pageLength: 10,
+                        responsive: true
+                    });
+                }, 100);
+            }
+        }
+
+        // Update Page Title
+        function updatePageTitle(title, subtitle) {
+            const activeSection = document.querySelector('.section-content.active');
+            if (activeSection) {
+                const header = activeSection.querySelector('.page-header');
+                if (header) {
+                    header.querySelector('.page-title').textContent = title;
+                    header.querySelector('.page-subtitle').textContent = subtitle;
+                }
+            }
+        }
+
+        // Modal Functions
+        function openModal(modalType) {
+            document.getElementById(modalType + 'Modal').style.display = 'flex';
+        }
+
+        function closeModal(modalType) {
+            document.getElementById(modalType + 'Modal').style.display = 'none';
+        }
+
+        // Add New Farmer
+        function addNewFarmer() {
+            const form = document.getElementById('addFarmerForm');
+            const formData = {
+                name: document.getElementById('farmerName').value,
+                mobile: document.getElementById('farmerMobile').value,
+                email: document.getElementById('farmerEmail').value,
+                state: document.getElementById('farmerState').value,
+                district: document.getElementById('farmerDistrict').value,
+                crops: document.getElementById('farmerCrops').value,
+                farmSize: document.getElementById('farmSize').value
+            };
+
+            // Generate new farmer ID
+            const newId = 'FARM-' + (1000 + adminData.farmers.length + 1);
+            
+            // Add to farmers data
+            adminData.farmers.unshift({
+                id: newId,
+                name: formData.name,
+                location: `${formData.district}, ${formData.state}`,
+                crops: formData.crops,
+                totalSales: '₹0',
+                rating: '0.0',
+                status: 'pending',
+                phone: formData.mobile,
+                email: formData.email,
+                farmSize: formData.farmSize + ' acres',
+                joined: new Date().toISOString().split('T')[0],
+                orders: 0
+            });
+
+            // Update table
+            initializeTables();
+            
+            // Show success message
+            showAlert('Farmer added successfully! Verification pending.', 'success');
+            
+            // Close modal and reset form
+            closeModal('addFarmer');
+            form.reset();
+            
+            // Update stats
+            updateStats();
+        }
+
+        // Verify Business Buyer
+        function verifyBusinessBuyer() {
+            const form = document.getElementById('verifyBuyerForm');
+            const formData = {
+                name: document.getElementById('businessName').value,
+                gst: document.getElementById('gstNumber').value,
+                type: document.getElementById('businessType').value,
+                procurement: document.getElementById('monthlyProcurement').value,
+                contactPerson: document.getElementById('contactPerson').value,
+                contactNumber: document.getElementById('contactNumber').value
+            };
+
+            // Generate new buyer ID
+            const newId = 'BIZ-' + (2000 + adminData.buyers.length + 1);
+            
+            // Add to buyers data
+            adminData.buyers.unshift({
+                id: newId,
+                name: formData.name,
+                contact: formData.contactPerson,
+                type: formData.type,
+                monthlySpend: `₹${parseInt(formData.procurement).toLocaleString()}`,
+                orders: 0,
+                status: 'verified',
+                gst: formData.gst,
+                phone: formData.contactNumber,
+                email: '',
+                location: ''
+            });
+
+            // Update table
+            initializeTables();
+            
+            // Show success message
+            showAlert('Business buyer verified and added successfully!', 'success');
+            
+            // Close modal and reset form
+            closeModal('verifyBuyer');
+            form.reset();
+            
+            // Update stats
+            updateStats();
+        }
+
+        // Process Refund
+        function processRefund() {
+            const form = document.getElementById('refundForm');
+            const formData = {
+                orderId: document.getElementById('orderId').value,
+                amount: document.getElementById('refundAmount').value,
+                reason: document.getElementById('refundReason').value,
+                notes: document.getElementById('refundNotes').value
+            };
+
+            // Show success message
+            showAlert(`Refund of ₹${formData.amount} processed for order ${formData.orderId}`, 'success');
+            
+            // Add to activities
+            adminData.activities.unshift({
+                time: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
+                userType: 'System',
+                activity: 'Refund Processed',
+                details: `₹${formData.amount} for order ${formData.orderId}`,
+                status: 'completed',
+                actions: '<button class="btn btn-secondary btn-sm">View</button>'
+            });
+
+            // Update table
+            initializeTables();
+            
+            // Close modal and reset form
+            closeModal('issueRefund');
+            form.reset();
+        }
+
+        // Send Notification
+        function sendNotification() {
+            const form = document.getElementById('notificationForm');
+            const formData = {
+                type: document.getElementById('notificationType').value,
+                subject: document.getElementById('notificationSubject').value,
+                message: document.getElementById('notificationMessage').value,
+                priority: document.getElementById('notificationPriority').value
+            };
+
+            // Add to activities
+            adminData.activities.unshift({
+                time: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
+                userType: 'System',
+                activity: 'Notification Sent',
+                details: `${formData.subject} to ${formData.type}`,
+                status: 'completed',
+                actions: '<button class="btn btn-secondary btn-sm">View</button>'
+            });
+
+            // Update table
+            initializeTables();
+            
+            // Show success message
+            showAlert('Notification sent successfully!', 'success');
+            
+            // Close modal and reset form
+            closeModal('sendNotification');
+            form.reset();
+        }
+
+        // Save System Settings
+        function saveSystemSettings() {
+            const form = document.getElementById('settingsForm');
+            const settings = {
+                commission: document.getElementById('platformCommission').value,
+                paymentDelay: document.getElementById('paymentDelay').value,
+                minOrder: document.getElementById('minOrderValue').value,
+                autoVerify: document.getElementById('autoVerification').value,
+                language: document.getElementById('defaultLanguage').value
+            };
+
+            // Save to localStorage (simulating backend)
+            localStorage.setItem('farmvantara_settings', JSON.stringify(settings));
+            
+            showAlert('System settings saved successfully!', 'success');
+            closeModal('systemSettings');
+        }
+
+        // Search Functionality
+        function performSearch(term) {
+            const results = [];
+            
+            // Search in farmers
+            adminData.farmers.forEach(farmer => {
+                if (farmer.name.toLowerCase().includes(term) || 
+                    farmer.location.toLowerCase().includes(term) ||
+                    farmer.crops.toLowerCase().includes(term)) {
+                    results.push({
+                        type: 'Farmer',
+                        id: farmer.id,
+                        name: farmer.name,
+                        detail: farmer.location,
+                        action: () => viewFarmer(farmer.id)
+                    });
+                }
+            });
+
+            // Search in buyers
+            adminData.buyers.forEach(buyer => {
+                if (buyer.name.toLowerCase().includes(term) || 
+                    buyer.contact.toLowerCase().includes(term)) {
+                    results.push({
+                        type: 'Business Buyer',
+                        id: buyer.id,
+                        name: buyer.name,
+                        detail: buyer.type,
+                        action: () => viewBuyer(buyer.id)
+                    });
+                }
+            });
+
+            // Display results
+            const searchResults = document.getElementById('searchResults');
+            if (results.length > 0) {
+                searchResults.innerHTML = results.map(result => `
+                    <div class="search-result-item" onclick="event.stopPropagation(); ${result.action.name}('${result.id}')">
+                        <div style="font-weight: 600;">${safeRender(result.name)}</div>
+                        <div style="font-size: 12px; color: var(--text-light);">
+                            ${safeRender(result.type)} • ${safeRender(result.id)}
+                        </div>
+                        <div style="font-size: 12px;">${safeRender(result.detail)}</div>
+                    </div>
+                `).join('');
+                searchResults.classList.add('active');
+            } else {
+                searchResults.innerHTML = '<div class="search-result-item">No results found</div>';
+                searchResults.classList.add('active');
+            }
+        }
+
+        // View Farmer Details
+        function viewFarmer(farmerId) {
+            const farmer = adminData.farmers.find(f => f.id === farmerId);
+            if (farmer) {
+                const content = `
+                    <div class="section-content active">
+                        <div class="page-header">
+                            <h1 class="page-title">Farmer Details</h1>
+                            <p class="page-subtitle">${safeRender(farmer.name)} - ${safeRender(farmer.id)}</p>
+                        </div>
+                        <div class="user-detail-card">
+                            <div class="user-header">
+                                <div class="user-avatar-lg">
+                                    <i class="fas fa-tractor"></i>
+                                </div>
+                                <div class="user-info">
+                                    <h3>${safeRender(farmer.name)}</h3>
+                                    <p>${safeRender(farmer.location)} • ${safeRender(farmer.farmSize)}</p>
+                                    <p><span class="status-badge status-${farmer.status}">${farmer.status.charAt(0).toUpperCase() + farmer.status.slice(1)}</span></p>
+                                </div>
+                            </div>
+                            <div class="user-stats">
+                                <div class="user-stat-item">
+                                    <div class="user-stat-value">${safeRender(farmer.totalSales)}</div>
+                                    <div class="user-stat-label">Total Sales</div>
+                                </div>
+                                <div class="user-stat-item">
+                                    <div class="user-stat-value">${safeRender(farmer.rating)}/5</div>
+                                    <div class="user-stat-label">Rating</div>
+                                </div>
+                                <div class="user-stat-item">
+                                    <div class="user-stat-value">${safeRender(farmer.orders)}</div>
+                                    <div class="user-stat-label">Total Orders</div>
+                                </div>
+                                <div class="user-stat-item">
+                                    <div class="user-stat-value">${safeRender(farmer.joined)}</div>
+                                    <div class="user-stat-label">Joined Date</div>
+                                </div>
+                            </div>
+                            <h4 style="margin-bottom: 15px;">Contact Information</h4>
+                            <p><strong>Phone:</strong> ${safeRender(farmer.phone)}</p>
+                            <p><strong>Email:</strong> ${safeRender(farmer.email)}</p>
+                            <p><strong>Crops:</strong> ${safeRender(farmer.crops)}</p>
+                            <div style="margin-top: 30px;">
+                                <button class="btn btn-primary" onclick="editFarmer('${farmer.id}')">
+                                    <i class="fas fa-edit"></i> Edit Farmer
+                                </button>
+                                <button class="btn btn-secondary" onclick="loadSection('farmers')" style="margin-left: 10px;">
+                                    <i class="fas fa-arrow-left"></i> Back to List
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.getElementById('dynamicContent').innerHTML = content;
+                document.getElementById('dashboardSection').classList.remove('active');
+                document.getElementById('farmersSection').classList.remove('active');
+                document.getElementById('buyersSection').classList.remove('active');
+            }
+        }
+
+        // View Buyer Details
+        function viewBuyer(buyerId) {
+            const buyer = adminData.buyers.find(b => b.id === buyerId);
+            if (buyer) {
+                const content = `
+                    <div class="section-content active">
+                        <div class="page-header">
+                            <h1 class="page-title">Business Buyer Details</h1>
+                            <p class="page-subtitle">${safeRender(buyer.name)} - ${safeRender(buyer.id)}</p>
+                        </div>
+                        <div class="user-detail-card">
+                            <div class="user-header">
+                                <div class="user-avatar-lg">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="user-info">
+                                    <h3>${safeRender(buyer.name)}</h3>
+                                    <p>${safeRender(buyer.type)} • ${safeRender(buyer.location || 'Location not specified')}</p>
+                                    <p><span class="status-badge status-${buyer.status}">${buyer.status.charAt(0).toUpperCase() + buyer.status.slice(1)}</span></p>
+                                </div>
+                            </div>
+                            <div class="user-stats">
+                                <div class="user-stat-item">
+                                    <div class="user-stat-value">${safeRender(buyer.monthlySpend)}</div>
+                                    <div class="user-stat-label">Monthly Spend</div>
+                                </div>
+                                <div class="user-stat-item">
+                                    <div class="user-stat-value">${safeRender(buyer.orders)}</div>
+                                    <div class="user-stat-label">Total Orders</div>
+                                </div>
+                                <div class="user-stat-item">
+                                    <div class="user-stat-value">${safeRender(buyer.gst)}</div>
+                                    <div class="user-stat-label">GST Number</div>
+                                </div>
+                            </div>
+                            <h4 style="margin-bottom: 15px;">Contact Information</h4>
+                            <p><strong>Contact Person:</strong> ${safeRender(buyer.contact)}</p>
+                            <p><strong>Phone:</strong> ${safeRender(buyer.phone)}</p>
+                            <p><strong>Email:</strong> ${safeRender(buyer.email || 'Not provided')}</p>
+                            <div style="margin-top: 30px;">
+                                <button class="btn btn-primary" onclick="editBuyer('${buyer.id}')">
+                                    <i class="fas fa-edit"></i> Edit Buyer
+                                </button>
+                                <button class="btn btn-secondary" onclick="loadSection('buyers')" style="margin-left: 10px;">
+                                    <i class="fas fa-arrow-left"></i> Back to List
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.getElementById('dynamicContent').innerHTML = content;
+                document.getElementById('dashboardSection').classList.remove('active');
+                document.getElementById('farmersSection').classList.remove('active');
+                document.getElementById('buyersSection').classList.remove('active');
+            }
+        }
+
+        // Edit Farmer
+        function editFarmer(farmerId) {
+            const farmer = adminData.farmers.find(f => f.id === farmerId);
+            if (farmer) {
+                openModal('addFarmer');
+                // Pre-fill form (in real app)
+                document.getElementById('farmerName').value = farmer.name;
+                document.getElementById('farmerMobile').value = farmer.phone;
+                showAlert(`Edit farmer: ${farmer.name}`, 'info');
+            }
+        }
+
+        // Edit Buyer
+        function editBuyer(buyerId) {
+            const buyer = adminData.buyers.find(b => b.id === buyerId);
+            if (buyer) {
+                openModal('verifyBuyer');
+                // Pre-fill form (in real app)
+                document.getElementById('businessName').value = buyer.name;
+                showAlert(`Edit buyer: ${buyer.name}`, 'info');
+            }
+        }
+
+        // Delete Farmer
+        function deleteFarmer(farmerId) {
+            if (confirm('Are you sure you want to delete this farmer? This action cannot be undone.')) {
+                const index = adminData.farmers.findIndex(f => f.id === farmerId);
+                if (index > -1) {
+                    adminData.farmers.splice(index, 1);
+                    initializeTables();
+                    updateStats();
+                    showAlert('Farmer deleted successfully!', 'success');
+                }
+            }
+        }
+
+        // Update Stats
+        function updateStats() {
+            document.getElementById('totalFarmers').textContent = adminData.farmers.length.toLocaleString();
+            document.getElementById('totalBuyers').textContent = adminData.buyers.length.toLocaleString();
+            document.getElementById('totalConsumers').textContent = adminData.consumers.length.toLocaleString();
+            
+            // Update menu badges
+            const pendingFarmers = adminData.farmers.filter(f => f.status === 'pending').length;
+            const pendingBuyers = adminData.buyers.filter(b => b.status === 'pending').length;
+            
+            const farmersBadge = document.querySelector('.menu-item[data-section="farmers"] .menu-badge');
+            const buyersBadge = document.querySelector('.menu-item[data-section="buyers"] .menu-badge');
+            
+            if (farmersBadge) farmersBadge.textContent = pendingFarmers;
+            if (buyersBadge) buyersBadge.textContent = pendingBuyers;
+        }
+
+        // Generate Report
+        function generateReport() {
+            showLoading(true);
+            setTimeout(() => {
+                const reportData = {
+                    timestamp: new Date().toISOString(),
+                    farmers: adminData.farmers.length,
+                    buyers: adminData.buyers.length,
+                    consumers: adminData.consumers.length,
+                    pendingOrders: adminData.orders.filter(o => o.status === 'pending').length
+                };
+                
+                // Create downloadable report
+                const dataStr = JSON.stringify(reportData, null, 2);
+                const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+                
+                const exportFileDefaultName = `farmvantara_report_${new Date().toISOString().split('T')[0]}.json`;
+                
+                const linkElement = document.createElement('a');
+                linkElement.setAttribute('href', dataUri);
+                linkElement.setAttribute('download', exportFileDefaultName);
+                linkElement.click();
+                
+                showLoading(false);
+                showAlert('Report generated and downloaded successfully!', 'success');
+            }, 2000);
+        }
+
+        // Export Data
+        function exportData(type, format) {
+            alert(`Exporting ${type} data as ${format.toUpperCase()}...\n\nIn a real application, this would generate and download a ${format} file.`);
+        }
+
+        // Approve All Pending
+        function approveAll() {
+            if (confirm('Approve all pending requests?')) {
+                // Get pending approvals
+                const pendingData = getPendingApprovalsData();
+                
+                // Show success message for each
+                pendingData.forEach(item => {
+                    showAlert(`Request ${item.id} approved!`, 'success');
+                });
+                
+                // Clear the table
+                const table = $('#approvalsTable').DataTable();
+                table.clear().draw();
+                
+                showAlert('All pending requests approved!', 'success');
+            }
+        }
+
+        // Reject All Pending
+        function rejectAll() {
+            if (confirm('Reject all pending requests?')) {
+                // Get pending approvals
+                const pendingData = getPendingApprovalsData();
+                
+                // Show success message for each
+                pendingData.forEach(item => {
+                    showAlert(`Request ${item.id} rejected!`, 'error');
+                });
+                
+                // Clear the table
+                const table = $('#approvalsTable').DataTable();
+                table.clear().draw();
+                
+                showAlert('All pending requests rejected!', 'success');
+            }
+        }
+
+        // Logout Function
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                showLoading(true);
+                
+                // Clear any session data
+                localStorage.removeItem('admin_session');
+                
+                // Redirect to login page
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 1000);
+            }
+        }
+
+        // Show Alert
+        function showAlert(message, type = 'success') {
+            const alertDiv = document.getElementById('alertMessage');
+            alertDiv.textContent = message;
+            alertDiv.className = `alert alert-${type} active`;
+            
+            setTimeout(() => {
+                alertDiv.classList.remove('active');
+            }, 5000);
+        }
+
+        // Show Loading
+        function showLoading(show) {
+            document.getElementById('loadingSpinner').classList.toggle('active', show);
+        }
+
+        // Initialize Charts
+        function initializeCharts() {
+            // User Growth Chart
+            const growthCtx = document.getElementById('growthChart').getContext('2d');
+            window.growthChart = new Chart(growthCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Farmers',
+                        data: [1200, 1900, 3000, 3500, 4200, 5247],
+                        borderColor: '#27ae60',
+                        backgroundColor: 'rgba(39, 174, 96, 0.1)',
+                        tension: 0.4
+                    }, {
+                        label: 'Business Buyers',
+                        data: [800, 1200, 1500, 1650, 1800, 1846],
+                        borderColor: '#2d9cdb',
+                        backgroundColor: 'rgba(45, 156, 219, 0.1)',
+                        tension: 0.4
+                    }, {
+                        label: 'Consumers',
+                        data: [8000, 12000, 16500, 20000, 22500, 24589],
+                        borderColor: '#f2994a',
+                        backgroundColor: 'rgba(242, 153, 74, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    }
+                }
+            });
+
+            // Revenue Distribution Chart
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            window.revenueChart = new Chart(revenueCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Farmers Sales', 'Platform Commission', 'Logistics', 'Other Services'],
+                    datasets: [{
+                        data: [65, 15, 12, 8],
+                        backgroundColor: [
+                            '#27ae60',
+                            '#2d9cdb',
+                            '#f2994a',
+                            '#f2c94c'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        }
+                    }
+                }
+            });
+
+            // Crop Categories Chart
+            const cropCtx = document.getElementById('cropChart').getContext('2d');
+            window.cropChart = new Chart(cropCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Grains', 'Vegetables', 'Fruits', 'Pulses', 'Spices'],
+                    datasets: [{
+                        label: 'Sales Volume (Quintal)',
+                        data: [12000, 8500, 6200, 4500, 3200],
+                        backgroundColor: [
+                            'rgba(39, 174, 96, 0.7)',
+                            'rgba(45, 156, 219, 0.7)',
+                            'rgba(242, 153, 74, 0.7)',
+                            'rgba(242, 201, 76, 0.7)',
+                            'rgba(155, 81, 224, 0.7)'
+                        ],
+                        borderColor: [
+                            '#27ae60',
+                            '#2d9cdb',
+                            '#f2994a',
+                            '#f2c94c',
+                            '#9b51e0'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Regional Distribution Chart
+            const regionCtx = document.getElementById('regionChart').getContext('2d');
+            window.regionChart = new Chart(regionCtx, {
+                type: 'polarArea',
+                data: {
+                    labels: ['North', 'South', 'East', 'West', 'Central'],
+                    datasets: [{
+                        label: 'Farmers Count',
+                        data: [1850, 1240, 980, 760, 417],
+                        backgroundColor: [
+                            'rgba(39, 174, 96, 0.7)',
+                            'rgba(45, 156, 219, 0.7)',
+                            'rgba(242, 153, 74, 0.7)',
+                            'rgba(242, 201, 76, 0.7)',
+                            'rgba(155, 81, 224, 0.7)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                        }
+                    }
+                }
+            });
+        }
+
+        // Update Chart Functions
+        function updateGrowthChart(period) {
+            console.log('Updating growth chart for period:', period);
+            showAlert(`Growth chart updated for ${period} period`, 'info');
+        }
+
+        function updateRevenueChart(period) {
+            console.log('Updating revenue chart for period:', period);
+            showAlert(`Revenue chart updated for ${period} period`, 'info');
+        }
+
+        function updateCropChart(period) {
+            console.log('Updating crop chart for period:', period);
+            showAlert(`Crop chart updated for ${period} period`, 'info');
+        }
+
+        function updateRegionChart(filter) {
+            console.log('Updating region chart with filter:', filter);
+            showAlert(`Region chart filtered for ${filter}`, 'info');
+        }
+
+        // Simulate Real-time Updates
+        function simulateRealTimeUpdates() {
+            setInterval(() => {
+                // Randomly update some stats
+                const stats = ['totalFarmers', 'totalBuyers', 'totalConsumers', 'pendingOrders', 'todayRevenue'];
+                const statId = stats[Math.floor(Math.random() * stats.length)];
+                const statElement = document.getElementById(statId);
+                
+                if (statElement) {
+                    const current = parseInt(statElement.textContent.replace(/[^0-9]/g, ''));
+                    const change = Math.floor(Math.random() * 50) - 25; // -25 to +25
+                    const newValue = Math.max(0, current + change);
+                    
+                    if (statId === 'todayRevenue') {
+                        statElement.textContent = '₹' + newValue.toLocaleString();
+                    } else {
+                        statElement.textContent = newValue.toLocaleString();
+                    }
+                }
+                
+                // Add random activity
+                const activities = ['New Order', 'Farmer Registration', 'Payment Received', 'Support Ticket', 'Product Listing'];
+                const users = ['Farmer', 'Business', 'Consumer', 'System'];
+                
+                const newActivity = {
+                    time: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
+                    userType: users[Math.floor(Math.random() * users.length)],
+                    activity: activities[Math.floor(Math.random() * activities.length)],
+                    details: 'Automated update from system',
+                    status: 'completed',
+                    actions: '<button class="btn btn-secondary btn-sm">View</button>'
+                };
+                
+                adminData.activities.unshift(newActivity);
+                
+                // Update table if visible
+                if (document.getElementById('dashboardSection').classList.contains('active')) {
+                    const table = $('#activitiesTable').DataTable();
+                    table.row.add(newActivity).draw(false);
+                    
+                    // Keep only last 50 activities
+                    if (adminData.activities.length > 50) {
+                        adminData.activities.pop();
+                        table.row(0).remove().draw(false);
+                    }
+                }
+                
+            }, 30000); // Every 30 seconds
+        }
+
+        // XSS Protection Function
+        function safeRender(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Safe API Call (for future backend integration)
+        async function safeApiCall(url, options = {}) {
+            try {
+                const response = await fetch(url, options);
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                return await response.json();
+            } catch (error) {
+                console.error('API Error:', error);
+                showAlert('Failed to fetch data. Please try again.', 'error');
+                return null;
+            }
+        }
+
+        // Keyboard Shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Ctrl + S to save
+            if (e.ctrlKey && e.key === 's') {
+                e.preventDefault();
+                alert('Save action triggered');
+            }
+            
+            // Ctrl + F to focus search
+            if (e.ctrlKey && e.key === 'f') {
+                e.preventDefault();
+                document.getElementById('searchInput').focus();
+            }
+            
+            // Escape to close modals
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal').forEach(modal => {
+                    modal.style.display = 'none';
+                });
+            }
+            
+            // Alt + D for dashboard
+            if (e.altKey && e.key === 'd') {
+                e.preventDefault();
+                loadSection('dashboard');
+            }
+            
+            // Alt + F for farmers
+            if (e.altKey && e.key === 'f') {
+                e.preventDefault();
+                loadSection('farmers');
+            }
+            
+            // Alt + B for buyers
+            if (e.altKey && e.key === 'b') {
+                e.preventDefault();
+                loadSection('buyers');
+            }
+        });
+
+        // Responsive adjustments
+        window.addEventListener('resize', function() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('mainContent');
+            
+            if (window.innerWidth > 992) {
+                sidebar.classList.remove('active');
+                mainContent.style.marginLeft = '250px';
+            } else {
+                sidebar.classList.remove('active');
+                mainContent.style.marginLeft = '0';
+            }
+        });
+
+        // Global error handling
+        window.addEventListener('error', function(e) {
+            console.error('Dashboard Error:', e.error);
+            showAlert('An error occurred. Please refresh the page.', 'error');
+        });
+
+        // Helper Functions for missing data
+        function getProductsData() {
+            return [
+                { id: 'PROD-5001', name: 'Organic Wheat', category: 'Grains', price: '₹2,450/quintal', stock: '1200 quintals', farmer: 'Rajesh Kumar' },
+                { id: 'PROD-5002', name: 'Fresh Tomatoes', category: 'Vegetables', price: '₹1,800/quintal', stock: '800 quintals', farmer: 'Priya Sharma' },
+                { id: 'PROD-5003', name: 'Basmati Rice', category: 'Grains', price: '₹3,200/quintal', stock: '950 quintals', farmer: 'Suresh Reddy' }
+            ];
+        }
+
+        function getPaymentsData() {
+            return [
+                { id: 'PAY-6001', order: 'ORD-4001', farmer: 'Rajesh Kumar', amount: '₹45,000', status: 'completed', date: '2024-01-15' },
+                { id: 'PAY-6002', order: 'ORD-4002', farmer: 'Priya Sharma', amount: '₹28,500', status: 'pending', date: '2024-01-16' },
+                { id: 'PAY-6003', order: 'ORD-4003', farmer: 'Arun Patel', amount: '₹67,000', status: 'processing', date: '2024-01-17' }
+            ];
+        }
+
+        function getLogisticsData() {
+            return [
+                { id: 'LOG-7001', order: 'ORD-4001', from: 'Punjab', to: 'Delhi', status: 'delivered', deliveryDate: '2024-01-16' },
+                { id: 'LOG-7002', order: 'ORD-4002', from: 'Maharashtra', to: 'Mumbai', status: 'in transit', estimatedDate: '2024-01-18' },
+                { id: 'LOG-7003', order: 'ORD-4003', from: 'Gujarat', to: 'Punjab', status: 'pending', estimatedDate: '2024-01-19' }
+            ];
+        }
+
+        function getSupportTickets() {
+            return [
+                { id: 'TICK-8001', user: 'Amit Sharma', issue: 'Delivery delay', status: 'open', priority: 'high', created: '2024-01-15' },
+                { id: 'TICK-8002', user: 'Green Leaf Restaurant', issue: 'Quality concern', status: 'in progress', priority: 'medium', created: '2024-01-16' },
+                { id: 'TICK-8003', user: 'Rajesh Kumar', issue: 'Payment query', status: 'resolved', priority: 'low', created: '2024-01-14' }
+            ];
+        }
+
+        function getNotificationsData() {
+            return [
+                { id: 'NOTIF-9001', title: 'System Maintenance', message: 'Scheduled maintenance on Jan 20', type: 'system', read: false },
+                { id: 'NOTIF-9002', title: 'New Farmer Registration', message: 'New farmer registered: Gopal Singh', type: 'farmer', read: false },
+                { id: 'NOTIF-9003', title: 'Order Alert', message: 'Large order placed by FreshMart Stores', type: 'order', read: true }
+            ];
+        }
+    </script>
+</body>
+</html>

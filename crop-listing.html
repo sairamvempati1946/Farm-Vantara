@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <title>Crop Listing Guide | Farm Vantara – How to List Your Produce for Maximum Sales</title>
+    <meta name="description" content="Step-by-step guide for farmers to list crops effectively on Farm Vantara. Learn how to create compelling listings, set competitive prices, and maximize sales on India's leading AgriTech platform.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Import Landing Page Styles */
+        :root {
+            --primary-green: #27ae60;
+            --dark-green: #219653;
+            --light-green: #6fcf97;
+            --accent-yellow: #f2c94c;
+            --accent-orange: #f2994a;
+            --dark-blue: #2d3436;
+            --light-gray: #f8f9fa;
+            --medium-gray: #dfe6e9;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --gradient-primary: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+            --gradient-yellow: linear-gradient(135deg, #f2c94c 0%, #f2994a 100%);
+            --gradient-blue: linear-gradient(135deg, #2d9cdb 0%, #2f80ed 100%);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-dark: #ffffff;
+                --text-light: #b2bec3;
+                --white: #121212;
+                --light-gray: #1e1e1e00;
+                --medium-gray: #2d3436;
+                --dark-blue: #000000;
+                --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.4);
+            }
+            
+            .main-header {
+                background-color: var(--light-gray);
+            }
+            
+            .guide-hero {
+                background: linear-gradient(135deg, #0a1f0a 0%, #051b05 100%);
+            }
+            
+            .guide-card,
+            .pricing-card,
+            .step-card {
+                background-color: var(--light-gray);
+                border-color: var(--medium-gray);
+            }
+            
+            .section-title,
+            .card-title,
+            .step-title {
+                color: var(--text-dark);
+            }
+            
+            .guide-hero-title {
+                color: var(--light-green);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        /* Header - Matching Landing Page */
+        .main-header {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 75px;
+            width: 225px;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: space-between;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 5px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .nav-item.active a {
+            color: var(--primary-green);
+            background: rgba(39, 174, 96, 0.1);
+        }
+
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: 30px;
+        }
+
+        .btn-login, .btn-register {
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-login {
+            color: var(--primary-green);
+            border-color: var(--primary-green);
+            background: transparent;
+        }
+
+        .btn-register {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+        }
+
+        .btn-login:hover,
+        .btn-register:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Hero Section for Guide */
+        .guide-hero {
+            background: linear-gradient(135deg, #f8fff9 0%, #e8f5e9 100%);
+            padding: 100px 0 150px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guide-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(39, 174, 96, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(242, 201, 76, 0.1) 0%, transparent 50%);
+        }
+
+        .guide-hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .guide-hero-text {
+            flex: 1;
+            max-width: 700px;
+        }
+
+        .guide-hero-title {
+            font-size: 3.2rem;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            color: var(--dark-green);
+        }
+
+        .guide-hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 50px;
+            padding-top: 40px;
+            border-top: 2px solid rgba(39, 174, 96, 0.1);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--dark-green);
+            line-height: 1;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .guide-hero-visual {
+            flex: 1;
+            position: relative;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .guide-hero-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .guide-hero-visual:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Main Guide Content */
+        .guide-section {
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 5px;
+            background: var(--gradient-primary);
+            border-radius: 5px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        /* Steps Section */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .step-card {
+            background: var(--light-gray);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--medium-gray);
+            transform: translateY(30px);
+            opacity: 0;
+        }
+
+        .step-card.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-green);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .step-description {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .step-tips {
+            background: rgba(39, 174, 96, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .step-tips h4 {
+            color: var(--dark-green);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .step-tips ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .step-tips li {
+            color: var(--text-light);
+            margin-bottom: 8px;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .step-tips li::before {
+            content: '✓';
+            color: var(--primary-green);
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 2px;
+        }
+
+        /* Pricing Guidelines */
+        .pricing-section {
+            background: var(--light-gray);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .pricing-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--medium-gray);
+            text-align: center;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-green);
+        }
+
+        .pricing-icon {
+            width: 90px;
+            height: 90px;
+            background: rgba(39, 174, 96, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            transition: var(--transition);
+        }
+
+        .pricing-card:hover .pricing-icon {
+            background: var(--gradient-primary);
+            transform: scale(1.1);
+        }
+
+        .pricing-icon i {
+            font-size: 36px;
+            color: var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .pricing-card:hover .pricing-icon i {
+            color: white;
+        }
+
+        .pricing-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .pricing-description {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .pricing-example {
+            background: rgba(242, 201, 76, 0.1);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .pricing-example h4 {
+            color: var(--accent-orange);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .pricing-example p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient-primary);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="rgba(255,255,255,0.1)"></path></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .cta-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .cta-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 17px;
+            transition: var(--transition);
+            min-width: 220px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-cta-primary {
+            background: white;
+            color: var(--primary-green);
+        }
+
+        .btn-cta-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-cta-primary:hover,
+        .btn-cta-secondary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-cta i {
+            margin-right: 12px;
+            font-size: 20px;
+        }
+
+        /* Footer */
+        .main-footer {
+            background-color: var(--text-dark);
+            color: #ffffff;
+            padding-top: 100px;
+            margin-top: auto;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px 0;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: rgba(0, 0, 0, 0.8);
+            font-size: 14px;
+        }
+
+        .footer-bottom a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--light-green);
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .guide-hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 60px;
+            }
+            
+            .guide-hero-text {
+                margin-bottom: 0;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .auth-buttons {
+                margin-left: 0;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .guide-hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+            
+            .btn-cta {
+                width: 100%;
+                min-width: auto;
+            }
+            
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .guide-hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .guide-hero {
+                padding: 80px 0 100px;
+            }
+            
+            .steps-container,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="main-header" id="mainHeader">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                <img src="./logo.png" alt="Farm Vantara Logo" class="logo-img">
+                </a>
+                
+                <div class="nav-container">
+                    <!-- Main Navigation Menu -->
+                    <ul class="nav-menu">
+                        <li class="nav-item"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li class="nav-item"><a href="farmers.html"><i class="fas fa-user-tie"></i> For Farmers</a></li>
+                        <li class="nav-item active"><a href="crop-listing.html"><i class="fas fa-seedling"></i> Crop Guide</a></li>
+                        <li class="nav-item"><a href="market-prices.html"><i class="fas fa-chart-line"></i> Market Prices</a></li>
+                        <li class="nav-item"><a href="contact.html"><i class="fas fa-headset"></i> Support</a></li>
+                    </ul>
+                    
+                    <!-- Authentication Buttons -->
+                    <div class="auth-buttons">
+                        <a href="login.html" class="btn-login"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        <a href="register.html" class="btn-register"><i class="fas fa-user-plus"></i> Register</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="guide-hero">
+            <div class="container">
+                <div class="guide-hero-content">
+                    <div class="guide-hero-text">
+                        <h1 class="guide-hero-title">Crop Listing Guide for Farmers</h1>
+                        <p class="guide-hero-subtitle">
+                            Learn how to create effective crop listings that attract more buyers, get better prices, and maximize your sales on India's leading AgriTech platform. This comprehensive guide covers everything from photography tips to pricing strategies.
+                        </p>
+                        
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">47%</span>
+                                <span class="stat-label">More Buyer Inquiries</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">₹2,100</span>
+                                <span class="stat-label">Average Price Increase</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">3.2x</span>
+                                <span class="stat-label">Faster Sales</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="guide-hero-visual">
+                        <!-- Placeholder for farmer with produce image -->
+                        <div style="width:100%; height:100%; background:linear-gradient(135deg, #e8f5e9, #c8e6c9); display:flex; align-items:center; justify-content:center;">
+                            <i class="fas fa-store" style="font-size:120px; color:#27ae60;"></i>
+                            <i class="fas fa-carrot" style="font-size:120px; color:#27ae60;"></i>
+                            <i class="fas fa-apple-alt" style="font-size:120px; color:#27ae60;"></i>
+                            <i class="fas fa-tractor" style="font-size:120px; color:#27ae60;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Introduction -->
+        <section class="guide-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Why Effective Crop Listings Matter</h2>
+                    <p class="section-subtitle">
+                        A well-crafted crop listing is like a digital shop window for your farm. It's the first impression buyers have of your produce, and it can significantly impact your sales and pricing.
+                    </p>
+                </div>
+                
+                <div style="max-width: 900px; margin: 0 auto 60px;">
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light); margin-bottom: 30px;">
+                        Based on data from over 5,000 successful farmers on Farm Vantara, we've identified the key factors that make crop listings stand out. Farmers who follow these guidelines typically see <strong>47% more buyer inquiries</strong> and achieve <strong>15-25% better prices</strong> compared to basic listings.
+                    </p>
+                    
+                    <div style="background: rgba(39, 174, 96, 0.08); border-radius: 15px; padding: 30px; margin-top: 40px;">
+                        <h3 style="color: var(--dark-green); margin-bottom: 15px; font-size: 1.3rem;">
+                            <i class="fas fa-lightbulb" style="margin-right: 10px;"></i> Key Insight
+                        </h3>
+                        <p style="color: var(--text-light); line-height: 1.7;">
+                            Buyers are willing to pay premium prices when they can clearly see the quality of your produce and understand your farming practices. Detailed listings build trust and justify higher pricing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step-by-Step Guide -->
+        <section class="guide-section" style="background: var(--light-gray);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Step-by-Step Listing Process</h2>
+                    <p class="section-subtitle">Follow these 5 steps to create compelling crop listings that sell faster</p>
+                </div>
+                
+                <div class="steps-container">
+                    <!-- Step 1 -->
+                    <div class="step-card" id="step1">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Capture Quality Photos</h3>
+                        <p class="step-description">
+                            High-quality photos are the most important element of your listing. Buyers can't physically inspect your produce, so photos must accurately represent quality.
+                        </p>
+                        
+                        <div class="step-tips">
+                            <h4>Pro Tips:</h4>
+                            <ul>
+                                <li>Take photos in natural daylight (morning or evening)</li>
+                                <li>Show scale by including common objects (coin, hand)</li>
+                                <li>Capture different angles: close-up, field view, harvested batch</li>
+                                <li>Include photos showing healthy plants and ripe produce</li>
+                                <li>Avoid blurred or dark images</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="step-card" id="step2">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Write Detailed Descriptions</h3>
+                        <p class="step-description">
+                            Provide complete information about your crop. Be specific about variety, size, maturity, and any unique qualities.
+                        </p>
+                        
+                        <div class="step-tips">
+                            <h4>Must-Include Details:</h4>
+                            <ul>
+                                <li>Crop variety (e.g., Alphonso mango, Basmati rice 1121)</li>
+                                <li>Harvest date and expected shelf life</li>
+                                <li>Growing method (organic, natural, conventional)</li>
+                                <li>Size/grade specifications</li>
+                                <li>Packing details (boxes, crates, sacks)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="step-card" id="step3">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Set Competitive Pricing</h3>
+                        <p class="step-description">
+                            Research current market prices on Farm Vantara and set competitive yet profitable pricing. Consider factors like quality, location, and demand.
+                        </p>
+                        
+                        <div class="step-tips">
+                            <h4>Pricing Strategy:</h4>
+                            <ul>
+                                <li>Check "Live Market Prices" section daily</li>
+                                <li>Factor in transportation costs</li>
+                                <li>Consider bulk discount options</li>
+                                <li>Price higher for organic/specialty crops</li>
+                                <li>Offer flexible payment terms</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="step-card" id="step4">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Specify Quantity & Availability</h3>
+                        <p class="step-description">
+                            Clearly state available quantities, minimum order requirements, and delivery timelines. Be realistic about what you can supply.
+                        </p>
+                        
+                        <div class="step-tips">
+                            <h4>Quantity Guidelines:</h4>
+                            <ul>
+                                <li>Specify exact available quantity (in quintals/kg)</li>
+                                <li>Set reasonable minimum order quantities</li>
+                                <li>Indicate if you can supply regularly</li>
+                                <li>Provide accurate harvest schedule</li>
+                                <li>Update availability after each sale</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 5 -->
+                    <div class="step-card" id="step5">
+                        <div class="step-number">5</div>
+                        <h3 class="step-title">Choose Delivery Options</h3>
+                        <p class="step-description">
+                            Select appropriate delivery methods based on crop perishability and buyer location. Farm Vantara offers various logistics solutions.
+                        </p>
+                        
+                        <div class="step-tips">
+                            <h4>Delivery Best Practices:</h4>
+                            <ul>
+                                <li>For perishables, prefer Farm Vantara cold chain</li>
+                                <li>Specify who bears transportation cost</li>
+                                <li>Provide accurate pickup location</li>
+                                <li>Estimate delivery time realistically</li>
+                                <li>Consider local pickup options</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Guidelines -->
+        <section class="pricing-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Smart Pricing Strategies</h2>
+                    <p class="section-subtitle">Learn how to price your crops competitively while maximizing profits</p>
+                </div>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="pricing-title">Market-Based Pricing</h3>
+                        <p class="pricing-description">
+                            Always check current market rates before listing. Farm Vantara provides real-time price data for all major crops across different regions.
+                        </p>
+                        
+                        <div class="pricing-example">
+                            <h4>Example: Wheat Pricing</h4>
+                            <p>Current Punjab market: ₹2,450-2,650/quintal. If your wheat is premium quality, you can price at ₹2,600-2,700 with proper justification.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="pricing-icon">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <h3 class="pricing-title">Quality Premium</h3>
+                        <p class="pricing-description">
+                            Higher quality produce commands premium prices. Document your quality parameters clearly to justify higher pricing.
+                        </p>
+                        
+                        <div class="pricing-example">
+                            <h4>Quality Factors That Add Value:</h4>
+                            <p>Organic certification, larger size, better color, higher nutritional content, specific varieties, freshness indicators.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="pricing-icon">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <h3 class="pricing-title">Bulk Pricing Strategy</h3>
+                        <p class="pricing-description">
+                            Offer tiered pricing to encourage larger orders. This reduces your per-unit logistics costs and ensures larger sales.
+                        </p>
+                        
+                        <div class="pricing-example">
+                            <h4>Sample Bulk Pricing:</h4>
+                            <p>1-10 quintals: ₹2,500/quintal, 11-50 quintals: ₹2,400/quintal, 51+ quintals: ₹2,300/quintal. Everyone wins with bulk orders.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="max-width: 800px; margin: 60px auto 0; background: white; border-radius: 20px; padding: 40px; box-shadow: var(--shadow);">
+                    <h3 style="color: var(--dark-green); margin-bottom: 20px; font-size: 1.5rem; text-align: center;">
+                        <i class="fas fa-calculator" style="margin-right: 10px;"></i> Quick Price Calculator
+                    </h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px;">
+                        <div>
+                            <label style="display: block; margin-bottom: 10px; color: var(--text-light); font-weight: 600;">Crop Type</label>
+                            <select id="cropType" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--medium-gray); font-family: 'Open Sans', sans-serif;">
+                                <option value="wheat">Wheat</option>
+                                <option value="rice">Rice</option>
+                                <option value="tomato">Tomato</option>
+                                <option value="potato">Potato</option>
+                                <option value="onion">Onion</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 10px; color: var(--text-light); font-weight: 600;">Quality Grade</label>
+                            <select id="qualityGrade" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--medium-gray); font-family: 'Open Sans', sans-serif;">
+                                <option value="standard">Standard</option>
+                                <option value="premium">Premium</option>
+                                <option value="organic">Organic Certified</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 10px; color: var(--text-light); font-weight: 600;">Quantity (Quintal)</label>
+                            <input type="number" id="quantity" min="1" value="10" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--medium-gray); font-family: 'Open Sans', sans-serif;">
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button id="calculatePrice" style="background: var(--gradient-primary); color: white; border: none; padding: 15px 40px; border-radius: 10px; font-weight: 700; font-size: 16px; cursor: pointer; transition: var(--transition);">
+                            Calculate Suggested Price
+                        </button>
+                    </div>
+                    
+                    <div id="priceResult" style="margin-top: 30px; padding: 20px; background: rgba(39, 174, 96, 0.1); border-radius: 12px; text-align: center; display: none;">
+                        <h4 style="color: var(--dark-green); margin-bottom: 10px;">Suggested Price Range</h4>
+                        <p id="resultText" style="font-size: 1.2rem; color: #051b05; font-weight: 600;"></p>
+                        <p id="resultNote" style="color: #121212; margin-top: 10px; font-size: 14px;"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to List Your Crops?</h2>
+                    <p class="cta-description">
+                        Join thousands of successful farmers who are getting better prices and faster sales through Farm Vantara. Our dedicated farmer support team is available to help you create optimal listings.
+                    </p>
+                    
+                    <div class="cta-buttons">
+                        <button class="btn-cta btn-cta-primary" id="startListingBtn">
+                            <i class="fas fa-plus-circle"></i> Start Listing Now
+                        </button>
+                        <a href="tel:18001234567" class="btn-cta btn-cta-secondary">
+                            <i class="fas fa-phone-alt"></i> Get Listing Help: 1800-123-4567
+                        </a>
+                    </div>
+                    
+                    <p style="margin-top: 40px; opacity: 0.8; font-size: 14px;">
+                        <i class="fas fa-clock"></i> Farmer support available 7AM-10PM in Hindi, English, Tamil, Telugu & Marathi
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; <span id="currentYear">2025</span> Farm Vantara – India's Leading AgriTech Platform. All rights reserved.</p>
+                    <div>
+                        <a href="index.html">Home</a> | 
+                        <a href="privacy.html">Privacy Policy</a> | 
+                        <a href="terms.html">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Animate step cards on scroll
+        function animateOnScroll() {
+            const stepCards = document.querySelectorAll('.step-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 200);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            stepCards.forEach(card => observer.observe(card));
+        }
+        
+        // Price calculator functionality
+        function setupPriceCalculator() {
+            const cropPrices = {
+                wheat: { standard: 2450, premium: 2650, organic: 2950 },
+                rice: { standard: 3200, premium: 3500, organic: 3900 },
+                tomato: { standard: 1800, premium: 2200, organic: 2600 },
+                potato: { standard: 1200, premium: 1400, organic: 1700 },
+                onion: { standard: 2100, premium: 2400, organic: 2800 }
+            };
+            
+            const calculateBtn = document.getElementById('calculatePrice');
+            const priceResult = document.getElementById('priceResult');
+            const resultText = document.getElementById('resultText');
+            const resultNote = document.getElementById('resultNote');
+            
+            calculateBtn.addEventListener('click', function() {
+                const cropType = document.getElementById('cropType').value;
+                const quality = document.getElementById('qualityGrade').value;
+                const quantity = parseInt(document.getElementById('quantity').value) || 10;
+                
+                const basePrice = cropPrices[cropType][quality];
+                
+                // Apply quantity discount
+                let finalPrice = basePrice;
+                if (quantity > 50) {
+                    finalPrice = Math.round(basePrice * 0.92);
+                } else if (quantity > 20) {
+                    finalPrice = Math.round(basePrice * 0.95);
+                } else if (quantity > 10) {
+                    finalPrice = Math.round(basePrice * 0.97);
+                }
+                
+                // Calculate range
+                const lowerRange = finalPrice - 50;
+                const upperRange = finalPrice + 100;
+                
+                // Update result
+                resultText.textContent = `₹${lowerRange.toLocaleString()} - ₹${upperRange.toLocaleString()} per quintal`;
+                
+                let note = '';
+                if (quantity > 50) {
+                    note = `You're getting a bulk discount for ${quantity} quintals. Consider offering even better prices for 100+ quintals to attract large buyers.`;
+                } else if (quality === 'organic') {
+                    note = 'Organic certification allows premium pricing. Make sure to mention your certification details in the listing.';
+                } else if (quality === 'premium') {
+                    note = 'For premium quality, include photos showing superior size/color and consider getting quality certification for even better pricing.';
+                } else {
+                    note = 'This is competitive market pricing. To get better rates, consider bundling with other crops or offering flexible delivery.';
+                }
+                
+                resultNote.textContent = note;
+                priceResult.style.display = 'block';
+                
+                // Smooth scroll to result
+                priceResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            });
+        }
+        
+        // Start listing button functionality
+        function setupListingButton() {
+            const startListingBtn = document.getElementById('startListingBtn');
+            
+            startListingBtn.addEventListener('click', function() {
+                // Show loading state
+                const originalText = startListingBtn.innerHTML;
+                startListingBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting...';
+                startListingBtn.disabled = true;
+                
+                // Simulate API call/redirect
+                setTimeout(() => {
+                    alert('Redirecting to crop listing page. Please login or register to continue.');
+                    // In a real scenario, this would redirect to the listing page
+                    // window.location.href = 'create-listing.html';
+                    
+                    // Reset button
+                    startListingBtn.innerHTML = originalText;
+                    startListingBtn.disabled = false;
+                }, 1500);
+            });
+        }
+        
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            animateOnScroll();
+            setupPriceCalculator();
+            setupListingButton();
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#') {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
